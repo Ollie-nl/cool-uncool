@@ -20,9 +20,9 @@ exports.modules = {
 
 /***/ }),
 
-/***/ "./node_modules/reveal.js/dist/theme/beige.css":
+/***/ "./node_modules/reveal.js/dist/theme/black.css":
 /*!*****************************************************!*\
-  !*** ./node_modules/reveal.js/dist/theme/beige.css ***!
+  !*** ./node_modules/reveal.js/dist/theme/black.css ***!
   \*****************************************************/
 /***/ (() => {
 

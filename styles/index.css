@@ -1,0 +1,18 @@
+.reveal .slides section h1,
+.reveal .slides section p {
+  color: black; /* Pas aan naar de gewenste kleur */
+  font-size: 2rem; /* Maak de tekst groter als deze klein lijkt */
+  text-align: center;
+}
+
+
+/* SlideDeck.module.css */
+.heading {
+    color: black;
+    /* Andere stijlen */
+  }
+  
+  .paragraph {
+    color: gray;
+    /* Andere stijlen */
+  }
