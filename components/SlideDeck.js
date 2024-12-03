@@ -1,53 +1,54 @@
-import { useState, useEffect } from "react";
-import Slide from "./Slide";
+import React, { useEffect, useState } from "react";
+import Reveal from "reveal.js";
+import "reveal.js/dist/reveal.css";
+import "reveal.js/dist/theme/beige.css";
 
 export default function SlideDeck() {
   const [slides, setSlides] = useState([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    // Fetch slides from JSON
+    // JSON ophalen en loggen
     async function fetchSlides() {
-      const response = await fetch("/slides.json");
-      const data = await response.json();
-      setSlides(data);
+      try {
+        const response = await fetch("/slides.json");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log("Slides data:", data); // Log de data
+        setSlides(data);
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
     }
     fetchSlides();
+  }, []);
 
-    // Add keyboard navigation
-    const handleKeyDown = (event) => {
-      if (event.key === "ArrowRight") {
-        nextSlide();
-      } else if (event.key === "ArrowLeft") {
-        prevSlide();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+  useEffect(() => {
+    if (slides.length > 0) {
+      console.log("Initializing Reveal.js"); // Controleer of dit wordt aangeroepen
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        slideNumber: true,
+        transition: "slide",
+      });
+    }
   }, [slides]);
 
-  function nextSlide() {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }
-
-  function prevSlide() {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  }
-
   return (
-    <div style={containerStyle}>
-      {slides.length > 0 && (
-        <Slide title={slides[currentSlide]?.title} content={slides[currentSlide]?.content} />
-      )}
+    <div className="reveal">
+      <div className="slides">
+        {slides.map((slide, index) => {
+          console.log("Rendering slide:", slide); // Controleer wat er wordt gerenderd
+          return (
+            <section key={index}>
+              <h2>{slide.title}</h2>
+              <p>{slide.content}</p>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-const containerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100vh",
-  backgroundColor: "#f4f4f9",
-};
