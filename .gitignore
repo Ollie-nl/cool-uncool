@@ -1,0 +1,16 @@
+# node_modules uitsluiten
+node_modules/
+
+# Logbestanden
+*.log
+
+# Omgevingsvariabelen
+.env
+
+# Build-output
+dist/
+out/
+
+# Cachebestanden.
+*.cache
+.DS_Store

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Slide 1",
+    "content": "Welkom bij de eerste slide!"
+  },
+  {
+    "id": 2,
+    "title": "Slide 2",
+    "content": "Dit is de tweede slide, vol actie!"
+  },
+  {
+    "id": 3,
+    "title": "Slide 3",
+    "content": "De grote finale van onze slides!"
+  }
+]
