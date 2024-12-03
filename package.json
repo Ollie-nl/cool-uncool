@@ -1,27 +1,34 @@
 {
-  "name": "next-app",
+  "name": "react-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "reveal.js": "^5.1.0"
+    "@deckdeckgo/core": "^10.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.4.1",
-    "typescript": "^5"
+    "prettier": "^3.4.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
