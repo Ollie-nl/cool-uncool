@@ -1,0 +1,56 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  iframe {
+    max-width: 100%;
+    max-height: calc(100vh - 50px); /* Houd rekening met de counter */
+  }
+  
+  p, h1 {
+    margin: 0;
+    padding: 0;
+    overflow-wrap: break-word;
+  }  
+  
+  .slide-deck {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Vul het volledige scherm zonder scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zorg dat de content gecentreerd is */
+    align-items: center; /* Center horizontaal */
+    box-sizing: border-box; /* Houd rekening met padding */
+  }
+  
+  .slide-counter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+    box-sizing: border-box; /* Zorg dat padding niet buiten de breedte komt */
+  }
+
+  .slide-icon {
+    text-align: center;
+    font-size: 50px; /* Maak de emoji groot */
+    margin-bottom: 10px;
+  }

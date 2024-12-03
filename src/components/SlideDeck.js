@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import Slide from './Slide';
+import Slide from "./Slide";
 import slidesData from "../data/slides.json";
+import "../styles/index.css";
 
 const SlideDeck = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = slidesData.slides;
 
   const handleKeyDown = (e) => {
-    if (e.key === "ArrowRight" && currentSlide < slides.length - 1) {
+    if (
+      (e.key === "ArrowRight" || e.key === "ArrowDown") &&
+      currentSlide < slides.length - 1
+    ) {
       setCurrentSlide(currentSlide + 1);
-    } else if (e.key === "ArrowLeft" && currentSlide > 0) {
+    } else if (
+      (e.key === "ArrowLeft" || e.key === "ArrowUp") &&
+      currentSlide > 0
+    ) {
       setCurrentSlide(currentSlide - 1);
     }
   };
@@ -19,7 +26,14 @@ const SlideDeck = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide]);
 
-  return <Slide slide={slides[currentSlide]} />;
+  return (
+    <div className="slide-deck">
+      <Slide slide={slides[currentSlide]} />
+      <div className="slide-counter">
+        Slide {currentSlide + 1} van {slides.length}
+      </div>
+    </div>
+  );
 };
 
 export default SlideDeck;

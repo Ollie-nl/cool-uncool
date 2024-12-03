@@ -2,15 +2,20 @@
     "slides": [
       {
         "type": "heading",
-        "content": "Welkom bij de presentatie"
+        "content": "Welkom bij de presentatie",
+        "icon": "😎"
       },
       {
         "type": "paragraph",
-        "content": "Dit is een voorbeeld van een paragraafslide."
+        "content": "Dit is een voorbeeld van een paragraafslide.",
+        "icon": "😩"
       },
       {
         "type": "youtube",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "title": "Mijn YouTube Filmpje",
+        "icon": "🎥"
       }
     ]
   }
+  
