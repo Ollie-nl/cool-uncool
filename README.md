@@ -1,4 +1,3 @@
-
 # Cool Uncool Slide Deck
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)

@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@deckdeckgo/core": "^10.0.1",
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^6.8.0",
-    "prettier": "^3.4.1"
+    "prettier": "^3.4.2"
   },
   "browserslist": {
     "production": [

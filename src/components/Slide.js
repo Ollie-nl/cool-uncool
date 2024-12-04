@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
 const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
@@ -6,14 +6,14 @@ const Slide = ({ slide, isActive }) => {
 
   // Dynamisch de embed-URL maken
   const getEmbedUrl = (url) => {
-    if (url.includes("/shorts/")) {
-      return url.replace("/shorts/", "/embed/");
+    if (url.includes('/shorts/')) {
+      return url.replace('/shorts/', '/embed/');
     }
     return url;
   };
 
   useEffect(() => {
-    if (slide.type === "youtube" && iframeRef.current) {
+    if (slide.type === 'youtube' && iframeRef.current) {
       const initializePlayer = () => {
         if (!playerRef.current && window.YT && window.YT.Player) {
           playerRef.current = new window.YT.Player(iframeRef.current, {
@@ -40,10 +40,10 @@ const Slide = ({ slide, isActive }) => {
   }, [isActive, slide.type]);
 
   return (
-    <div className={`slide ${isActive ? "active" : "inactive"}`}>
-      {slide.type === "heading" && <h1>{slide.content}</h1>}
-      {slide.type === "paragraph" && <p>{slide.content}</p>}
-      {slide.type === "youtube" && (
+    <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
+      {slide.type === 'heading' && <h1>{slide.content}</h1>}
+      {slide.type === 'paragraph' && <p>{slide.content}</p>}
+      {slide.type === 'youtube' && (
         <div>
           {slide.title && <h2>{slide.title}</h2>}
           <iframe
@@ -55,7 +55,7 @@ const Slide = ({ slide, isActive }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title={slide.title || "YouTube video"}
+            title={slide.title || 'YouTube video'}
           ></iframe>
         </div>
       )}
