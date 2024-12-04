@@ -104,14 +104,18 @@ Zorg dat het homepage-veld in package.json correct is ingesteld:
 Vervang <JOUW-GITHUB-GEBRUIKERSNAAM> en <REPO-NAAM> door jouw gegevens.
 
 Voeg de volgende scripts toe aan de scripts sectie in package.json:
+```
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
 }
+```
 
 ### Stappen om te deployen
 #### Installeer de gh-pages module (indien nog niet gedaan):
+```
 npm install gh-pages --save-dev
+```
 
 #### Deploy de applicatie:
 npm run deploy
