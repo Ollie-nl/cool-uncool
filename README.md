@@ -94,6 +94,32 @@ slides-YYYY-MM.json
 
 ---
 
+## 🌍 Deployment via GitHub Pages
+
+Deze applicatie kan eenvoudig worden gedeployed naar GitHub Pages door gebruik te maken van de gh-pages module.
+
+Voorbereiding
+Zorg dat het homepage-veld in package.json correct is ingesteld:
+"homepage": "https://<JOUW-GITHUB-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
+Vervang <JOUW-GITHUB-GEBRUIKERSNAAM> en <REPO-NAAM> door jouw gegevens.
+
+Voeg de volgende scripts toe aan de scripts sectie in package.json:
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+### Stappen om te deployen
+#### Installeer de gh-pages module (indien nog niet gedaan):
+npm install gh-pages --save-dev
+
+#### Deploy de applicatie:
+npm run deploy
+
+#### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
+
+---
+
 ## 📂 **Projectstructuur**
 
 ```
