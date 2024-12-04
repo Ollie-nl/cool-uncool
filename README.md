@@ -1,39 +1,96 @@
-# cool-uncool
- Slide deck project
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Cool Uncool Slide Deck
 
-First, run the development server:
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentatie geef op NL DS designer meetups. Dit project is bedoeld als een demonstratie van front-end technologieën, met aandacht voor React, OpenSource, GitHub en toegankelijkheid.
+
+---
+
+## 🚀 **Features**
+
+- **Slide Deck Navigatie**: Navigeer door slides met pijltjestoetsen (links/rechts, boven/onder).
+- **Dark Mode**: Wissel tussen lichte en donkere modus met een interactieve toggle.
+- **Responsief Design**: Geoptimaliseerd voor verschillende schermformaten.
+- **Gebruiksvriendelijke Teller**: Bekijk hoeveel slides er nog over zijn.
+
+---
+
+## 🛠️ **Installatie**
+
+1. **Clone de repository**:
+   ```bash
+   git clone https://github.com/Ollie-nl/cool-uncool.git
+   ```
+2. **Navigeer naar de projectmap**:
+   ```bash
+   cd cool-uncool
+   ```
+3. **Installeer afhankelijkheden**:
+   ```bash
+   npm install
+   ```
+4. **Start de development server**:
+   ```bash
+   npm start
+   ```
+   Open de applicatie in je browser via `http://localhost:3000`.
+
+---
+
+## 🔧 **Scripts**
+
+- `npm start`: Start de development server.
+- `npm run build`: Bouwt de applicatie voor productie.
+- `npm test`: Voert tests uit (als ze zijn ingesteld).
+- `npm audit fix`: Herstelt kwetsbaarheden in dependencies.
+
+---
+
+## 🌟 **Hoe te gebruiken**
+
+1. Start de applicatie en gebruik de pijltjestoetsen om slides te navigeren.
+2. Wissel tussen lichte en donkere modus met de toggle in de rechterbovenhoek.
+3. Volg de teller onderaan om te zien hoeveel slides er nog zijn.
+
+---
+
+## 📂 **Projectstructuur**
+
+```
+cool-uncool/
+├── public/
+│   ├── index.html          # HTML root file
+│   ├── favicon.ico         # Emoji-gebaseerde favicon
+│   └── ...                 # Overige publieke bestanden
+├── src/
+│   ├── components/
+│   │   ├── SlideDeck.js    # Hoofdcomponent voor slides
+│   │   ├── Slide.js        # Individuele slide component
+│   │   └── DarkModeToggle/ # Dark mode toggle component en CSS
+│   ├── data/
+│   │   └── slides.json     # JSON-data voor slides
+│   ├── styles/
+│   │   └── index.css       # Globale stijlen
+│   └── ...                 # Overige React bestanden
+├── package.json            # Project dependencies en scripts
+└── README.md               # Documentatie
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚠️ **Bekende Issues**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Kwetsbare dependencies**:
+   Gebruik `npm audit fix` om bekende problemen te verhelpen.
+2. **Browserondersteuning**:
+   Favicon werkt mogelijk niet correct in oudere browsers of Safari (SVG).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 **Licentie**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
