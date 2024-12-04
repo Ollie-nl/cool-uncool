@@ -129,4 +129,5 @@ cool-uncool/
 
 ## 📜 **Licentie**
 
-Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
+Dit project is gelicentieerd onder de GPL-3.0-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
+
