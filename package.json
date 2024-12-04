@@ -2,15 +2,16 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Ollie-nl.github.io/cool-uncool",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run generate-months && react-scripts start",
+    "build": "npm run generate-months && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
     "generate-months": "node generateAvailableMonths.js",
-    "start": "npm run generate-months && react-scripts start",
-    "build": "npm run generate-months && react-scripts build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@deckdeckgo/core": "^10.0.1",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^6.8.0",
+    "gh-pages": "^6.2.0",
     "prettier": "^3.4.2"
   },
   "browserslist": {
