@@ -1,0 +1,31 @@
+.month-selector {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.month-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.month-dropdown {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--toggle-bg, #fff);
+  color: var(--toggle-color, #333);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  cursor: pointer;
+}
+
+.month-dropdown:focus {
+  outline: none;
+  border-color: #666;
+}

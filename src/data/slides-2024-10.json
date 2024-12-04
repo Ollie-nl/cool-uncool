@@ -1,0 +1,33 @@
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "Cool Uncool oktober",
+      "icon": "😎"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/z8I3osTmaFc",
+      "title": "Korea dance #waacking",
+      "icon": "💃🏻"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/JcBTibj0-s0",
+      "title": "Vending machine",
+      "icon": "🥶"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/XjT5Rui92aY",
+      "title": "Signature of a cartoonist johm william",
+      "icon": "✍🏼"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/TlFNZ-2muvw",
+      "title": "Dommetje in de DOm",
+      "icon": "🏰"
+    }
+  ]
+}
