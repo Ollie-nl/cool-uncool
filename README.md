@@ -61,16 +61,15 @@ slides-YYYY-MM.json
 ### Voorbeeldbestand: `slides-2024-12.json`
 ```json
 {
-  "slides": [
     {
-      "id": 1,
-      "title": "Welkom bij December 2024",
-      "content": "Dit is de eerste slide."
+      "type": "heading",
+      "content": "😎 😩 [maand]"
     },
     {
-      "id": 2,
-      "title": "Slide Twee",
-      "content": "Meer inhoud volgt."
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "title": "Movie #1",
+      "icon": "💃🏻"
     }
   ]
 }
