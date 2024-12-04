@@ -26,11 +26,15 @@ const SlideDeck = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide]);
 
+  const slidesLeft = slides.length - currentSlide - 1;
+
   return (
     <div className="slide-deck">
       <Slide slide={slides[currentSlide]} />
       <div className="slide-counter">
-        Slide {currentSlide + 1} van {slides.length}
+        {slidesLeft > 0
+          ? `Nog ${slidesLeft} ${slidesLeft === 1 ? "slide" : "slides"} te gaan`
+          : "Laatste slide!"}
       </div>
     </div>
   );
