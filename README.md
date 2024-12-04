@@ -55,6 +55,25 @@
 
 ---
 
+## 📂 Slide JSON-structuur
+
+De applicatie maakt gebruik van een gestructureerde JSON-bestandsopmaak om slides te beheren. De slides zijn georganiseerd per maand en jaar. Dit maakt het eenvoudig om presentaties te archiveren en later opnieuw te bekijken.
+
+### JSON-bestandsindeling
+
+Voor elke maand wordt een aparte JSON aangemaakt in de map `src/data/`. De naamgeving volgt het patroon `slides-YYYY-MM.json`, waarbij:
+
+- **`YYYY`**: Jaar (bijv. `2024`).
+- **`MM`**: Maand (bijv. `12` voor december).
+
+### Voorbeeldbestand: `slides-2024-12.json`
+```json
+{
+  "slides": [    {      "id": 1,      "title": "Welkom bij December 2024",      "content": "Dit is de eerste slide."    },    {      "id": 2,      "title": "Slide Twee",      "content": "Meer inhoud volgt."    }  ]
+}
+
+---
+
 ## 📂 **Projectstructuur**
 
 ```
