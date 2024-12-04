@@ -15,6 +15,18 @@
         "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
         "title": "Mijn YouTube Filmpje",
         "icon": "🎥"
+      },
+      {
+        "type": "youtube",
+        "url": "https://youtube.com/shorts/4ygYDr0vUIg",
+        "title": "Mijn YouTube Short",
+        "icon": "🎥"
+      },
+      {
+        "type": "youtube",
+        "url": "https://youtube.com/embed/4ygYDr0vUIg",
+        "title": "Mijn YouTube embed",
+        "icon": "🎥"
       }
     ]
   }
