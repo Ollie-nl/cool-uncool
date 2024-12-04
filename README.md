@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
-**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentatie geef op NL DS designer meetups. Dit project is bedoeld als een demonstratie van front-end technologieën, met aandacht voor React, OpenSource, GitHub en toegankelijkheid.
+**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentatie geef op NL DS designers meetups. Dit project is bedoeld als een demonstratie van front-end technologieën, met aandacht voor React, OpenSource, GitHub en toegankelijkheid.
 
 ---
 
@@ -91,6 +91,6 @@ cool-uncool/
 
 ## 📜 **Licentie**
 
-Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
+Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [GPL-3.0 license](https://github.com/Ollie-nl/cool-uncool?tab=GPL-3.0-1-ov-file#readme) voor meer informatie.
 
 ---
