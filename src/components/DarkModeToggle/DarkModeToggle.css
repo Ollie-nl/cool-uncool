@@ -1,0 +1,37 @@
+.dark-mode-toggle {
+    background-color: var(--toggle-bg, #fff);
+    color: var(--toggle-color, #333);
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  }
+  
+  .dark-mode-toggle:hover {
+    transform: scale(1.05);
+  }
+  
+  .dark-mode-toggle .icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .dark-mode-toggle .label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .dark-mode-toggle.dark {
+    --toggle-bg: #333;
+    --toggle-color: #fff;
+  }
+  
+  .dark-mode-toggle.light {
+    --toggle-bg: #fff;
+    --toggle-color: #333;
+  }
+  
