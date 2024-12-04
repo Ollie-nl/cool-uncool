@@ -1,31 +1,31 @@
 .month-selector {
-  position: fixed;
-  top: 50px;
-  right: 10px;
+  margin-left: auto; /* Zorgt ervoor dat de selector naar rechts schuift */
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.month-label {
-  font-size: 14px;
-  font-weight: bold;
-}
-
 .month-dropdown {
-  padding: 10px;
+  padding: 5px 10px;
   border: 2px solid #ccc;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 12px;
   background-color: var(--toggle-bg, #fff);
   color: var(--toggle-color, #333);
+  cursor: pointer;
   transition:
     background-color 0.3s,
     color 0.3s;
-  cursor: pointer;
+  margin-inline-start: 32px;
 }
 
 .month-dropdown:focus {
   outline: none;
   border-color: #666;
+}
+
+.month-label {
+  font-size: 14px;
+  display: none;
+  font-weight: bold;
 }

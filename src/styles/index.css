@@ -61,7 +61,10 @@ h1 {
 }
 
 .slide-counter {
+  display: flex;
   position: fixed;
+  align-items: center;
+  justify-content: space-between; /* Ruimte tussen de selector en de teller */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -74,6 +77,11 @@ h1 {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+.counter-text {
+  flex: 1; /* Maakt ruimte voor centrering */
+  text-align: center;
+  font-weight: normal;
 }
 
 .light-mode .slide-counter {

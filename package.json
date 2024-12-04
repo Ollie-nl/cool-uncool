@@ -7,7 +7,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "generate-months": "node generateAvailableMonths.js",
+    "start": "npm run generate-months && react-scripts start",
+    "build": "npm run generate-months && react-scripts build"
   },
   "dependencies": {
     "@deckdeckgo/core": "^10.0.1",
