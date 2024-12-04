@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
-**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentatie geef op NL DS designers meetups. Dit project is bedoeld als een demonstratie van front-end technologieën, met aandacht voor React, OpenSource, GitHub en toegankelijkheid.
+**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentaties geef tijdens NL DS designers meetups. Dit project demonstreert front-end technologieën met aandacht voor React, open source, GitHub en toegankelijkheid.
 
 ---
 
@@ -47,30 +47,49 @@
 
 ---
 
-## 🌟 **Hoe te gebruiken**
+## 📂 **Slide JSON-structuur**
 
-1. Start de applicatie en gebruik de pijltjestoetsen om slides te navigeren.
-2. Wissel tussen lichte en donkere modus met de toggle in de rechterbovenhoek.
-3. Volg de teller onderaan om te zien hoeveel slides er nog zijn.
+De applicatie maakt gebruik van maandelijkse JSON-bestanden om slides te beheren. Deze bestanden staan in de map `src/data/` en moeten het volgende naamgevingspatroon volgen:
+```
+slides-YYYY-MM.json
+```
 
----
-
-## 📂 Slide JSON-structuur
-
-De applicatie maakt gebruik van een gestructureerde JSON-bestandsopmaak om slides te beheren. De slides zijn georganiseerd per maand en jaar. Dit maakt het eenvoudig om presentaties te archiveren en later opnieuw te bekijken.
-
-### JSON-bestandsindeling
-
-Voor elke maand wordt een aparte JSON aangemaakt in de map `src/data/`. De naamgeving volgt het patroon `slides-YYYY-MM.json`, waarbij:
-
-- **`YYYY`**: Jaar (bijv. `2024`).
-- **`MM`**: Maand (bijv. `12` voor december).
+- **`YYYY`**: Het jaar (bijv. `2024`).
+- **`MM`**: De maand (bijv. `12` voor december).
 
 ### Voorbeeldbestand: `slides-2024-12.json`
 ```json
 {
-  "slides": [    {      "id": 1,      "title": "Welkom bij December 2024",      "content": "Dit is de eerste slide."    },    {      "id": 2,      "title": "Slide Twee",      "content": "Meer inhoud volgt."    }  ]
+  "slides": [
+    {
+      "id": 1,
+      "title": "Welkom bij December 2024",
+      "content": "Dit is de eerste slide."
+    },
+    {
+      "id": 2,
+      "title": "Slide Twee",
+      "content": "Meer inhoud volgt."
+    }
+  ]
 }
+```
+
+### Nieuwe maand toevoegen
+
+1. **Maak een nieuw bestand aan in `src/data/`**:
+   Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2024-12.json`.
+
+2. **Voeg je slides toe in JSON-formaat**:
+   Zorg ervoor dat elke slide een uniek `id`, een `title`, en een `content` heeft.
+
+3. **Herbuild de applicatie**:
+   ```bash
+   npm run build
+   ```
+
+4. **De maand wordt automatisch toegevoegd**:
+   De maandselector toont nu de nieuwe maand.
 
 ---
 
@@ -88,7 +107,8 @@ cool-uncool/
 │   │   ├── Slide.js        # Individuele slide component
 │   │   └── DarkModeToggle/ # Dark mode toggle component en CSS
 │   ├── data/
-│   │   └── slides.json     # JSON-data voor slides
+│   │   ├── slides-2024-12.json # Voorbeeld van maandelijkse slides
+│   │   └── available-months.json # Automatisch gegenereerde lijst
 │   ├── styles/
 │   │   └── index.css       # Globale stijlen
 │   └── ...                 # Overige React bestanden
@@ -109,6 +129,4 @@ cool-uncool/
 
 ## 📜 **Licentie**
 
-Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [GPL-3.0 license](https://github.com/Ollie-nl/cool-uncool?tab=GPL-3.0-1-ov-file#readme) voor meer informatie.
-
----
+Dit project is gelicentieerd onder de MIT-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
