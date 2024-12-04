@@ -18,14 +18,17 @@
     "loader-utils": "^3.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "^3.0.1",
+    "react-swipeable": "^7.0.2",
     "resolve-url-loader": "^5.0.0",
     "shell-quote": "^1.8.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/babel__traverse": "^7.18.2",
     "gh-pages": "^6.2.0",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "react-scripts": "^5.0.1",
+    "typescript": "^3.9.10"
   },
   "browserslist": {
     "production": [

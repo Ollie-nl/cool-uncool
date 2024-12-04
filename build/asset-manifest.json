@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/cool-uncool/static/css/main.a7ee4d9c.chunk.css",
-    "main.js": "/cool-uncool/static/js/main.da0c5fb9.chunk.js",
-    "main.js.map": "/cool-uncool/static/js/main.da0c5fb9.chunk.js.map",
-    "runtime-main.js": "/cool-uncool/static/js/runtime-main.c5284d48.js",
-    "runtime-main.js.map": "/cool-uncool/static/js/runtime-main.c5284d48.js.map",
-    "static/js/2.be16e0ae.chunk.js": "/cool-uncool/static/js/2.be16e0ae.chunk.js",
-    "static/js/2.be16e0ae.chunk.js.map": "/cool-uncool/static/js/2.be16e0ae.chunk.js.map",
-    "static/js/3.f9d2b01e.chunk.js": "/cool-uncool/static/js/3.f9d2b01e.chunk.js",
-    "static/js/3.f9d2b01e.chunk.js.map": "/cool-uncool/static/js/3.f9d2b01e.chunk.js.map",
-    "static/js/4.6f655972.chunk.js": "/cool-uncool/static/js/4.6f655972.chunk.js",
-    "static/js/4.6f655972.chunk.js.map": "/cool-uncool/static/js/4.6f655972.chunk.js.map",
+    "main.js": "/cool-uncool/static/js/main.102bd262.chunk.js",
+    "main.js.map": "/cool-uncool/static/js/main.102bd262.chunk.js.map",
+    "runtime-main.js": "/cool-uncool/static/js/runtime-main.0a91eeff.js",
+    "runtime-main.js.map": "/cool-uncool/static/js/runtime-main.0a91eeff.js.map",
+    "static/js/2.6a393255.chunk.js": "/cool-uncool/static/js/2.6a393255.chunk.js",
+    "static/js/2.6a393255.chunk.js.map": "/cool-uncool/static/js/2.6a393255.chunk.js.map",
+    "static/js/3.fb387632.chunk.js": "/cool-uncool/static/js/3.fb387632.chunk.js",
+    "static/js/3.fb387632.chunk.js.map": "/cool-uncool/static/js/3.fb387632.chunk.js.map",
+    "static/js/4.191dd3db.chunk.js": "/cool-uncool/static/js/4.191dd3db.chunk.js",
+    "static/js/4.191dd3db.chunk.js.map": "/cool-uncool/static/js/4.191dd3db.chunk.js.map",
     "index.html": "/cool-uncool/index.html",
-    "precache-manifest.c74129b25ed81c8e748188e046f52079.js": "/cool-uncool/precache-manifest.c74129b25ed81c8e748188e046f52079.js",
+    "precache-manifest.67ce7ef4ada6a70d587875bddabec7d0.js": "/cool-uncool/precache-manifest.67ce7ef4ada6a70d587875bddabec7d0.js",
     "service-worker.js": "/cool-uncool/service-worker.js",
     "static/css/main.a7ee4d9c.chunk.css.map": "/cool-uncool/static/css/main.a7ee4d9c.chunk.css.map",
-    "static/js/2.be16e0ae.chunk.js.LICENSE.txt": "/cool-uncool/static/js/2.be16e0ae.chunk.js.LICENSE.txt"
+    "static/js/2.6a393255.chunk.js.LICENSE.txt": "/cool-uncool/static/js/2.6a393255.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5284d48.js",
-    "static/js/2.be16e0ae.chunk.js",
+    "static/js/runtime-main.0a91eeff.js",
+    "static/js/2.6a393255.chunk.js",
     "static/css/main.a7ee4d9c.chunk.css",
-    "static/js/main.da0c5fb9.chunk.js"
+    "static/js/main.102bd262.chunk.js"
   ]
 }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSwipeable } from 'react-swipeable'; // Swipeable library
 import Slide from './Slide';
 import DarkModeToggle from './DarkModeToggle/DarkModeToggle';
 import MonthSelector from './MonthSelector/MonthSelector';
 import availableMonths from '../data/available-months.json'; // Voor maanden
 
 const SlideDeck = () => {
-  // Initialiseer de maandlijst vanuit de JSON
   const [months] = useState(availableMonths.months || []);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,7 +33,7 @@ const SlideDeck = () => {
     }
   }, [selectedMonth]);
 
-  // Pijltjestoets-navigatie gestabiliseerd met useCallback
+  // Pijltjestoetsen-navigatie
   const handleKeyDown = useCallback(
     (e) => {
       if (
@@ -51,7 +51,7 @@ const SlideDeck = () => {
     [currentSlide, slides.length]
   );
 
-  // Voeg en verwijder de event listener
+  // Event listener voor toetsenbord
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
@@ -60,8 +60,27 @@ const SlideDeck = () => {
     };
   }, [handleKeyDown]);
 
+  // Swipe functionaliteit
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (currentSlide < slides.length - 1) {
+        setCurrentSlide((prev) => prev + 1);
+      }
+    },
+    onSwipedRight: () => {
+      if (currentSlide > 0) {
+        setCurrentSlide((prev) => prev - 1);
+      }
+    },
+    preventDefaultTouchmoveEvent: true, // Voorkom standaard swipe gedrag
+    trackMouse: true, // Voor desktop ondersteuning
+  });
+
   return (
-    <div className={`slide-deck ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div
+      {...handlers} // Voeg swipe-functionaliteit toe
+      className={`slide-deck ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+    >
       {/* Dark Mode Toggle */}
       <DarkModeToggle
         isDarkMode={isDarkMode}

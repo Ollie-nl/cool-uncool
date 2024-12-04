@@ -10,6 +10,7 @@
 ## 🚀 **Features**
 
 - **Slide Deck Navigatie**: Navigeer door slides met pijltjestoetsen (links/rechts, boven/onder).
+- **Swipe-ondersteuning**: Bedien de slides eenvoudig op mobiele apparaten met swipe-navigatie.
 - **Dark Mode**: Wissel tussen lichte en donkere modus met een interactieve toggle.
 - **Responsief Design**: Geoptimaliseerd voor verschillende schermformaten.
 - **Gebruiksvriendelijke Teller**: Bekijk hoeveel slides er nog over zijn.
