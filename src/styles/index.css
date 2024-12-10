@@ -115,8 +115,10 @@ h1 {
 
 .slide-icon {
   text-align: center;
-  font-size: 50px; /* Maak de emoji groot */
-  margin-bottom: 10px;
+  font-size: 2rem; /* Maak de emoji groot */
+  margin-block-end: 1rem;
+  padding-inline-end: 1rem;
+
 }
 
 /* Zon/Maan Toggle */

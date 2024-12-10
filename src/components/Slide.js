@@ -64,11 +64,26 @@ const Slide = ({ slide, isActive }) => {
 
   return (
     <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
-      {slide.type === 'heading' && <h1>{slide.content}</h1>}
-      {slide.type === 'paragraph' && <p>{slide.content}</p>}
+      {slide.type === 'heading' && (
+        <h1>
+          {slide.icon && <span className="slide-icon">{slide.icon}</span>}
+          {slide.content}
+        </h1>
+      )}
+      {slide.type === 'paragraph' && (
+        <p>
+          {slide.icon && <span className="slide-icon">{slide.icon}</span>}
+          {slide.content}
+        </p>
+      )}
       {slide.type === 'youtube' && (
         <div className="video-container">
-          {slide.title && <h2>{slide.title}</h2>}
+          {slide.title && (
+            <h2>
+              {slide.icon && <span className="slide-icon">{slide.icon}</span>}
+              {slide.title}
+            </h2>
+          )}
           <iframe
             ref={iframeRef}
             id={`youtube-player-${slide.url}`}
