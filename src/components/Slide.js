@@ -44,13 +44,11 @@ const Slide = ({ slide, isActive }) => {
       {slide.type === 'heading' && <h1>{slide.content}</h1>}
       {slide.type === 'paragraph' && <p>{slide.content}</p>}
       {slide.type === 'youtube' && (
-        <div>
+        <div className="video-container">
           {slide.title && <h2>{slide.title}</h2>}
           <iframe
             ref={iframeRef}
             id={`youtube-player-${slide.url}`}
-            width="560"
-            height="315"
             src={`${getEmbedUrl(slide.url)}?enablejsapi=1`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

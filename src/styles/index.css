@@ -22,11 +22,28 @@ body {
     color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .video-container {
+    width: 100%; /* Gebruik volledige breedte op kleinere schermen */
+    padding-bottom: 56.25%; /* Houd een 16:9 aspect ratio */
+  }
+}
+
+@media (min-width: 768px) {
+  .video-container {
+    width: 80%; /* 80% breedte op grotere schermen */
+    padding-bottom: 45%; /* Een iets breder schermformaat */
+  }
+}
+
+
 /* Light mode (default kleuren) */
 .light-mode {
   background-color: #f4f4f9;
   color: #333;
 }
+
+
 
 /* Dark mode kleuren */
 .dark-mode {
@@ -34,10 +51,20 @@ body {
   color: #fff;
 }
 
-iframe {
-  max-width: 100%;
-  max-height: calc(100vh - 50px); /* Houd rekening met de counter */
+/* Responsieve video-container voor 16:9 verhouding */
+.video-container {
+  width: 80%; /* 80% van de schermbreedte */
 }
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 
 p,
 h1 {
