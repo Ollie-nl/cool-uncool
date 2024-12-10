@@ -51,6 +51,7 @@
 ## 📂 **Slide JSON-structuur**
 
 De applicatie maakt gebruik van maandelijkse JSON-bestanden om slides te beheren. Deze bestanden staan in de map `src/data/` en moeten het volgende naamgevingspatroon volgen:
+
 ```
 slides-YYYY-MM.json
 ```
@@ -59,6 +60,7 @@ slides-YYYY-MM.json
 - **`MM`**: De maand (bijv. `12` voor december).
 
 ### Voorbeeldbestand: `slides-2024-12.json`
+
 ```json
 {
     {
@@ -84,6 +86,7 @@ slides-YYYY-MM.json
    Zorg ervoor dat elke slide een uniek `id`, een `title`, en een `content` heeft.
 
 3. **Herbuild de applicatie**:
+
    ```bash
    npm run build
    ```
@@ -103,6 +106,7 @@ Zorg dat het homepage-veld in package.json correct is ingesteld:
 Vervang <JOUW-GITHUB-GEBRUIKERSNAAM> en <REPO-NAAM> door jouw gegevens.
 
 Voeg de volgende scripts toe aan de scripts sectie in package.json:
+
 ```
 "scripts": {
   "predeploy": "npm run build",
@@ -111,12 +115,15 @@ Voeg de volgende scripts toe aan de scripts sectie in package.json:
 ```
 
 ### Stappen om te deployen
+
 #### Installeer de gh-pages module (indien nog niet gedaan):
+
 ```
 npm install gh-pages --save-dev
 ```
 
 #### Deploy de applicatie:
+
 npm run deploy
 
 #### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
@@ -160,4 +167,3 @@ cool-uncool/
 ## 📜 **Licentie**
 
 Dit project is gelicentieerd onder de GPL-3.0-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
-

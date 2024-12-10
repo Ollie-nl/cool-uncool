@@ -4,40 +4,63 @@ const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
   const playerRef = useRef(null);
 
-  // Dynamisch de embed-URL maken
   const getEmbedUrl = (url) => {
-    if (url.includes('/shorts/')) {
-      return url.replace('/shorts/', '/embed/');
-    }
-    return url;
+    const baseURL = url.includes('/shorts/')
+      ? url.replace('/shorts/', '/embed/')
+      : url;
+    // Voeg de herhaalparameter toe als repeat is ingeschakeld
+    return `${baseURL}?enablejsapi=1&playlist=${baseURL.split('/').pop()}`;
   };
 
   useEffect(() => {
-    if (slide.type === 'youtube' && iframeRef.current) {
-      const initializePlayer = () => {
+    const initializePlayer = () => {
+      if (slide.type === 'youtube' && iframeRef.current) {
         if (!playerRef.current && window.YT && window.YT.Player) {
           playerRef.current = new window.YT.Player(iframeRef.current, {
             events: {
               onReady: (event) => {
-                if (!isActive) {
+                if (isActive) {
+                  event.target.playVideo();
+                } else {
                   event.target.pauseVideo();
+                }
+              },
+              onStateChange: (event) => {
+                // Controleer of de video is afgelopen en herhaal indien nodig
+                if (
+                  isActive &&
+                  slide.repeat &&
+                  event.data === window.YT.PlayerState.ENDED
+                ) {
+                  event.target.seekTo(0); // Ga terug naar het begin
+                  event.target.playVideo();
                 }
               },
             },
           });
-        } else if (playerRef.current && !isActive) {
-          playerRef.current.pauseVideo();
+        } else if (playerRef.current) {
+          if (isActive) {
+            playerRef.current.playVideo();
+          } else {
+            playerRef.current.pauseVideo();
+          }
         }
-      };
-
-      if (window.YT && window.YT.Player) {
-        initializePlayer();
-      } else {
-        // Wacht op de YouTube API om geladen te worden
-        window.onYouTubeIframeAPIReady = initializePlayer;
       }
+    };
+
+    if (window.YT && window.YT.Player) {
+      initializePlayer();
+    } else {
+      // Wacht op de YouTube API
+      window.onYouTubeIframeAPIReady = initializePlayer;
     }
-  }, [isActive, slide.type]);
+
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.pauseVideo();
+      }
+    };
+  }, [isActive, slide.type, slide.repeat]);
 
   return (
     <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
@@ -49,7 +72,7 @@ const Slide = ({ slide, isActive }) => {
           <iframe
             ref={iframeRef}
             id={`youtube-player-${slide.url}`}
-            src={`${getEmbedUrl(slide.url)}?enablejsapi=1`}
+            src={getEmbedUrl(slide.url)}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

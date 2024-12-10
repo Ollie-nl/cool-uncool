@@ -22,17 +22,10 @@ body {
     color 0.3s ease;
 }
 
-
-.video-container {
-  width: 100%; /* 100% breedte op grotere schermen */
-}
-
-
-.slide{
+.slide {
   margin: auto;
-  text-align: center;
   width: 100%;
-  border: 1px solid red;
+  text-align: center;
 }
 
 /* Light mode (default kleuren) */
@@ -40,8 +33,6 @@ body {
   background-color: #f4f4f9;
   color: #333;
 }
-
-
 
 /* Dark mode kleuren */
 .dark-mode {
@@ -66,7 +57,7 @@ body {
   left: 0;
 }
 
-.video-container h2 {
+h2 {
   margin-bottom: 1 rem; /* Ruimte tussen titel en iframe */
   font-size: 1.5rem; /* Maak de titel groter */
   text-align: center; /* Centreer de titel */
