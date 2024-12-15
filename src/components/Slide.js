@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
@@ -8,7 +9,6 @@ const Slide = ({ slide, isActive }) => {
     const baseURL = url.includes('/shorts/')
       ? url.replace('/shorts/', '/embed/')
       : url;
-    // Voeg de herhaalparameter toe als repeat is ingeschakeld
     return `${baseURL}?enablejsapi=1&playlist=${baseURL.split('/').pop()}`;
   };
 
@@ -26,13 +26,12 @@ const Slide = ({ slide, isActive }) => {
                 }
               },
               onStateChange: (event) => {
-                // Controleer of de video is afgelopen en herhaal indien nodig
                 if (
                   isActive &&
                   slide.repeat &&
                   event.data === window.YT.PlayerState.ENDED
                 ) {
-                  event.target.seekTo(0); // Ga terug naar het begin
+                  event.target.seekTo(0);
                   event.target.playVideo();
                 }
               },
@@ -51,7 +50,6 @@ const Slide = ({ slide, isActive }) => {
     if (window.YT && window.YT.Player) {
       initializePlayer();
     } else {
-      // Wacht op de YouTube API
       window.onYouTubeIframeAPIReady = initializePlayer;
     }
 
@@ -64,18 +62,23 @@ const Slide = ({ slide, isActive }) => {
 
   return (
     <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
+      {/* Heading */}
       {slide.type === 'heading' && (
         <h1>
           {slide.icon && <span className="slide-icon">{slide.icon}</span>}
           {slide.content}
         </h1>
       )}
+
+      {/* Paragraph with Markdown */}
       {slide.type === 'paragraph' && (
-        <p>
-          {slide.icon && <span className="slide-icon">{slide.icon}</span>}
-          {slide.content}
-        </p>
+        <div>
+          <h2>{slide.title}</h2>
+          <ReactMarkdown>{slide.content}</ReactMarkdown>
+        </div>
       )}
+
+      {/* YouTube */}
       {slide.type === 'youtube' && (
         <div className="video-container">
           {slide.title && (

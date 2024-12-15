@@ -28,6 +28,32 @@ body {
   text-align: center;
 }
 
+.slide p {
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 60%;
+  margin: auto;
+}
+
+.slide h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.slide ul {
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+.slide a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.slide a:hover {
+  text-decoration: underline;
+}
+
 /* Light mode (default kleuren) */
 .light-mode {
   background-color: #f4f4f9;
@@ -118,7 +144,6 @@ h1 {
   font-size: 2rem; /* Maak de emoji groot */
   margin-block-end: 1rem;
   padding-inline-end: 1rem;
-
 }
 
 /* Zon/Maan Toggle */

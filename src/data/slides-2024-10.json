@@ -25,8 +25,71 @@
     {
       "type": "youtube",
       "url": "https://youtube.com/shorts/TlFNZ-2muvw",
-      "title": "Dommetje in de DOm",
+      "title": "Dommetje in de Dom",
       "icon": "🏰"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/mYHMc3-f3v8",
+      "title": "🐀 Rats Learn To Drive Tiny Cars",
+      "icon": "🏰"
+    },
+    {
+      "type": "paragraph",
+      "content": "De kubus is 5 millimeter groot. Hij is gemaakt van aluminium en weegt zo'n 0,33 gram. De kubus past ruim duizend keer in het originele exemplaar. Elke zijde van die versie meet namelijk 5,6 centimeter.",
+      "title": "Kleinste Rubiks cube ter wereld",
+      "icon": "🟧"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/F8nrF0lQiW4",
+      "title": "Grootste Rubiks cube ter wereld",
+      "icon": "🟧"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/EiYOUcuOxic&themeRefresh=1",
+      "title": "U L T I M A T E Nintendo Switch Gaming Set Up by Alex Girbinger. (Anton 🙌🏼)",
+      "icon": "🕹️"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/cOXlYUoF350",
+      "title": "BattleKart: Beyond Reality! (Anton 🙌🏼)",
+      "icon": "🕹️"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/ueNN2Qb99Qo",
+      "title": " 'Transformer' heels by local label Gena (Anton 🙌🏼)",
+      "icon": "👠"
+    },     {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/nVNIoQUcFI4",
+      "title": "SpaceX catches Starship rocket booster back at the launch pad",
+      "icon": "🚀 "
+    },     
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/9U9SJgK8UsQ",
+      "title": "Zelfrijdende taxi en bus van Tesla",
+      "icon": "🤖"
+    },      {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/opmxecU1VQ0",
+      "title": "Comma.ai",
+      "icon": "🤖"
+    },      {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/pPLWIL64sgQ",
+      "title": "Mark Zuckerberg Reveals Orion Prototype AR Glasses",
+      "icon": "🤓"
+    },    
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/t44EShMC5SQ",
+      "title": "The highest spot on earth?",
+      "icon": "🌎"
     }
   ]
 }
