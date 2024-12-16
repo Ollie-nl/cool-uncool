@@ -4,13 +4,13 @@
   "private": true,
   "homepage": "https://Ollie-nl.github.io/cool-uncool",
   "scripts": {
-    "start": "npm run generate-months && react-scripts start",
-    "build": "npm run generate-months && react-scripts build",
+    "start": "pnpm run generate-months && react-scripts start",
+    "build": "pnpm run generate-months && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
     "generate-months": "node generateAvailableMonths.js",
-    "predeploy": "npm run build",
+    "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
