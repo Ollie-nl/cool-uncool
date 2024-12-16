@@ -1,16 +1,38 @@
-# node_modules uitsluiten
+# Node.js dependencies
 node_modules/
 
-# Logbestanden
+# Build output
+build/
+dist/
+
+# Logfiles
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
 
-# Omgevingsvariabelen
-.env
-
-# Build-output
-dist/
-out/
-
-# Cachebestanden.
-*.cache
+# OS-specifieke bestanden
 .DS_Store
+Thumbs.db
+
+# Editor-specifieke mappen en bestanden
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Lokale omgevingsvariabelen
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Test coverage output
+coverage/
+
+# Cache directories van bundlers/tools
+.cache/
