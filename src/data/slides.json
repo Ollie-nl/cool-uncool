@@ -14,6 +14,7 @@
       "type": "youtube",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "title": "Mijn YouTube Filmpje #1",
+      "icon": "🎥",
       "repeat": true
     },
     {
