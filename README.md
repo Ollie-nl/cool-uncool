@@ -3,57 +3,56 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
-**Cool Uncool** is een interactieve webapplicatie waarmee ik Cool-Uncool presentaties geef tijdens NL DS designers meetups. Dit project demonstreert front-end technologieën met aandacht voor React, open source, GitHub en toegankelijkheid.
+**Cool Uncool** is een interactieve webapplicatie voor het geven van **Cool-Uncool presentaties** tijdens NL DS designers meetups. De focus ligt op front-end technologieën, React, open source ontwikkeling, GitHub-integratie en toegankelijkheid.
 
 ---
 
-## 🚀 **Features**
+## 🚀 Functies
 
-- **Slide Deck Navigatie**: Navigeer door slides met pijltjestoetsen (links/rechts, boven/onder).
-- **Swipe-ondersteuning**: Bedien de slides eenvoudig op mobiele apparaten met swipe-navigatie.
-- **Dark Mode**: Wissel tussen lichte en donkere modus met een interactieve toggle.
-- **Responsief Design**: Geoptimaliseerd voor verschillende schermformaten.
-- **Gebruiksvriendelijke Teller**: Bekijk hoeveel slides er nog over zijn.
+- **Intuïtieve Slide Navigatie**: Navigeer door de slides met de pijltjestoetsen (links/rechts, boven/onder).
+- **Mobiele Swipe-ondersteuning**: Swipe eenvoudig door de slides op mobiele apparaten.
+- **Dark Mode**: Schakel tussen licht- en donker thema met één klik.
+- **Responsief Ontwerp**: Geoptimaliseerd voor verschillende schermgroottes.
+- **Slide Teller**: Bekijk in één oogopslag hoeveel slides er nog volgen.
 
 ---
 
-## 🛠️ **Installatie**
+## 🛠️ Installatie
 
-1. **Clone de repository**:
-   ```bash
+1. **Clone de repository**:  
    git clone https://github.com/Ollie-nl/cool-uncool.git
-   ```
-2. **Navigeer naar de projectmap**:
-   ```bash
+
+2. **Navigeer naar de projectmap**:  
    cd cool-uncool
-   ```
-3. **Installeer afhankelijkheden**:
-   ```bash
-   npm install
-   ```
-4. **Start de development server**:
-   ```bash
-   npm start
-   ```
-   Open de applicatie in je browser via `http://localhost:3000`.
+
+3. **Installeer afhankelijkheden** (met pnpm):  
+   pnpm install
+
+4. **Start de development server**:  
+   pnpm start
+
+   Open vervolgens `http://localhost:3000` in je browser.
 
 ---
 
-## 🔧 **Scripts**
+## 🔧 Scripts
 
-- `npm start`: Start de development server.
-- `npm run build`: Bouwt de applicatie voor productie.
-- `npm test`: Voert tests uit (als ze zijn ingesteld).
-- `npm audit fix`: Herstelt kwetsbaarheden in dependencies.
+- `pnpm start`: Start de development server.
+- `pnpm run build`: Bouwt de applicatie voor productie.
+- `pnpm test`: Voert tests uit (indien ingesteld).
+- `pnpm audit fix`: Probeert bekende kwetsbaarheden te verhelpen.
+
+(Indien gewenst kun je nog steeds `npm` of `yarn` gebruiken.)
 
 ---
 
-## 📂 **Slide JSON-structuur**
+## 📂 Slides via JSON
 
-De applicatie maakt gebruik van maandelijkse JSON-bestanden om slides te beheren. Deze bestanden staan in de map `src/data/` en moeten het volgende naamgevingspatroon volgen:
+De slides worden beheerd via maandelijkse JSON-bestanden in `src/data/`. De bestandsnaam volgt het patroon:
 
 ```
 slides-YYYY-MM.json
+
 ```
 
 - **`YYYY`**: Het jaar (bijv. `2024`).
@@ -62,19 +61,13 @@ slides-YYYY-MM.json
 ### Voorbeeldbestand: `slides-2024-12.json`
 
 ```json
-{
-    {
-      "type": "heading",
-      "content": "😎 😩 [maand]"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "title": "Movie #1",
-      "icon": "💃🏻"
-    }
-  ]
-}
+- `YYYY`: Het jaar (bijv. `2024`).
+- `MM`: De maand (bijv. `12` voor december).
+
+**Voorbeeld: `slides-2024-12.json`**:
+```json
+[  {    "type": "heading",    "content": "😎 😩 [maand]"  },  {    "type": "youtube",    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",    "title": "Movie #1",    "icon": "💃🏻"  }]
+
 ```
 
 ### Nieuwe maand toevoegen
@@ -88,7 +81,7 @@ slides-YYYY-MM.json
 3. **Herbuild de applicatie**:
 
    ```bash
-   npm run build
+   pnpm run build
    ```
 
 4. **De maand wordt automatisch toegevoegd**:
@@ -98,33 +91,14 @@ slides-YYYY-MM.json
 
 ## 🌍 Deployment via GitHub Pages
 
-Deze applicatie kan eenvoudig worden gedeployed naar GitHub Pages door gebruik te maken van de gh-pages module.
+1. Stel in package.json het homepage-veld in: "homepage": "https://<JOUW-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
+2. Voeg de volgende scripts toe in package.json: "scripts": { "predeploy": "pnpm run build", "deploy": "gh-pages -d build" }
+3. Installeer gh-pages (indien niet aanwezig):
+ ```bash pnpm install gh-pages --save-dev  ```
+4. Deploy de app:
+```bash pnpm run deploy ```
+GitHub Pages zal de gh-pages branch gebruiken om je app te hosten.
 
-Voorbereiding
-Zorg dat het homepage-veld in package.json correct is ingesteld:
-"homepage": "https://<JOUW-GITHUB-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
-Vervang <JOUW-GITHUB-GEBRUIKERSNAAM> en <REPO-NAAM> door jouw gegevens.
-
-Voeg de volgende scripts toe aan de scripts sectie in package.json:
-
-```
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
-```
-
-### Stappen om te deployen
-
-#### Installeer de gh-pages module (indien nog niet gedaan):
-
-```
-npm install gh-pages --save-dev
-```
-
-#### Deploy de applicatie:
-
-npm run deploy
 
 #### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
 
@@ -135,22 +109,23 @@ npm run deploy
 ```
 cool-uncool/
 ├── public/
-│   ├── index.html          # HTML root file
-│   ├── favicon.ico         # Emoji-gebaseerde favicon
-│   └── ...                 # Overige publieke bestanden
+│   ├── index.html          # HTML root-bestand
+│   ├── favicon.ico         # Favicon
+│   └── ...                 # Andere statische bestanden
 ├── src/
 │   ├── components/
 │   │   ├── SlideDeck.js    # Hoofdcomponent voor slides
-│   │   ├── Slide.js        # Individuele slide component
-│   │   └── DarkModeToggle/ # Dark mode toggle component en CSS
+│   │   ├── Slide.js        # Component voor individuele slides
+│   │   └── DarkModeToggle/ # Dark mode toggle component + CSS
 │   ├── data/
-│   │   ├── slides-2024-12.json # Voorbeeld van maandelijkse slides
-│   │   └── available-months.json # Automatisch gegenereerde lijst
+│   │   ├── slides-2024-12.json # Maandelijkse slides
+│   │   └── available-months.json # Dynamisch gegenereerde lijst
 │   ├── styles/
 │   │   └── index.css       # Globale stijlen
-│   └── ...                 # Overige React bestanden
-├── package.json            # Project dependencies en scripts
+│   └── ...                 # Overige React-bestanden
+├── package.json            # Projectafhankelijkheden en scripts
 └── README.md               # Documentatie
+
 ```
 
 ---
