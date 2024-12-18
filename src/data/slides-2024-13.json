@@ -1,0 +1,20 @@
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "🎉 Inzendingen Jeroen"
+    },
+    {
+      "type": "paragraph",
+      "content": "Hoe vet is dit.",
+      "icon": "😁"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/b0xYhG_0I3I",
+      "title": "Mijn YouTube Filmpje #1",
+      "icon": "🎥",
+      "repeat": true
+    }
+  ]
+}
