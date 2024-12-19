@@ -6,7 +6,7 @@
     },
     {
       "type": "paragraph",
-      "content": "![Darth Vader Christmas](./images/darth-vader-xmas.jpeg) ",
+      "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
       "title": "Luke, I am Father Christmas",
       "icon": "🎄"
     },
