@@ -73,7 +73,10 @@ const Slide = ({ slide, isActive }) => {
       {/* Paragraph with Markdown */}
       {slide.type === 'paragraph' && (
         <div>
-          <h2>{slide.title}</h2>
+          <h1>
+            {slide.icon && <span className="slide-icon">{slide.icon}</span>} 
+            {slide.title}
+          </h1>
           <ReactMarkdown>{slide.content}</ReactMarkdown>
         </div>
       )}

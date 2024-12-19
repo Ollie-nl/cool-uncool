@@ -31,8 +31,9 @@ body {
 .slide p {
   font-size: 1rem;
   line-height: 1.5;
-  width: 60%;
+  width: 70%;
   margin: auto;
+  padding-block-end: 1rem;
 }
 
 .slide h2 {
@@ -92,7 +93,7 @@ h2 {
 p,
 h1 {
   margin: 0;
-  padding: 0;
+  padding: 0 0 2rem 0;
   overflow-wrap: break-word;
 }
 
@@ -144,6 +145,10 @@ h1 {
   font-size: 2rem; /* Maak de emoji groot */
   margin-block-end: 1rem;
   padding-inline-end: 1rem;
+}
+
+.slide p img{
+  max-height: 70%;
 }
 
 /* Zon/Maan Toggle */

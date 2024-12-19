@@ -2,7 +2,7 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ollie-nl.github.io/cool-uncool",
+
   "scripts": {
     "start": "pnpm run generate-months && react-scripts start",
     "build": "pnpm run generate-months && react-scripts build",
