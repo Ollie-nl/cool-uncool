@@ -85,10 +85,10 @@ const Slide = ({ slide, isActive }) => {
       {slide.type === 'youtube' && (
         <div className="video-container">
           {slide.title && (
-            <h2>
+            <h1>
               {slide.icon && <span className="slide-icon">{slide.icon}</span>}
               {slide.title}
-            </h2>
+            </h1>
           )}
           <iframe
             ref={iframeRef}

@@ -26,6 +26,7 @@ body {
   margin: auto;
   width: 100%;
   text-align: center;
+  padding-block-start: 1rem;
 }
 
 .slide p {
@@ -148,7 +149,9 @@ h1 {
 }
 
 .slide p img{
-  max-height: 70%;
+  max-height: 100vh;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Zon/Maan Toggle */
