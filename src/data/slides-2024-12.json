@@ -18,8 +18,14 @@
     },
     {
       "type": "youtube",
+      "url": "https://www.youtube.com/embed/Hq-6wUWffkA",
+      "title": "Sir Nils Olav promoted to Brigadier by Norwegian King's Guard (Jeroen 🙌🏼)",
+      "icon": "🐧"
+    },
+    {
+      "type": "youtube",
       "url": "https://www.youtube.com/embed/M1pUPlEBw3I",
-      "title": "Mijn YouTube Short",
+      "title": "Japan's lazy man",
       "icon": "🇯🇵"
     },
     {
@@ -123,6 +129,12 @@
       "url": "https://www.youtube.com/embed/35Fn5KnXQLU",
       "title": "Record in jump rope contest",
       "icon": "🏆"
+    },
+    {
+      "type": "paragraph",
+      "content": "![Happy 2025](/cool-uncool/images/happy-2025.jpeg) ",
+      "title": "Tot volgend jaar",
+      "icon": "🍾"
     }
   ]
 }

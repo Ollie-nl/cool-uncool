@@ -69,7 +69,7 @@ body {
 }
 
 .video-container {
-  width: 80%; /* 80% van de beschikbare ruimte */
+  width: 70%; /* 80% van de beschikbare ruimte */
   max-width: 1400px; /* Optionele maximale breedte */
   margin: 0 auto; /* Centreer de video-container */
   aspect-ratio: 16 / 9; /* Behoud de 16:9-verhouding */
@@ -149,7 +149,7 @@ h1 {
 }
 
 .slide p img{
-  max-height: 100vh;
+  max-height: 80vh;
   width: auto;
   object-fit: contain;
 }
