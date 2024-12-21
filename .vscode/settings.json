@@ -1,3 +1,9 @@
-{
-  "git.ignoreLimitWarning": true
+  {
+    "git.ignoreLimitWarning": true,
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.advanced": {
+        // Voeg hier eventuele geavanceerde instellingen toe
+    },
+    "prettier.configPath": "./.config/.prettierrc",
+    "typescript.tsconfigPath": "./.config/tsconfig.json"
 }
