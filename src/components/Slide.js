@@ -1,20 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 
 const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
   const playerRef = useRef(null);
 
   const getEmbedUrl = (url) => {
-    const baseURL = url.includes('/shorts/')
-      ? url.replace('/shorts/', '/embed/')
+    const baseURL = url.includes("/shorts/")
+      ? url.replace("/shorts/", "/embed/")
       : url;
-    return `${baseURL}?enablejsapi=1&playlist=${baseURL.split('/').pop()}`;
+    return `${baseURL}?enablejsapi=1&playlist=${baseURL.split("/").pop()}`;
   };
 
   useEffect(() => {
     const initializePlayer = () => {
-      if (slide.type === 'youtube' && iframeRef.current) {
+      if (slide.type === "youtube" && iframeRef.current) {
         if (!playerRef.current && window.YT && window.YT.Player) {
           playerRef.current = new window.YT.Player(iframeRef.current, {
             events: {
@@ -61,9 +61,9 @@ const Slide = ({ slide, isActive }) => {
   }, [isActive, slide.type, slide.repeat]);
 
   return (
-    <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
+    <div className={`slide ${isActive ? "active" : "inactive"}`}>
       {/* Heading */}
-      {slide.type === 'heading' && (
+      {slide.type === "heading" && (
         <h1>
           {slide.icon && <span className="slide-icon">{slide.icon}</span>}
           {slide.content}
@@ -71,10 +71,10 @@ const Slide = ({ slide, isActive }) => {
       )}
 
       {/* Paragraph with Markdown */}
-      {slide.type === 'paragraph' && (
+      {slide.type === "paragraph" && (
         <div>
           <h1>
-            {slide.icon && <span className="slide-icon">{slide.icon}</span>} 
+            {slide.icon && <span className="slide-icon">{slide.icon}</span>}
             {slide.title}
           </h1>
           <ReactMarkdown>{slide.content}</ReactMarkdown>
@@ -82,7 +82,7 @@ const Slide = ({ slide, isActive }) => {
       )}
 
       {/* YouTube */}
-      {slide.type === 'youtube' && (
+      {slide.type === "youtube" && (
         <div className="video-container">
           {slide.title && (
             <h1>
@@ -97,7 +97,7 @@ const Slide = ({ slide, isActive }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title={slide.title || 'YouTube video'}
+            title={slide.title || "YouTube video"}
           ></iframe>
         </div>
       )}

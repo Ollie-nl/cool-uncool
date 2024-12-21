@@ -148,7 +148,7 @@ h1 {
   padding-inline-end: 1rem;
 }
 
-.slide p img{
+.slide p img {
   max-height: 80vh;
   width: auto;
   object-fit: contain;

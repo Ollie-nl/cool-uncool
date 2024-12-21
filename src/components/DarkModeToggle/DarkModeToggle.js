@@ -1,10 +1,10 @@
-import React from 'react';
-import './DarkModeToggle.css';
+import React from "react";
+import "./DarkModeToggle.css";
 
 const DarkModeToggle = ({ isDarkMode, onToggle }) => {
   return (
     <button
-      className={`dark-mode-toggle ${isDarkMode ? 'dark' : 'light'}`}
+      className={`dark-mode-toggle ${isDarkMode ? "dark" : "light"}`}
       onClick={onToggle}
     >
       {isDarkMode ? (
@@ -39,7 +39,7 @@ const DarkModeToggle = ({ isDarkMode, onToggle }) => {
           <circle cx="12" cy="12" r="5" />
         </svg>
       )}
-      <span className="label">{isDarkMode ? 'Dark' : 'Light'}</span>
+      <span className="label">{isDarkMode ? "Dark" : "Light"}</span>
     </button>
   );
 };

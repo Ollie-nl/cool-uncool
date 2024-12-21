@@ -1,5 +1,5 @@
-import React from 'react';
-import { Deck, Slide, Heading, Text } from 'spectacle';
+import React from "react";
+import { Deck, Slide, Heading, Text } from "spectacle";
 
 const Slides = () => (
   <Deck>

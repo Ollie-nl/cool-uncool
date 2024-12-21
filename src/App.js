@@ -1,6 +1,6 @@
-import React from 'react';
-import SlideDeck from './components/SlideDeck';
-import './styles/index.css';
+import React from "react";
+import SlideDeck from "./components/SlideDeck";
+import "./styles/index.css";
 
 function App() {
   return (

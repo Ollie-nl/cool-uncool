@@ -1,5 +1,5 @@
-import React from 'react';
-import './MonthSelector.css';
+import React from "react";
+import "./MonthSelector.css";
 
 const MonthSelector = ({ months, selectedMonth, onSelect }) => {
   return (

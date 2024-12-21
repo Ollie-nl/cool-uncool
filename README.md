@@ -60,7 +60,7 @@ slides-YYYY-MM.json
 
 ### Voorbeeldbestand: `slides-2024-12.json`
 
-```json
+````json
 - `YYYY`: Het jaar (bijv. `2024`).
 - `MM`: De maand (bijv. `12` voor december).
 
@@ -68,7 +68,7 @@ slides-YYYY-MM.json
 ```json
 [  {    "type": "heading",    "content": "😎 😩 [maand]"  },  {    "type": "youtube",    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",    "title": "Movie #1",    "icon": "💃🏻"  }]
 
-```
+````
 
 ### Nieuwe maand toevoegen
 
@@ -94,11 +94,10 @@ slides-YYYY-MM.json
 1. Stel in package.json het homepage-veld in: "homepage": "https://<JOUW-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
 2. Voeg de volgende scripts toe in package.json: "scripts": { "predeploy": "pnpm run build", "deploy": "gh-pages -d build" }
 3. Installeer gh-pages (indien niet aanwezig):
- ```bash pnpm install gh-pages --save-dev  ```
+   `bash pnpm install gh-pages --save-dev  `
 4. Deploy de app:
-```bash pnpm run deploy ```
-GitHub Pages zal de gh-pages branch gebruiken om je app te hosten.
-
+   `bash pnpm run deploy `
+   GitHub Pages zal de gh-pages branch gebruiken om je app te hosten.
 
 #### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
 
