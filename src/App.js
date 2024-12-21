@@ -1,15 +1,35 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import SlideDeck from "./components/SlideDeck";
 import "./styles/index.css";
+
+// Debugging component
+function DebugRoute() {
+  let location = useLocation();
+  return <div>Route niet gevonden: {location.pathname}</div>;
+}
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/slide/start" replace />} />
-        <Route path="/slide/:slug" element={<SlideDeck />} />
-        <Route path="*" element={<div>Pagina niet gevonden</div>} />
+        {/* Redirect root naar een standaard slide */}
+        <Route
+          path="/"
+          element={<Navigate to="/slides/2024/12/start" replace />}
+        />
+
+        {/* Gebruik aparte year en month params */}
+        <Route path="/slides/:year/:month/:slug" element={<SlideDeck />} />
+
+        {/* Fallback route voor niet-bestaande pagina's */}
+        <Route path="*" element={<DebugRoute />} />
       </Routes>
     </Router>
   );
