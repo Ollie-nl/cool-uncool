@@ -12,6 +12,12 @@ const Slide = ({ slide, isActive }) => {
     return `${baseURL}?enablejsapi=1&playlist=${baseURL.split("/").pop()}`;
   };
 
+  const getImagePath = (path) => {
+    return process.env.NODE_ENV === "production"
+      ? `/cool-uncool${path}`
+      : path;
+  };
+
   useEffect(() => {
     const initializePlayer = () => {
       if (slide.type === "youtube" && iframeRef.current) {
@@ -77,7 +83,9 @@ const Slide = ({ slide, isActive }) => {
             {slide.icon && <span className="slide-icon">{slide.icon}</span>}
             {slide.title}
           </h1>
-          <ReactMarkdown>{slide.content}</ReactMarkdown>
+          <ReactMarkdown>
+            {slide.content.replace("/images", getImagePath("/images"))}
+          </ReactMarkdown>
         </div>
       )}
 

@@ -13,6 +13,10 @@ const SlideDeck = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [months, setMonths] = useState([]);
 
+  const getBasePath = () => {
+    return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
+  };
+
   // Maand selecteren en redirecten
   const handleMonthSelect = (selectedMonth) => {
     const [selectedYear, selectedMonthNum] = selectedMonth.split("-");
@@ -23,7 +27,7 @@ const SlideDeck = () => {
   useEffect(() => {
     const fetchMonths = async () => {
       try {
-        const response = await fetch("/data/available-months.json");
+        const response = await fetch(`${getBasePath()}/data/available-months.json`);
         if (!response.ok) throw new Error("available-months.json niet gevonden");
         const data = await response.json();
         setMonths(data.months || []);
@@ -40,7 +44,7 @@ const SlideDeck = () => {
   useEffect(() => {
     const loadSlides = async () => {
       try {
-        const slidesPath = `/data/slides-${year}-${month}.json`;
+        const slidesPath = `${getBasePath()}/data/slides-${year}-${month}.json`;
         console.log("Fetching slides:", slidesPath);
 
         const response = await fetch(slidesPath);
@@ -120,7 +124,6 @@ const SlideDeck = () => {
         <div className="no-slides">Geen slides beschikbaar.</div>
       )}
 
-      {/* Slide counter en maandselector */}
       {slides.length > 0 && (
         <div className="slide-counter">
           <MonthSelector
