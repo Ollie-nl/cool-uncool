@@ -40,7 +40,7 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 
 ---
 
-### Deploy Proces:
+### 📦 Deploy Proces:
 
 1. **Build en Deploy**  
    Bij elke `pnpm run deploy` wordt de app gebouwd en wordt de output naar de `docs/` map verplaatst.  
@@ -70,7 +70,7 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 - **CI/CD pipelines om automatisch te testen en te deployen bij iedere commit**.
 - **More, more, mmmmoooore...**.
 
-### Waarom Deze Tools Belangrijk Zijn
+### 🙌🏼 Waarom Deze Tools Belangrijk Zijn
 
 - **React** vormt de basis van de componenten en interacties.
 - **React Router Dom** maakt dynamische routing mogelijk op basis van URL's.
