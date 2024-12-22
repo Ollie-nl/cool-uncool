@@ -1,0 +1,39 @@
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "😎 😩 Augustus",
+      "slug": "start"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/RDng7uX0M0Q",
+      "title": "MURMURING MINDS - DRIFT at LUMA, Arles (Jeroen)",
+      "icon": "🤖"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/MxTWLm9vT_o",
+      "title": "Reverse Turing Test Experiment with AI(Jeff)",
+      "icon": "🤖"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/vN2BghLEeTQ",
+      "title": "Squirrels & Oak Trees",
+      "icon": "🐿️ 🌳"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/Sq1QZB5baNw",
+      "title": "Uit de oude doos (Cool Uncool Maart 2024) Figure 01 Update",
+      "icon": "🤖"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/0SRVJaOg9Co",
+      "title": "Introducing Figure 02",
+      "icon": "🤖"
+    }
+  ]
+}
