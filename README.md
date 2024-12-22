@@ -60,20 +60,20 @@ slides-YYYY-MM.json
 
 ### Voorbeeldbestand: `slides-2024-12.json`
 
-````json
+```json
 [
   {
     "type": "heading",
     "content": "😎 😩 December",
     "slug": "start"
   },
-     {
-      "type": "paragraph",
-      "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
-      "title": "Text met plaatje. Luke, I am Father Christmas",
-      "icon": "🎄",
-      "slug": "star-wars"
-    },
+  {
+    "type": "paragraph",
+    "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
+    "title": "Text met plaatje. Luke, I am Father Christmas",
+    "icon": "🎄",
+    "slug": "star-wars"
+  },
   {
     "type": "youtube",
     "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -82,8 +82,7 @@ slides-YYYY-MM.json
     "slug": "Never forget XcQ"
   }
 ]
-
-````
+```
 
 ### Nieuwe maand toevoegen
 
@@ -115,10 +114,11 @@ De output wordt geplaatst in de docs/ map en GitHub Pages haalt de inhoud direct
 
 1. Maak een productie build en deploy:
 
-````bash
+```bash
  pnpm run deploy
 
-````
+```
+
 ---
 
 2. Website wordt gedeployed op
@@ -127,12 +127,11 @@ De output wordt geplaatst in de docs/ map en GitHub Pages haalt de inhoud direct
 
 ---
 
-
 ## 🔧 Belangrijke Scripts
 
 - pnpm start (Start de development server op localhost)
-- pnpm run build  (Maakt een productie build en plaatst deze in de docs/ map)
-- pnpm run deploy  (Voert een build uit en pusht deze naar de main branch voor GitHub Pages)
+- pnpm run build (Maakt een productie build en plaatst deze in de docs/ map)
+- pnpm run deploy (Voert een build uit en pusht deze naar de main branch voor GitHub Pages)
 
 ---
 
@@ -163,11 +162,9 @@ cool-uncool/
 
 - Geen slides beschikba-r: Zorg dat de JSON-bestanden in public/data/ correct zijn.
 - Afbeeldingen laden niet op GH Pages: Controleer of de paden naar afbeeldingen beginnen met /cool-uncool/ in productie.
-- 404 op GitHub Pages: Controleer of het _redirects bestand correct wordt gekopieerd naar de docs/ map na elke build.
+- 404 op GitHub Pages: Controleer of het \_redirects bestand correct wordt gekopieerd naar de docs/ map na elke build.
 
 ---
-
-
 
 ## 📜 **Licentie**
 

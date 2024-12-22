@@ -17,12 +17,15 @@ function DebugRoute() {
 
 function App() {
   const basename = window.location.pathname.includes("/cool-uncool")
-  ? "/cool-uncool"
-  : "/";
+    ? "/cool-uncool"
+    : "/";
   return (
     <Router basename={basename}>
       <Routes>
-        <Route path="/" element={<Navigate to="/slides/2024/12/start" replace />} />
+        <Route
+          path="/"
+          element={<Navigate to="/slides/2024/12/start" replace />}
+        />
         <Route path="/slides/:year/:month/:slug" element={<SlideDeck />} />
         <Route path="*" element={<DebugRoute />} />
       </Routes>

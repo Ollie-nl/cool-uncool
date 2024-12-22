@@ -27,8 +27,11 @@ const SlideDeck = () => {
   useEffect(() => {
     const fetchMonths = async () => {
       try {
-        const response = await fetch(`${getBasePath()}/data/available-months.json`);
-        if (!response.ok) throw new Error("available-months.json niet gevonden");
+        const response = await fetch(
+          `${getBasePath()}/data/available-months.json`,
+        );
+        if (!response.ok)
+          throw new Error("available-months.json niet gevonden");
         const data = await response.json();
         setMonths(data.months || []);
       } catch (error) {
@@ -49,15 +52,18 @@ const SlideDeck = () => {
 
         const response = await fetch(slidesPath);
         if (!response.ok) {
-          throw new Error(`Slidebestand niet gevonden: slides-${year}-${month}.json`);
+          throw new Error(
+            `Slidebestand niet gevonden: slides-${year}-${month}.json`,
+          );
         }
 
         const { slides: slidesForMonth } = await response.json();
         setSlides(slidesForMonth);
 
         // Zoek de juiste slide op basis van slug of index
-        const slideIndex = slidesForMonth.findIndex((slide, index) =>
-          slide.slug === slug || `slide-${index + 1}` === slug
+        const slideIndex = slidesForMonth.findIndex(
+          (slide, index) =>
+            slide.slug === slug || `slide-${index + 1}` === slug,
         );
 
         if (slideIndex !== -1) {
@@ -101,7 +107,7 @@ const SlideDeck = () => {
         goToSlide(currentSlide - 1);
       }
     },
-    [currentSlide, slides.length]
+    [currentSlide, slides.length],
   );
 
   useEffect(() => {
@@ -113,19 +119,19 @@ const SlideDeck = () => {
 
   return (
     <div
-    {...handlers}  // Swipe-functionaliteit wordt hier toegevoegd
-    className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"}`}
-  >      <DarkModeToggle
+      {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
+      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"}`}
+    >
+      {" "}
+      <DarkModeToggle
         isDarkMode={isDarkMode}
         onToggle={() => setIsDarkMode((prev) => !prev)}
       />
-
       {slides.length > 0 ? (
         <Slide slide={slides[currentSlide]} isActive={true} />
       ) : (
         <div className="no-slides">Geen slides beschikbaar.</div>
       )}
-
       {slides.length > 0 && (
         <div className="slide-counter">
           <MonthSelector

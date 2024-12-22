@@ -4,11 +4,11 @@
   "private": false,
   "homepage": ".",
   "scripts": {
-  "start": "pnpm run generate-months && react-scripts start",
-  "build": "pnpm run generate-months && [ -d docs ] && rm -rf docs; react-scripts build && mv build docs && node copyRedirects.js",
-  "deploy": "pnpm run build && git add docs && git commit --allow-empty -m 'Deploy to GitHub Pages' && git push origin main",
-  "prettier": "prettier --write .",
-  "generate-months": "node generateAvailableMonths.js"
+    "start": "pnpm run generate-months && react-scripts start",
+    "build": "pnpm run generate-months && [ -d docs ] && rm -rf docs; react-scripts build && mv build docs && node copyRedirects.js",
+    "deploy": "pnpm run build && git add docs && git commit --allow-empty -m 'Deploy to GitHub Pages' && git push origin main",
+    "prettier": "prettier --write .",
+    "generate-months": "node generateAvailableMonths.js"
   },
   "dependencies": {
     "@deckdeckgo/core": "^10.0.1",

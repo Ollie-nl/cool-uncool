@@ -13,9 +13,7 @@ const Slide = ({ slide, isActive }) => {
   };
 
   const getImagePath = (path) => {
-    return process.env.NODE_ENV === "production"
-      ? `/cool-uncool${path}`
-      : path;
+    return process.env.NODE_ENV === "production" ? `/cool-uncool${path}` : path;
   };
 
   useEffect(() => {
