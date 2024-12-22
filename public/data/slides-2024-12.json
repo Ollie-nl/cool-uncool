@@ -7,7 +7,7 @@
     },
     {
       "type": "paragraph",
-      "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
+      "content": "![Darth Vader Christmas](/images/darth-vader-xmas.jpeg) ",
       "title": "Luke, I am Father Christmas",
       "icon": "🎄",
       "slug": "star-wars"
@@ -146,7 +146,7 @@
     },
     {
       "type": "paragraph",
-      "content": "![Happy 2025](/cool-uncool/images/happy-2025.jpeg) ",
+      "content": "![Happy 2025](/images/happy-2025.jpeg) ",
       "title": "Tot volgend jaar",
       "icon": "🍾",
       "slug": "happy-2025"
