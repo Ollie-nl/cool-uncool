@@ -20,7 +20,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'  # Zorg ervoor dat de Node-versie klopt
+        cache: 'pnpm'  # Cache voor pnpm
 
+    # Installeer PNPM vóór het installeren van dependencies
+    - name: 📦 Install PNPM
+      run: npm install -g pnpm  # Installeer pnpm globaal
+    
+    # Cache afhankelijkheden om builds te versnellen
     - name: 📦 Cache dependencies
       uses: actions/cache@v3
       with:
@@ -29,15 +35,19 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pnpm-
 
+    # Installeer afhankelijkheden met PNPM
     - name: 📦 Install dependencies
       run: pnpm install  # Gebruik pnpm voor snelle dependency installatie
     
+    # Draai tests voor de build (maar faal niet als tests falen)
     - name: 🧪 Run Tests
-      run: pnpm test  || echo "Tests failed, but continuing build..." # Draai tests vóór de build
+      run: pnpm test || echo "Tests failed, but continuing build..." 
 
+    # Bouw het project
     - name: 🔨 Build project
       run: pnpm run build
 
+    # Deploy naar GitHub Pages
     - name: 🚀 Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
