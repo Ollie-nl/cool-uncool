@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
-**Cool Uncool** is een interactieve webapplicatie voor het geven van **Cool-Uncool presentaties** tijdens NL DS designers meetups. De focus ligt op front-end technologieën, React, open source ontwikkeling, GitHub-integratie en toegankelijkheid.
+**Cool Uncool** is een interactieve webapplicatie voor het geven van **Cool-Uncool sessies** tijdens NL DS designers meetups. De focus ligt op front-end technologieën, React, open source ontwikkeling, GitHub-integratie en toegankelijkheid.
 
 ---
 
@@ -11,9 +11,11 @@
 
 - **Intuïtieve Slide Navigatie**: Navigeer door de slides met de pijltjestoetsen (links/rechts, boven/onder).
 - **Mobiele Swipe-ondersteuning**: Swipe eenvoudig door de slides op mobiele apparaten.
+- **Maandselector**: Wissel tussen maanden met behulp van de maandselector in de footer.
 - **Dark Mode**: Schakel tussen licht- en donker thema met één klik.
 - **Responsief Ontwerp**: Geoptimaliseerd voor verschillende schermgroottes.
 - **Slide Teller**: Bekijk in één oogopslag hoeveel slides er nog volgen.
+- **Leesbaare URL's**: Uit de URL is op te maken in welke maand en jaar de sessie is gegeven of wordt gegeven.
 
 ---
 
@@ -42,8 +44,6 @@
 - `pnpm test`: Voert tests uit (indien ingesteld).
 - `pnpm audit fix`: Probeert bekende kwetsbaarheden te verhelpen.
 
-(Indien gewenst kun je nog steeds `npm` of `yarn` gebruiken.)
-
 ---
 
 ## 📂 Slides via JSON
@@ -61,12 +61,27 @@ slides-YYYY-MM.json
 ### Voorbeeldbestand: `slides-2024-12.json`
 
 ````json
-- `YYYY`: Het jaar (bijv. `2024`).
-- `MM`: De maand (bijv. `12` voor december).
-
-**Voorbeeld: `slides-2024-12.json`**:
-```json
-[  {    "type": "heading",    "content": "😎 😩 [maand]"  },  {    "type": "youtube",    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",    "title": "Movie #1",    "icon": "💃🏻"  }]
+[
+  {
+    "type": "heading",
+    "content": "😎 😩 December",
+    "slug": "start"
+  },
+     {
+      "type": "paragraph",
+      "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
+      "title": "Text met plaatje. Luke, I am Father Christmas",
+      "icon": "🎄",
+      "slug": "star-wars"
+    },
+  {
+    "type": "youtube",
+    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "title": "Movie #1",
+    "icon": "💃🏻",
+    "slug": "Never forget XcQ"
+  }
+]
 
 ````
 
@@ -76,12 +91,14 @@ slides-YYYY-MM.json
    Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2024-12.json`.
 
 2. **Voeg je slides toe in JSON-formaat**:
-   Zorg ervoor dat elke slide een uniek `id`, een `title`, en een `content` heeft.
+   Zorg ervoor dat elke slide een unieke `slug` heeft.
 
 3. **Herbuild de applicatie**:
 
    ```bash
+
    pnpm run build
+
    ```
 
 4. **De maand wordt automatisch toegevoegd**:
@@ -91,12 +108,36 @@ slides-YYYY-MM.json
 
 ## 🌍 Deployment via GitHub Pages
 
-1. Stel in package.json het homepage-veld in: "homepage": "https://<JOUW-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
-2. Voeg de volgende scripts toe in package.json: "scripts": { "predeploy": "pnpm run build", "deploy": "gh-pages -d build" }
+1. Stel in package.json het homepage-veld in:
+
+````json
+ "homepage": "https://<JOUW-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
+
+````
+
+2. Voeg de volgende scripts toe in package.json: 
+
+````json
+
+"scripts": { "predeploy": "pnpm run build", "deploy": "gh-pages -d build" }
+
+````
+
 3. Installeer gh-pages (indien niet aanwezig):
-   `bash pnpm install gh-pages --save-dev  `
+
+````bash
+
+ pnpm install gh-pages --save-dev  
+
+````
+
 4. Deploy de app:
-   `bash pnpm run deploy `
+````bash
+
+pnpm run deploy 
+
+````
+
    GitHub Pages zal de gh-pages branch gebruiken om je app te hosten.
 
 #### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
@@ -110,6 +151,9 @@ cool-uncool/
 ├── public/
 │   ├── index.html          # HTML root-bestand
 │   ├── favicon.ico         # Favicon
+│   ├── data
+│   │   ├── slides-2024-12.json # Maandelijkse slides
+│   │   └── available-months.json # Dynamisch gegenereerde lijst        
 │   └── ...                 # Andere statische bestanden
 ├── src/
 │   ├── components/
@@ -126,16 +170,6 @@ cool-uncool/
 └── README.md               # Documentatie
 
 ```
-
----
-
-## ⚠️ **Bekende Issues**
-
-1. **Kwetsbare dependencies**:
-   Gebruik `npm audit fix` om bekende problemen te verhelpen.
-2. **Browserondersteuning**:
-   Favicon werkt mogelijk niet correct in oudere browsers of Safari (SVG).
-
 ---
 
 ## 📜 **Licentie**
