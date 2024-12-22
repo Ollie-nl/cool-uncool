@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Pad naar de data-map
-const dataDir = path.join(__dirname, "src/data");
+const dataDir = path.join(__dirname, "public/data");
 
 // Zoek alle JSON-bestanden die `slides-` bevatten
 const files = fs
