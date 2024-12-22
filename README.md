@@ -166,6 +166,75 @@ cool-uncool/
 
 ---
 
+## 🏅 Semantic Versioning
+We gebruiken Semantic Versioning (SemVer) om releases te beheren:
+
+1.0.0 = Major.Minor.Patch
+Major – Brekende veranderingen
+Minor – Nieuwe features, backwards-compatible
+Patch – Bugfixes en kleine updates
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+
+```
+## Commit Message Conventies
+
+```bash
+git commit -m "feat: Nieuwe maandelijkse slide selector toegevoegd"
+git commit -m "fix: Bug verholpen in Dark Mode toggle"
+git commit -m "docs: README bijgewerkt met installatie instructies"
+git commit -m "chore: GitHub Actions workflow toegevoegd voor CI"
+git commit -m "style: Styling aan gebracht"
+
+
+```
+
+## Release Draaiend Houden (Tags & Releases)
+```bash
+git tag -a v1.1.0 -m "Release 1.1.0 - Nieuwe slides en dark mode"
+git push origin v1.1.0
+
+```
+
+### Maak releases op GitHub:
+
+1. Ga naar Releases tab in je repo.
+2. Klik op Draft new release.
+3. Kies een tag (v1.1.0) en beschrijf de wijzigingen.
+4. Klik op Publish.
+
+### Versiebeheer in Package.json
+
+#### Verhoog de versie bij elke release:
+
+```json
+
+{
+  "version": "1.1.0"
+}
+
+```
+#### Gebruik de volgende commando's:
+
+```bash
+
+npm version patch  # Kleine bugfix
+npm version minor  # Nieuwe feature
+npm version major  # Brekende verandering
+
+```
+#### Push tags automatisch mee:
+
+```bash
+
+git push --follow-tags
+
+```
+
+---
+
 ## 📜 **Licentie**
 
 Dit project is gelicentieerd onder de GPL-3.0-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
