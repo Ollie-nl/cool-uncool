@@ -16,19 +16,14 @@ function DebugRoute() {
 }
 
 function App() {
+  const basename = window.location.pathname.includes("/cool-uncool")
+  ? "/cool-uncool"
+  : "/";
   return (
-    <Router>
+    <Router basename={basename}>
       <Routes>
-        {/* Redirect root naar een standaard slide */}
-        <Route
-          path="/"
-          element={<Navigate to="/slides/2024/12/start" replace />}
-        />
-
-        {/* Gebruik aparte year en month params */}
+        <Route path="/" element={<Navigate to="/slides/2024/12/start" replace />} />
         <Route path="/slides/:year/:month/:slug" element={<SlideDeck />} />
-
-        {/* Fallback route voor niet-bestaande pagina's */}
         <Route path="*" element={<DebugRoute />} />
       </Routes>
     </Router>
