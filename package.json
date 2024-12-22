@@ -2,11 +2,11 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": false,
- "homepage": ".",
+  "homepage": ".",
   "scripts": {
   "start": "pnpm run generate-months && react-scripts start",
-  "build": "pnpm run generate-months && rm -rf docs && react-scripts build && mv build docs && node copyRedirects.js",
-  "deploy": "pnpm run build && git add docs && git commit -m 'Deploy to GitHub Pages' && git push origin main",  "eject": "react-scripts eject",
+  "build": "pnpm run generate-months && [ -d docs ] && rm -rf docs; react-scripts build && mv build docs && node copyRedirects.js",
+  "deploy": "pnpm run build && git add docs && git commit -m 'Deploy to GitHub Pages' && git push origin main",
   "prettier": "prettier --write .",
   "generate-months": "node generateAvailableMonths.js"
   },
