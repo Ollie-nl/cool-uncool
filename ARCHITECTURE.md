@@ -61,12 +61,12 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van  J
 
 - **Server-side slidebeheer**.  
 - **Inzendingen optie**.  
-- **Alle sessies teogevoegd**.
+- **Alle sessies toegevoegd**.
 - **Versiebeheer**.
 - **Server-side rendering (SSR) voor betere SEO en prestaties**.  
 - **WebSockets voor real-time updates tijdens presentaties**.  
 - **CI/CD pipelines om automatisch te testen en te deployen bij iedere commit**.  
-- **More...**.  
+- **More, more, mmmmoooore...**.  
 
 ### Waarom Deze Tools Belangrijk Zijn
 - **React** vormt de basis van de componenten en interacties.  

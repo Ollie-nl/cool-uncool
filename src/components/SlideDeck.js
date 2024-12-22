@@ -112,8 +112,10 @@ const SlideDeck = () => {
   }, [handleKeyDown]);
 
   return (
-    <div className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"}`}>
-      <DarkModeToggle
+    <div
+    {...handlers}  // Swipe-functionaliteit wordt hier toegevoegd
+    className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"}`}
+  >      <DarkModeToggle
         isDarkMode={isDarkMode}
         onToggle={() => setIsDarkMode((prev) => !prev)}
       />
