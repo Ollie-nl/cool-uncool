@@ -1,12 +1,6 @@
 
-## 📄 **ARCHITECTURE.md (Nieuw)**
+# Cool Uncool Slide Deck – Architectuur Overzicht
 
-
-# Cool Uncool - Architectuur
-
-Dit document beschrijft de architectuur van de **Cool Uncool SlideDeck Webapp**.
-
----
 
 ## 🏗️ Architectuuroverzicht
 
@@ -16,91 +10,50 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van  J
 
 ---
 
-## 🚀 Gebruikte Technologieën
+## ⚙️ Technologieën en Bibliotheken
 
-De applicatie maakt gebruik van de volgende kerntechnologieën:
-
-### Frontend:
-- **React** (`react` en `react-dom`): Frontend component-based framework voor het bouwen van de gebruikersinterface.  
- - **Versie**: `18.3.1`  
-- **React Router Dom** (`react-router-dom`): Voor client-side routing en dynamische URL's.  
- - **Versie**: `7.1.0`  
-- **React Markdown** (`react-markdown`): Voor het renderen van Markdown binnen React-componenten.  
-  - **Versie**: `9.0.1`  
-- **React Swipeable** (`react-swipeable`): Voor swipe-ondersteuning op mobiele apparaten.  
-  - **Versie**: `7.0.2`  
-
-### Build Tools:
-- **React Scripts** (`react-scripts`): Gebruikt voor het builden, starten en testen van de app.  
-  - **Versie**: `5.0.1`  
-- **TypeScript** (`typescript`): Voor statische type-checking (optioneel, maar aanwezig als dependency).  
-  - **Versie**: `3.9.10`  
-- **Babel** (`@babel/plugin-proposal-private-property-in-object`): Transpileert moderne JavaScript naar backwards-compatible versies.  
-  - **Versie**: `7.21.11`  
-
-### Styling en Optimalisatie:
-- **Resolve URL Loader** (`resolve-url-loader`): Helpt bij het correct verwerken van URL's in CSS en SCSS bestanden.  
-  - **Versie**: `5.0.0`  
-- **Loader Utils** (`loader-utils`): Helpt bij het configureren van Webpack-loaders.  
-  - **Versie**: `3.3.1`  
-
-### Deployment:
-- **GitHub Pages** (`gh-pages`): Voor eenvoudige deployment van de app naar GitHub Pages.  
-  - **Versie**: `6.2.0`  
-
-### Code Formatting:
-- **Prettier** (`prettier`): Code formatter voor consistente code-styling.  
-  - **Versie**: `3.4.2`  
+- **React** – Component-gebaseerd front-end framework.  
+- **React Router** – Voor het beheren van routes (`react-router-dom`).  
+- **React Swipeable** – Swipe-functionaliteit op mobiele apparaten.  
+- **React Markdown** – Voor het renderen van Markdown-content in de slides.  
+- **GH Pages** – Hosting van de productie build via de `docs/` map.  
+- **pnpm** – Pakketbeheerder voor snelle builds.  
+- **Prettier** – Code formattering voor consistente stijl.  
 
 ---
 
-## 📂 Componentenoverzicht
+## 🏗️ Architectuur en Bestandstructuur
 
-1. **SlideDeck.js**  
-   - Hoofdcomponent. Beheert de navigatie tussen slides op basis van `year`, `month` en `slug` uit de URL.
+### Belangrijkste Componenten:
+- **`SlideDeck.js`**  
+  - Laadt de juiste slides op basis van de geselecteerde maand en jaar (via URL).  
+  - Beheert state voor de huidige slide en maand.  
+  - Verwerkt navigatie via toetsenbord en swipe-acties.  
 
-2. **Slide.js**  
-   - Rendert individuele slides op basis van hun `type` (`heading`, `youtube`, `paragraph`).
+- **`Slide.js`**  
+  - Renders individuele slides.  
+  - Ondersteunt Markdown en YouTube embeds.  
 
-3. **DarkModeToggle.js**  
-   - Schakelt tussen light en dark mode.
-
-4. **MonthSelector.js**  
-   - Dropdown om te wisselen tussen verschillende maanden (geladen uit `available-months.json`).
-
----
-
-## 📂 Data Management
-
-- **Slides**: Geleverd via JSON-bestanden (`slides-YYYY-MM.json`).  
-- **Maandselector**: Dynamisch gegenereerd uit `available-months.json`.  
-- **Routing**:  /slides/:year/:month/:slug
+- **`MonthSelector.js`**  
+  - Dropdown component voor het selecteren van een maand om slides te tonen.  
 
 ---
 
+### Deploy Proces:
+1. **Build en Deploy**  
+   Bij elke `pnpm run deploy` wordt de app gebouwd en wordt de output naar de `docs/` map verplaatst.  
+   GitHub Pages leest deze map om de site te hosten.  
 
-## 🛠️ Build- en Deployproces
+2. **_redirects Bestanden**  
+   Dit bestand zorgt ervoor dat interne routes (bijvoorbeeld `/slides/2024/12/start`) correct worden afgehandeld als de gebruiker direct naar een URL navigeert.  
 
-- **Builden voor productie**:  
+---
 
-```bash
+### 📂 Belangrijke Bestanden
 
-pnpm run build
-
-```
-
-## 🌍 Deployment en Hosting
-
-De applicatie wordt gedeployed naar GitHub Pages door gebruik te maken van het gh-pages pakket.
-Het script pnpm run deploy zorgt voor het builden van de applicatie en pushen van de build/ map naar de gh-pages branch.
-
-## 🔧 Ontwikkelomgeving en Configuratie
-
-- Pakketbeheer: pnpm wordt gebruikt om pakketten te beheren en dependency-resolutie te optimaliseren.
-- Browserversies: De applicatie ondersteunt de laatste versies van Chrome, Firefox en Safari.
-- Configuratie in browserslist binnen package.json.
- - Configuratie in browserslist binnen package.json.
-
+- **`docs/`** – Productie build voor GitHub Pages.  
+- **`generateAvailableMonths.js`** – Genereert automatisch een lijst van beschikbare JSON slide-bestanden.  
+- **`public/data/`** – Bevat alle slide JSON-bestanden en wordt direct gelezen door de applicatie.  
 
 ---
 
@@ -121,3 +74,16 @@ Het script pnpm run deploy zorgt voor het builden van de applicatie en pushen va
 - **React Swipeable** verbetert de mobiele gebruikerservaring.  
 - **Prettier** zorgt voor consistente code en helpt technische schulden te minimaliseren.  
 - **gh-pages** maakt deployment naar GitHub Pages snel en eenvoudig.  
+
+
+---
+
+## 🚨 Let Op
+- **Production Path:** In productie worden afbeeldingen en JSON bestanden geladen vanaf `/cool-uncool/`.  
+- **Lokaal Path:** Voor localhost wordt `/data/` en `/images/` zonder `/cool-uncool/` gebruikt.  
+
+```javascript
+const getBasePath = () => {
+  return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
+};
+```

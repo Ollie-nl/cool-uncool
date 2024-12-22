@@ -106,41 +106,33 @@ slides-YYYY-MM.json
 
 ---
 
-## 🌍 Deployment via GitHub Pages
+## 🌍 Deployment via GitHub Pages (Met DOCS map)
 
-1. Stel in package.json het homepage-veld in:
+De app wordt automatisch gedeployed naar GitHub Pages.
+De output wordt geplaatst in de docs/ map en GitHub Pages haalt de inhoud direct daaruit.
 
-````json
- "homepage": "https://<JOUW-GEBRUIKERSNAAM>.github.io/<REPO-NAAM>"
+### Deploy Stappen:
 
-````
-
-2. Voeg de volgende scripts toe in package.json: 
-
-````json
-
-"scripts": { "predeploy": "pnpm run build", "deploy": "gh-pages -d build" }
-
-````
-
-3. Installeer gh-pages (indien niet aanwezig):
+1. Maak een productie build en deploy:
 
 ````bash
-
- pnpm install gh-pages --save-dev  
-
-````
-
-4. Deploy de app:
-````bash
-
-pnpm run deploy 
+ pnpm run deploy
 
 ````
+---
 
-   GitHub Pages zal de gh-pages branch gebruiken om je app te hosten.
+2. Website wordt gedeployed op
 
-#### GitHub Pages zal automatisch de gh-pages branch gebruiken om je applicatie te hosten.
+[Cool Uncool op GitHub](https://ollie-nl.github.io/cool-uncool/)
+
+---
+
+
+## 🔧 Belangrijke Scripts
+
+- pnpm start (Start de development server op localhost)
+- pnpm run build  (Maakt een productie build en plaatst deze in de docs/ map)
+- pnpm run deploy  (Voert een build uit en pusht deze naar de main branch voor GitHub Pages)
 
 ---
 
@@ -148,29 +140,34 @@ pnpm run deploy
 
 ```
 cool-uncool/
-├── public/
-│   ├── index.html          # HTML root-bestand
-│   ├── favicon.ico         # Favicon
-│   ├── data
-│   │   ├── slides-2024-12.json # Maandelijkse slides
-│   │   └── available-months.json # Dynamisch gegenereerde lijst        
-│   └── ...                 # Andere statische bestanden
-├── src/
+├── public/               # Statische bestanden (favicon, afbeeldingen)
+│   ├── images/
+│   ├── data/             # JSON data voor slides
+│   └── _redirects        # Netlify redirect of GH Pages SPA fix
+├── src/                  # React broncode
 │   ├── components/
-│   │   ├── SlideDeck.js    # Hoofdcomponent voor slides
-│   │   ├── Slide.js        # Component voor individuele slides
-│   │   └── DarkModeToggle/ # Dark mode toggle component + CSS
-│   ├── data/
-│   │   ├── slides-2024-12.json # Maandelijkse slides
-│   │   └── available-months.json # Dynamisch gegenereerde lijst
+│   ├── data/             # JSON slide data (alleen lokaal)
 │   ├── styles/
-│   │   └── index.css       # Globale stijlen
+│   └── App.js
+├── docs/                 # Gebouwde productie bestanden (voor GH Pages)
+├── generateAvailableMonths.js  # Script om beschikbare maanden te genereren
 │   └── ...                 # Overige React-bestanden
 ├── package.json            # Projectafhankelijkheden en scripts
 └── README.md               # Documentatie
 
 ```
+
 ---
+
+## ⚠️ Problemen oplossen
+
+- Geen slides beschikba-r: Zorg dat de JSON-bestanden in public/data/ correct zijn.
+- Afbeeldingen laden niet op GH Pages: Controleer of de paden naar afbeeldingen beginnen met /cool-uncool/ in productie.
+- 404 op GitHub Pages: Controleer of het _redirects bestand correct wordt gekopieerd naar de docs/ map na elke build.
+
+---
+
+
 
 ## 📜 **Licentie**
 
