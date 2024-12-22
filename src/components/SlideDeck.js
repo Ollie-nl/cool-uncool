@@ -23,6 +23,12 @@ const SlideDeck = () => {
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
+  // Random slide
+  const goToRandomSlide = () => {
+    const randomIndex = Math.floor(Math.random() * slides.length);
+    goToSlide(randomIndex);
+  };
+
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
     const fetchMonths = async () => {
@@ -133,16 +139,23 @@ const SlideDeck = () => {
         <div className="no-slides">Geen slides beschikbaar.</div>
       )}
       {slides.length > 0 && (
-        <div className="slide-counter">
-          <MonthSelector
-            months={months}
-            selectedMonth={`${year}-${month}`}
-            onSelect={handleMonthSelect}
-          />
-          <div className="counter-text">
-            Slide {currentSlide + 1} van {slides.length}
+       <div className="slide-counter">
+        <div className="footer-controls">
+          <div className="month-selector">
+            <MonthSelector
+              months={months}
+              selectedMonth={`${year}-${month}`}
+              onSelect={handleMonthSelect}
+            />
           </div>
+          <button className="footer-button" onClick={goToRandomSlide}>
+            🎲 Random Slide
+          </button>
         </div>
+        <div className="counter-text">
+          Slide {currentSlide + 1} van {slides.length}
+        </div>
+     </div>
       )}
     </div>
   );
