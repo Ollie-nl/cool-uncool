@@ -1,15 +1,17 @@
+/* ========== Algemene Reset ========== */
 html,
 body,
 #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%; /* Zorg dat het de volledige breedte inneemt */
+  width: 100%;
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* Zorg dat alles binnen root correct uitlijnt */
+  flex-direction: column;
 }
 
+/* ========== Algemene Body Stijlen ========== */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -17,16 +19,15 @@ body {
   align-items: center;
   background-color: #f4f4f9;
   color: #333;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ========== Slide Structuur ========== */
 .slide {
   margin: auto;
   width: 100%;
   text-align: center;
-  padding-block-start: 1rem;
+  padding-top: 1rem;
 }
 
 .slide p {
@@ -34,7 +35,7 @@ body {
   line-height: 1.5;
   width: 70%;
   margin: auto;
-  padding-block-end: 1rem;
+  padding-bottom: 1rem;
 }
 
 .slide h2 {
@@ -56,67 +57,100 @@ body {
   text-decoration: underline;
 }
 
-/* Light mode (default kleuren) */
+/* ========== Modus Stijlen (Dark/Light Mode) ========== */
 .light-mode {
   background-color: #f4f4f9;
   color: #333;
 }
 
-/* Dark mode kleuren */
 .dark-mode {
   background-color: #121212;
   color: #fff;
 }
 
+/* ========== Video Container ========== */
 .video-container {
-  width: 70%; /* 80% van de beschikbare ruimte */
-  max-width: 1400px; /* Optionele maximale breedte */
-  margin: 0 auto; /* Centreer de video-container */
-  aspect-ratio: 16 / 9; /* Behoud de 16:9-verhouding */
-  position: relative; /* Nodig voor de iframe */
+  width: 70%;
+  max-width: 1400px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  position: relative;
 }
 
 .video-container iframe {
-  width: 100%; /* Vul de container volledig */
-  height: 100%; /* Past zich aan op basis van de aspect-ratio */
-  border: none; /* Geen rand */
-  position: relative; /* Positioneer binnen de container */
-  top: 0; /* Zorg ervoor dat het iframe correct uitlijnt */
-  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
+/* ========== Typografie ========== */
 h2 {
-  margin-bottom: 1 rem; /* Ruimte tussen titel en iframe */
-  font-size: 1.5rem; /* Maak de titel groter */
-  text-align: center; /* Centreer de titel */
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 p,
 h1 {
   margin: 0;
   padding: 0 0 2rem 0;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
+/* ========== Herbruikbare Knoppen ========== */
+.button,
+.control-button,
+.dark-mode-toggle,
+.footer-button {
+  background-color: var(--toggle-bg, #fff);
+  color: var(--toggle-color, #333);
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.button:hover,
+.control-button:hover,
+.dark-mode-toggle:hover,
+.footer-button:hover, .month-selector:hover  {
+  transform: scale(1.05);
+}
+
+/* ========== Flex Containers ========== */
+.control-container,
+.footer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ========== Slide Deck Structuur ========== */
 .slide-deck {
   position: relative;
-  width: 100%; /* Maak het beeldvullend */
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ========== Slide Teller in Footer ========== */
 .slide-counter {
   display: flex;
   position: fixed;
   align-items: center;
-  justify-content: space-between; /* Ruimte tussen de selector en de teller */
+  justify-content: space-between;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -125,13 +159,12 @@ h1 {
   color: white;
   padding: 10px 0;
   font-size: 14px;
-  box-sizing: border-box; /* Zorg dat padding niet buiten de breedte komt */
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .counter-text {
-  flex: 1; /* Maakt ruimte voor centrering */
+  flex: 1;
   text-align: center;
   font-weight: normal;
 }
@@ -141,11 +174,12 @@ h1 {
   color: #333;
 }
 
+/* ========== Slide Icon Styling ========== */
 .slide-icon {
   text-align: center;
-  font-size: 2rem; /* Maak de emoji groot */
-  margin-block-end: 1rem;
-  padding-inline-end: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
 }
 
 .slide p img {
@@ -154,40 +188,11 @@ h1 {
   object-fit: contain;
 }
 
-/* Zon/Maan Toggle */
+/* ========== Dark Mode Toggle Styling ========== */
 .dark-mode-toggle {
-  position: fixed; /* Zorgt ervoor dat het altijd op dezelfde plek blijft */
-  top: 10px; /* Afstand van de bovenkant */
-  right: 10px; /* Afstand van de rechterkant */
-  background-color: var(--toggle-bg, #fff);
-  color: var(--toggle-color, #333);
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.2s;
-}
-
-.dark-mode-toggle:hover {
-  transform: scale(1.05);
-}
-
-.dark-mode-toggle .icon {
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-}
-
-.dark-mode-toggle .label {
-  font-size: 14px;
-  font-weight: bold;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
 
 .dark-mode-toggle.dark {
@@ -198,4 +203,43 @@ h1 {
 .dark-mode-toggle.light {
   --toggle-bg: #fff;
   --toggle-color: #333;
+}
+
+/* ========== Footer Controls (Random Slide + Month Selector) ========== */
+.footer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 20px;
+  padding-inline-end: 10px;
+}
+
+/* ========== Month Selector Dropdown ========== */
+.month-selector {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.month-label {
+  display: none;
+}
+
+.month-dropdown {
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 13px;
+  background-color: var(--toggle-bg, #fff);
+  color: var(--toggle-color, #333);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.month-dropdown:focus {
+  outline: none;
+  border-color: #666;
 }
