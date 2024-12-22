@@ -3,17 +3,15 @@ import { useSwipeable } from "react-swipeable";
 import { useParams, useNavigate } from "react-router-dom";
 import Slide from "./Slide";
 import DarkModeToggle from "./DarkModeToggle/DarkModeToggle";
-import MonthSelector from "./MonthSelector/MonthSelector";  // Importeer de selector
-import availableMonths from "../data/available-months.json"; // Laad beschikbare maanden
-
+import MonthSelector from "./MonthSelector/MonthSelector";
 
 const SlideDeck = () => {
-  const { year, month, slug } = useParams();  // Haal year, month en slug uit de URL
+  const { year, month, slug } = useParams();
   const navigate = useNavigate();
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [months] = useState(availableMonths.months || []);
+  const [months, setMonths] = useState([]);
 
   // Maand selecteren en redirecten
   const handleMonthSelect = (selectedMonth) => {
@@ -21,18 +19,31 @@ const SlideDeck = () => {
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
-  // Log params voor debugging
-  console.log("Params ontvangen:", { year, month, slug });
+  // Laad de beschikbare maanden uit public/data
+  useEffect(() => {
+    const fetchMonths = async () => {
+      try {
+        const response = await fetch("/data/available-months.json");
+        if (!response.ok) throw new Error("available-months.json niet gevonden");
+        const data = await response.json();
+        setMonths(data.months || []);
+      } catch (error) {
+        console.error("Fout bij laden van maanden:", error);
+        setMonths([]);
+      }
+    };
 
+    fetchMonths();
+  }, []);
+
+  // Laad slides op basis van maand en jaar
   useEffect(() => {
     const loadSlides = async () => {
       try {
-        // Pad naar JSON-bestand bouwen
         const slidesPath = `/data/slides-${year}-${month}.json`;
         console.log("Fetching slides:", slidesPath);
 
         const response = await fetch(slidesPath);
-        
         if (!response.ok) {
           throw new Error(`Slidebestand niet gevonden: slides-${year}-${month}.json`);
         }
@@ -48,7 +59,6 @@ const SlideDeck = () => {
         if (slideIndex !== -1) {
           setCurrentSlide(slideIndex);
         } else {
-          // Fallback naar slide-1 als slug niet bestaat
           navigate(`/slides/${year}/${month}/slide-1`, { replace: true });
         }
       } catch (error) {
@@ -57,7 +67,6 @@ const SlideDeck = () => {
       }
     };
 
-    // Alleen laden als year en month beschikbaar zijn
     if (year && month) {
       loadSlides();
     }
@@ -105,9 +114,6 @@ const SlideDeck = () => {
         onToggle={() => setIsDarkMode((prev) => !prev)}
       />
 
-     {/* Month Selector in Footer */}
- 
-
       {slides.length > 0 ? (
         <Slide slide={slides[currentSlide]} isActive={true} />
       ) : (
@@ -118,16 +124,15 @@ const SlideDeck = () => {
       {slides.length > 0 && (
         <div className="slide-counter">
           <MonthSelector
-          months={months}
-          selectedMonth={`${year}-${month}`}
-          onSelect={handleMonthSelect}
-        />
+            months={months}
+            selectedMonth={`${year}-${month}`}
+            onSelect={handleMonthSelect}
+          />
           <div className="counter-text">
             Slide {currentSlide + 1} van {slides.length}
           </div>
         </div>
       )}
-
     </div>
   );
 };
