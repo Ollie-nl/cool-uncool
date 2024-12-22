@@ -18,11 +18,19 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 - **pnpm** – Pakketbeheerder voor snelle builds.
 - **Prettier** – Code formattering voor consistente stijl.
 
+### Waarom Deze Tools Belangrijk Zijn
+
+- **React** vormt de basis van de componenten en interacties.
+- **React Router Dom** maakt dynamische routing mogelijk op basis van URL's.
+- **React Swipeable** verbetert de mobiele gebruikerservaring.
+- **Prettier** zorgt voor consistente code en helpt technische schulden te minimaliseren.
+- **gh-pages** maakt deployment naar GitHub Pages snel en eenvoudig.
+
 ---
 
 ## 🏗️ Architectuur en Bestandstructuur
 
-### Belangrijkste Componenten:
+### 🧩 Belangrijkste Componenten:
 
 - **`SlideDeck.js`**
 
@@ -70,13 +78,6 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 - **CI/CD pipelines om automatisch te testen en te deployen bij iedere commit**.
 - **More, more, mmmmoooore...**.
 
-### 🙌🏼 Waarom Deze Tools Belangrijk Zijn
-
-- **React** vormt de basis van de componenten en interacties.
-- **React Router Dom** maakt dynamische routing mogelijk op basis van URL's.
-- **React Swipeable** verbetert de mobiele gebruikerservaring.
-- **Prettier** zorgt voor consistente code en helpt technische schulden te minimaliseren.
-- **gh-pages** maakt deployment naar GitHub Pages snel en eenvoudig.
 
 ---
 
