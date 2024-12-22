@@ -11,6 +11,7 @@ Dit document beschrijft de architectuur van de **Cool Uncool SlideDeck Webapp**.
 ## 🏗️ Architectuuroverzicht
 
 De Cool Uncool SlideDeck is een **React-applicatie** gebouwd met **pnpm** als package manager. De applicatie ondersteunt JSON-gedreven slides en maakt gebruik van `react-router-dom` voor client-side routing.
+
 De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van  JavaScript- en React-functionaliteiten. De slides worden beheerd via statische JSON-bestanden, en gebruikers kunnen eenvoudig tussen maanden wisselen met behulp van een dropdown-selector.
 
 ---
