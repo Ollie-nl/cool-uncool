@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cool-uncool/static/css/main.2a9063d3.css",
-    "main.js": "/cool-uncool/static/js/main.8670d009.js",
+    "main.js": "/cool-uncool/static/js/main.9e552774.js",
     "index.html": "/cool-uncool/index.html",
     "main.2a9063d3.css.map": "/cool-uncool/static/css/main.2a9063d3.css.map",
-    "main.8670d009.js.map": "/cool-uncool/static/js/main.8670d009.js.map"
+    "main.9e552774.js.map": "/cool-uncool/static/js/main.9e552774.js.map"
   },
   "entrypoints": [
     "static/css/main.2a9063d3.css",
-    "static/js/main.8670d009.js"
+    "static/js/main.9e552774.js"
   ]
 }
