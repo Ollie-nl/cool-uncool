@@ -9,97 +9,113 @@
       "type": "youtube",
       "url": "https://www.youtube.com/embed/tSLOgkNFzLc",
       "title": "The Ultimate Challenge with Lando Norris | LEGO Technic",
-      "icon": "🧸"
+      "icon": "🧸",
+      "slug": "ultimate-challenge-lego-technic"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/OGwm4aKzYgs",
       "title": "Batman Batmobile Crocs On Foot Review & Sizing: Step into Gotham",
-      "icon": "🩴"
+      "icon": "🩴",
+      "slug": "batmobile-crocs-review"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/q0tLND-o3WM",
       "title": "Next level costume",
-      "icon": "👻"
+      "icon": "👻",
+      "slug": "next-level-costume"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/n-BZ5-Q48lE",
       "title": "New NES Tetris Technique: Faster Than Hypertapping!",
-      "icon": "🕹️"
+      "icon": "🕹️",
+      "slug": "nes-tetris-technique"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/shorts/hbbzsIGoRWg",
       "title": "NBA Snapchat filter on audience",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "nba-snapchat-filter"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/_mbrWLV-p04 ",
+      "url": "https://www.youtube.com/embed/_mbrWLV-p04",
       "title": "Extreme Post-its",
-      "icon": "✍🏼"
+      "icon": "✍🏼",
+      "slug": "extreme-post-its"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/w7saxMRlQcY",
       "title": "Toilet with the best view",
-      "icon": "🌱"
+      "icon": "🌱",
+      "slug": "toilet-best-view"
     },
     {
       "type": "paragraph",
       "content": "https://subsites.wur.nl/nl/display-on-pages/artikel/new-dawn-bio-hout-uit-het-lab.htm\n[New Dawn Bio](https://www.newdawnbio.com)",
       "title": "Kweek hout",
-      "icon": "🔬"
+      "icon": "🔬",
+      "slug": "kweek-hout"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/799W-aRTKPM",
       "title": "Cosm Los Angeles, Hollywood Park (Shared Reality)",
-      "icon": "🍿"
+      "icon": "🍿",
+      "slug": "cosm-los-angeles"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/MkrVZ2jzCco",
       "title": "Thailand Jungle Bubbles",
-      "icon": "🏖️"
+      "icon": "🏖️",
+      "slug": "thailand-jungle-bubbles"
     },
     {
       "type": "paragraph",
       "content": "https://www.kijkmagazine.nl/science/spinnen-vuurvliegjes/",
       "title": "Spin kaapt lichtflitsen van vuurvliegjes om meer prooien te lokken",
-      "icon": "🌱"
+      "icon": "🌱",
+      "slug": "spin-vuurvliegjes"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/OmcM683JIgU",
       "title": "This robotic extra thumb can be controlled by moving your toes",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "robotic-extra-thumb"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/SjsTzWXPBLM",
       "title": "The Dragon Drone - An Innovative Drone From The University of Tokyo",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "dragon-drone-tokyo"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/p8JnKgXZQ9A",
       "title": "Fully-Automatic Robot Dentist Performs World's First Human Procedure!",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "robot-dentist-procedure"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/Zz8xPxXf_X8",
       "title": "Lionel Messi in 80s dancing on Modern talking",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "messi-modern-talking"
     },
     {
       "type": "paragraph",
       "content": "### Rolbeschrijving (aanvullingen):\n- Je bent opgegroeid in een multiculturele wijk.\n- Je hebt een kleine vriendenkring.\n- Je bent geïnteresseerd in hiphop en straatcultuur.\n\n**Instructies:**\n- Gebruik informele taal.\n- Voeg waar passend Utrechts dialect of straattaal toe.\n- Wees sceptisch over initiatieven van de overheid.",
       "title": "Demo Persona via ChatGPT o1-preview",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "persona-chatgpt-preview"
     }
   ]
 }

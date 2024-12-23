@@ -57,10 +57,9 @@ const SlideDeck = () => {
   const goToRandomSlideFromAll = async () => {
     const allSlides = await loadAllSlides();
     
-    // Exclude de eerste slide van elke JSON
-    const filteredSlides = allSlides.filter((slide, index) => index > 0 && slide.slug !== 'start');
-    console.log(filteredSlides);
-
+    // Filter alle slides die niet 'start' zijn
+    const filteredSlides = allSlides.filter(slide => slide.slug !== 'start');
+  
     if (filteredSlides.length > 0) {
       const randomIndex = Math.floor(Math.random() * filteredSlides.length);
       const randomSlide = filteredSlides[randomIndex];
@@ -68,16 +67,12 @@ const SlideDeck = () => {
       // Splits de maand (bijv. 2024-12 -> 2024/12)
       const [year, month] = randomSlide.month.split('-');
       navigate(`/slides/${year}/${month}/${randomSlide.slug}`);
-
-    console.log(filteredSlides);
-    console.log(allSlides);
-  } 
-    else {
+    } else {
       console.log("Geen geldige slides gevonden.");
     }
   };
   
-
+  
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
     const fetchMonths = async () => {

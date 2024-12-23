@@ -44,31 +44,36 @@
       "type": "youtube",
       "url": "https://www.youtube.com/embed/Gnw3efuvj2U",
       "title": "Solving Rubiks Cube together",
-      "icon": "🇨🇳"
+      "icon": "🇨🇳",
+      "slug": "rubiks-cube"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/shorts/HKOp5fZB9So",
       "title": "Flying with Jet Suit",
-      "icon": "🦸🏻‍♂️"
+      "icon": "🦸🏻‍♂️",
+      "slug": "jet-suit"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/vDD1qTWF7eM",
       "title": "Ice is back with a brand new invention!",
-      "icon": "🥶"
+      "icon": "🥶",
+      "slug": "ice-ice-baby"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/5NVCo9WYCSE",
       "title": "De-constructed Mercedes F1 car",
-      "icon": "🏎️"
+      "icon": "🏎️",
+      "slug": "mercedes-f1"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/h2S802364do",
       "title": "Chinese ice cream machine",
-      "icon": "🍦"
+      "icon": "🍦",
+      "slug": "ice-cream"
     },
     {
       "type": "youtube",
@@ -81,13 +86,15 @@
       "type": "youtube",
       "url": "https://www.youtube.com/embed/WlUFoZstcWg",
       "title": "Figure Status Update - BMW Use Case",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "figure-bmw"
     },
     {
       "type": "youtube",
       "url": " https://www.youtube.com/embed/S9L2WGf1KrM",
       "title": "Introducing NVIDIA Jetson Orin™ Nano Super: The World/’s Most Affordable Generative AI Computer",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "nvidia-jetson"
     },
     {
       "type": "youtube",
