@@ -23,61 +23,6 @@ const SlideDeck = () => {
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
-  const loadAllSlides = async () => {
-    try {
-      const response = await fetch(
-        `${getBasePath()}/data/available-months.json`,
-      );
-      if (!response.ok) throw new Error("available-months.json niet gevonden");
-      const { months } = await response.json();
-
-      let allSlides = [];
-
-      // Loop door alle maanden en laad de slides
-      for (const month of months) {
-        const slidesPath = `${getBasePath()}/data/slides-${month}.json`;
-        const slideResponse = await fetch(slidesPath);
-        if (slideResponse.ok) {
-          const { slides } = await slideResponse.json();
-          // Filter startpagina's eruit
-          const filteredSlides = slides.filter(
-            (slide) => slide.slug !== "start",
-          );
-          allSlides = [
-            ...allSlides,
-            ...filteredSlides.map((slide) => ({
-              ...slide,
-              month,
-            })),
-          ];
-        }
-      }
-
-      return allSlides;
-    } catch (error) {
-      console.error("Fout bij laden van alle slides:", error);
-      return [];
-    }
-  };
-  // Random slide
-  const goToRandomSlideFromAll = async () => {
-    const allSlides = await loadAllSlides();
-
-    // Filter alle slides die niet 'start' zijn
-    const filteredSlides = allSlides.filter((slide) => slide.slug !== "start");
-
-    if (filteredSlides.length > 0) {
-      const randomIndex = Math.floor(Math.random() * filteredSlides.length);
-      const randomSlide = filteredSlides[randomIndex];
-
-      // Splits de maand (bijv. 2024-12 -> 2024/12)
-      const [year, month] = randomSlide.month.split("-");
-      navigate(`/slides/${year}/${month}/${randomSlide.slug}`);
-    } else {
-      console.log("Geen geldige slides gevonden.");
-    }
-  };
-
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
     const fetchMonths = async () => {
@@ -189,18 +134,11 @@ const SlideDeck = () => {
       )}
       {slides.length > 0 && (
         <div className="slide-counter">
-          <div className="footer-controls">
-            <div className="month-selector">
-              <MonthSelector
-                months={months}
-                selectedMonth={`${year}-${month}`}
-                onSelect={handleMonthSelect}
-              />
-            </div>
-            <button className="footer-button" onClick={goToRandomSlideFromAll}>
-              🎲 Random Slide
-            </button>
-          </div>
+          <MonthSelector
+            months={months}
+            selectedMonth={`${year}-${month}`}
+            onSelect={handleMonthSelect}
+          />
           <div className="counter-text">
             Slide {currentSlide + 1} van {slides.length}
           </div>
@@ -209,5 +147,4 @@ const SlideDeck = () => {
     </div>
   );
 };
-
 export default SlideDeck;
