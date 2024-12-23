@@ -7,51 +7,87 @@
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/Q1Cd5L_qVwQ",
-      "title": "Godzilla coinbank",
-      "icon": "🧸"
+      "url": "https://www.youtube.com/embed/XAgittWbQ5I",
+      "title": "Squid game clock, Annemaria koekoek",
+      "icon": "🕰️",
+      "slug": "godzilla-coinbank"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/MO9ijt1IpmE",
-      "title": "Lego Brickit App (by Jeff 💙)",
-      "icon": "🧸"
+      "url": "https://www.youtube.com/embed/iEgb4zSovpY",
+      "title": "Spiderman web shooter",
+      "icon": "🕷️",
+      "slug": "spiderman-web-shooter"
+    },
+    {
+      "type": "paragraph",
+      "title": "Nieuw Superman Logo",
+      "content": "![Superman Logos](/images/superman-logos.png) /n ![Superman Logos](/images/logo-sm-1.png) /n ![Superman Logos](/images/logo-sm-2.png)",
+      "icon": "🦸",
+      "slug": "superman-logo"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/svkUIJedyS8",
-      "title": "Converse Dungeons & Dragons",
-      "icon": "👟"
+      "url": "https://www.youtube.com/embed/QvRtMufy4Y0",
+      "title": "Nanoleaf Skylight | Take Your Lighting to New Heights",
+      "icon": "💡",
+      "slug": "nanoleaf-skylight"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/mWBa8-vAF2E",
-      "title": "Russia Amber elektrische auto",
-      "icon": "🚗"
+      "url": "https://www.youtube.com/embed/CExCUcy2_do",
+      "title": "Deep Dive Dubai - The World's Deepest Pool (60m)",
+      "icon": "🤿",
+      "slug": "deep-dive-dubai"
+    },
+    {
+      "type": "paragraph",
+      "content": "https://nl.aliexpress.com/item/1005006317368098.html?src=google&src=google&albch=shopping&acnt=494-037-6276&slnk=&plac=&mtctp=&albbt=Google_7_shopping&albagn=888888&isSmbAutoCall=false&needSmbHouyi=false&albcp=19207420692&albag=&trgt=&crea=nl1005006317368098&netw=x&device=m&albpg=&albpd=nl1005006317368098&gad_source=1&gbraid=0AAAAADznYb9d8AMnljkF0bcsKL6bApeDM&gclid=Cj0KCQjwqdqvBhCPARIsANrmZhMwO305LecA-NUYG8jEd7HEfrT5MetCYy4xe52QqjgeTsko9jrFA1UaAvFMEALw_wcB&gclsrc=aw.ds&aff_fcid=9c445310a80f43e0b977a3d62d2435e2-1710710065170-04586-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=9c445310a80f43e0b977a3d62d2435e2-1710710065170-04586-UneMJZVf&terminal_id=59ac135a566c4015a6e8918d52cef749&afSmartRedirect=y",
+      "title": "Aliexpress huis K-cloud",
+      "icon": "🏠",
+      "slug": "aliexpress-huis-k-cloud"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/XPwXIPpPImM",
-      "title": "MuxWave raamscherm",
-      "icon": "🪟"
+      "url": "https://www.youtube.com/embed/M0uBt0UQdG0",
+      "title": "Lenovo Project crystal laptop",
+      "icon": "💻",
+      "slug": "lenovo-project-crystal-laptop"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/Y-rwv4jhrg4",
-      "title": "Disney (research) Holotile Floor",
-      "icon": "🤖"
+      "url": "https://www.youtube.com/embed/XsbfrjlVZYA",
+      "title": "Cling Ban",
+      "icon": "⌚️",
+      "slug": "cling-ban"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/3xPac81D4Kw",
-      "title": "“The Line” Saudi Arabia",
-      "icon": "🌆"
+      "url": "https://www.youtube.com/embed/FN_2AcoNcww",
+      "title": "Samsung Galaxy Ring - Official First Look!",
+      "icon": "💍",
+      "slug": "samsung-galaxy-ring"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/29ECwExc-_M",
-      "title": "Boston Dynamics nieuwe Atlas robot",
-      "icon": "🤖"
+      "url": "https://www.youtube.com/embed/E1zcJNFUxhE",
+      "title": "Honda Hands Free wheelchair",
+      "icon": "🦽",
+      "slug": "honda-hands-free-wheelchair"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/AgyJv2Qelwk",
+      "title": "Devin AI",
+      "icon": "🤖",
+      "slug": "devin-ai"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/Sq1QZB5baNw",
+      "title": "Figure 01 Update",
+      "icon": "🤖",
+      "slug": "figure-01-update"
     }
   ]
 }

@@ -113,13 +113,18 @@ h1 {
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.2s;
+
 }
 
 .button:hover,
 .control-button:hover,
 .dark-mode-toggle:hover,
-.footer-button:hover, .month-selector:hover  {
+.footer-button:hover,
+.month-selector:hover {
   transform: scale(1.05);
 }
 
@@ -160,7 +165,9 @@ h1 {
   padding: 10px 0;
   font-size: 14px;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .counter-text {
@@ -236,7 +243,10 @@ h1 {
   background-color: var(--toggle-bg, #fff);
   color: var(--toggle-color, #333);
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
 }
 
 .month-dropdown:focus {
