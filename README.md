@@ -167,6 +167,7 @@ cool-uncool/
 ---
 
 ## 🏅 Semantic Versioning
+
 We gebruiken Semantic Versioning (SemVer) om releases te beheren:
 
 1.0.0 = Major.Minor.Patch
@@ -179,6 +180,7 @@ git tag v1.0.0
 git push origin v1.0.0
 
 ```
+
 ## Commit Message Conventies
 
 ```bash
@@ -192,6 +194,7 @@ git commit -m "style: Styling aan gebracht"
 ```
 
 ## Release Draaiend Houden (Tags & Releases)
+
 ```bash
 git tag -a v1.1.0 -m "Release 1.1.0 - Nieuwe slides en dark mode"
 git push origin v1.1.0
@@ -210,12 +213,11 @@ git push origin v1.1.0
 #### Verhoog de versie bij elke release:
 
 ```json
-
 {
   "version": "1.1.0"
 }
-
 ```
+
 #### Gebruik de volgende commando's:
 
 ```bash
@@ -225,6 +227,7 @@ npm version minor  # Nieuwe feature
 npm version major  # Brekende verandering
 
 ```
+
 #### Push tags automatisch mee:
 
 ```bash

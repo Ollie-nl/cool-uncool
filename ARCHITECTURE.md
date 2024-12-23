@@ -78,7 +78,6 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 - **CI/CD pipelines om automatisch te testen en te deployen bij iedere commit**.
 - **More, more, mmmmoooore...**.
 
-
 ---
 
 ## 🚨 Let Op

@@ -9,7 +9,7 @@
     "deploy": "pnpm run build && git add docs && git commit --allow-empty -m 'Deploy to GitHub Pages' && git push origin main",
     "prettier": "prettier --write .",
     "generate-months": "node generateAvailableMonths.js",
-     "test": "jest"
+    "test": "jest"
   },
   "dependencies": {
     "@deckdeckgo/core": "^10.0.1",

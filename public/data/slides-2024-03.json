@@ -20,11 +20,11 @@
       "slug": "spiderman-web-shooter"
     },
     {
-    "type": "paragraph",
-    "title": "Nieuw Superman Logo",
-    "content": "![Superman Logos](/images/superman-logos.png) /n ![Superman Logos](/images/logo-sm-1.png) /n ![Superman Logos](/images/logo-sm-2.png)",
-    "icon": "🦸",
-    "slug": "superman-logo"
+      "type": "paragraph",
+      "title": "Nieuw Superman Logo",
+      "content": "![Superman Logos](/images/superman-logos.png) /n ![Superman Logos](/images/logo-sm-1.png) /n ![Superman Logos](/images/logo-sm-2.png)",
+      "icon": "🦸",
+      "slug": "superman-logo"
     },
     {
       "type": "youtube",
