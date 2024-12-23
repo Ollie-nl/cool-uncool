@@ -9,49 +9,57 @@
       "type": "youtube",
       "url": "https://www.youtube.com/embed/Q1Cd5L_qVwQ",
       "title": "Godzilla coinbank",
-      "icon": "🧸"
+      "icon": "🧸",
+      "slug": "godzilla-coinbank"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/MO9ijt1IpmE",
       "title": "Lego Brickit App (by Jeff 💙)",
-      "icon": "🧸"
+      "icon": "🧸",
+      "slug": "lego-brickit-app"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/svkUIJedyS8",
       "title": "Converse Dungeons & Dragons",
-      "icon": "👟"
+      "icon": "👟",
+      "slug": "converse-dungeons-dragons"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/mWBa8-vAF2E",
       "title": "Russia Amber elektrische auto",
-      "icon": "🚗"
+      "icon": "🚗",
+      "slug": "russia-amber-elektrische-auto"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/XPwXIPpPImM",
       "title": "MuxWave raamscherm",
-      "icon": "🪟"
+      "icon": "🪟",
+      "slug": "muxwave-raamscherm"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/Y-rwv4jhrg4",
       "title": "Disney (research) Holotile Floor",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "disney-holotile-floor"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/3xPac81D4Kw",
       "title": "“The Line” Saudi Arabia",
-      "icon": "🌆"
+      "icon": "🌆",
+      "slug": "the-line-saudi-arabia"
     },
     {
       "type": "youtube",
       "url": "https://www.youtube.com/embed/29ECwExc-_M",
       "title": "Boston Dynamics nieuwe Atlas robot",
-      "icon": "🤖"
+      "icon": "🤖",
+      "slug": "boston-dynamics-atlas-robot"
     }
   ]
 }

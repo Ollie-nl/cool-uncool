@@ -23,11 +23,60 @@ const SlideDeck = () => {
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
-  // Random slide
-  const goToRandomSlide = () => {
-    const randomIndex = Math.floor(Math.random() * slides.length);
-    goToSlide(randomIndex);
+  const loadAllSlides = async () => {
+    try {
+      const response = await fetch(`${getBasePath()}/data/available-months.json`);
+      if (!response.ok) throw new Error("available-months.json niet gevonden");
+      const { months } = await response.json();
+  
+      let allSlides = [];
+  
+      // Loop door alle maanden en laad de slides
+      for (const month of months) {
+        const slidesPath = `${getBasePath()}/data/slides-${month}.json`;
+        const slideResponse = await fetch(slidesPath);
+        if (slideResponse.ok) {
+          const { slides } = await slideResponse.json();
+          // Filter startpagina's eruit
+          const filteredSlides = slides.filter(slide => slide.slug !== 'start');
+          allSlides = [...allSlides, ...filteredSlides.map(slide => ({
+            ...slide,
+            month,
+          }))];
+        }
+      }
+  
+      return allSlides;
+      
+    } catch (error) {
+      console.error("Fout bij laden van alle slides:", error);
+      return [];
+    }
   };
+  // Random slide
+  const goToRandomSlideFromAll = async () => {
+    const allSlides = await loadAllSlides();
+    
+    // Exclude de eerste slide van elke JSON
+    const filteredSlides = allSlides.filter((slide, index) => index > 0 && slide.slug !== 'start');
+    console.log(filteredSlides);
+
+    if (filteredSlides.length > 0) {
+      const randomIndex = Math.floor(Math.random() * filteredSlides.length);
+      const randomSlide = filteredSlides[randomIndex];
+  
+      // Splits de maand (bijv. 2024-12 -> 2024/12)
+      const [year, month] = randomSlide.month.split('-');
+      navigate(`/slides/${year}/${month}/${randomSlide.slug}`);
+
+    console.log(filteredSlides);
+    console.log(allSlides);
+  } 
+    else {
+      console.log("Geen geldige slides gevonden.");
+    }
+  };
+  
 
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
@@ -78,7 +127,7 @@ const SlideDeck = () => {
           navigate(`/slides/${year}/${month}/slide-1`, { replace: true });
         }
       } catch (error) {
-        console.error(`Slides niet gevonden voor ${year}-${month}:`, error);
+        console.error(`Slides niet gevonden voor ${year}/${month}:`, error);
         setSlides([]);
       }
     };
@@ -148,7 +197,7 @@ const SlideDeck = () => {
               onSelect={handleMonthSelect}
             />
           </div>
-          <button className="footer-button" onClick={goToRandomSlide}>
+          <button className="footer-button" onClick={goToRandomSlideFromAll}>
             🎲 Random Slide
           </button>
         </div>
