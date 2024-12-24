@@ -24,13 +24,8 @@ jobs:
           node-version: "18"
           cache: "pnpm"
 
-      - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8 # Gebruik de gewenste versie van PNPM
-
-      - name: 🚀 Install PNPM manually (fallback)
-        run: npm install -g pnpm
+      - name: 📦 Install PNPM (force)
+        run: npm install -g pnpm@8  # Forceer pnpm installatie
 
       - name: 📦 Install dependencies
         run: pnpm install
