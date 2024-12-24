@@ -39,9 +39,12 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install # Gebruik pnpm voor snelle dependency installatie
 
+      - name: 🗂️ Copy _redirects file
+        run: cp public/_redirects docs/_redirects
+
       # Draai tests voor de build (maar faal niet als tests falen)
       - name: 🧪 Run Tests
-        run: pnpm test || echo "Tests failed, but continuing build..."
+        run: pnpm test 
 
       # Bouw het project
       - name: 🔨 Build project

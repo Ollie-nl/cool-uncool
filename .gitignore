@@ -6,6 +6,9 @@ build/
 dist/
 docs/
 
+# Houd de productie build in de docs/ map bij
+!docs/
+
 # Logfiles
 npm-debug.log*
 pnpm-debug.log*
