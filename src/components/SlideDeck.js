@@ -23,6 +23,54 @@ const SlideDeck = () => {
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
+
+  const loadAllSlides = async () => {
+    try {
+      const response = await fetch(`${getBasePath()}/data/available-months.json`);
+      if (!response.ok) throw new Error("available-months.json niet gevonden");
+      const { months } = await response.json();
+  
+      let allSlides = [];
+  
+      // Loop door alle maanden en laad de slides
+      for (const month of months) {
+        const slidesPath = `${getBasePath()}/data/slides-${month}.json`;
+        const slideResponse = await fetch(slidesPath);
+        if (slideResponse.ok) {
+          const { slides } = await slideResponse.json();
+          // Filter de eerste slide eruit
+          const filteredSlides = slides.slice(1);
+          allSlides = [...allSlides, ...filteredSlides.map(slide => ({
+            ...slide,
+            month,
+          }))];
+        }
+      }
+  
+      return allSlides;
+      
+    } catch (error) {
+      console.error("Fout bij laden van alle slides:", error);
+      return [];
+    }
+  };
+
+  // Random slide
+  const goToRandomSlideFromAll = async () => {
+    const allSlides = await loadAllSlides();
+    
+    if (allSlides.length > 0) {
+      const randomIndex = Math.floor(Math.random() * allSlides.length);
+      const randomSlide = allSlides[randomIndex];
+  
+      const [year, month] = randomSlide.month.split('-');
+      navigate(`/slides/${year}/${month}/${randomSlide.slug}`);
+    } else {
+      console.log("Geen geldige slides gevonden.");
+    }
+  };
+  
+
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
     const fetchMonths = async () => {
@@ -117,6 +165,13 @@ const SlideDeck = () => {
     };
   }, [handleKeyDown]);
 
+  const renderSlideCounter = () => {
+    const remainingSlides = slides.length - (currentSlide + 1);
+    return remainingSlides > 0
+    ? `Nog ${remainingSlides} slide${remainingSlides !== 1 ? "s" : ""} te gaan`
+    : "Dit is de laatste slide";
+  };
+
   return (
     <div
       {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
@@ -134,13 +189,20 @@ const SlideDeck = () => {
       )}
       {slides.length > 0 && (
         <div className="slide-counter">
-          <MonthSelector
-            months={months}
-            selectedMonth={`${year}-${month}`}
-            onSelect={handleMonthSelect}
-          />
+          <div className="footer-controls">
+            <div className="month-selector">
+              <MonthSelector
+                months={months}
+                selectedMonth={`${year}-${month}`}
+                onSelect={handleMonthSelect}
+              />
+            </div>
+            <button className="footer-button" onClick={goToRandomSlideFromAll}>
+              🎲 Random Slide
+            </button>
+          </div>
           <div className="counter-text">
-            Slide {currentSlide + 1} van {slides.length}
+          {renderSlideCounter()}
           </div>
         </div>
       )}
