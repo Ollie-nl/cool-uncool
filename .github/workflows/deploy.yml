@@ -24,13 +24,12 @@ jobs:
           node-version: "18"
           cache: "npm"
 
-      # De gouden stap - handmatige installatie van pnpm
-      - name: 📦 Install PNPM (manually via npm)
-        run: npm install -g pnpm@8
+      - name: 📦 Install PNPM (direct binary)
+        run: |
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
 
-      # Voeg de installatie toe aan de PATH
       - name: ➕ Add PNPM to PATH
-        run: echo "$(npm root -g)/pnpm" >> $GITHUB_PATH
+        run: echo "~/.local/share/pnpm" >> $GITHUB_PATH
 
       - name: 📦 Install dependencies
         run: pnpm install
@@ -52,9 +51,25 @@ jobs:
           node-version: "18"
           cache: "npm"
 
-      # Zelfde PNPM installatie in de deploy job
-      - name: 📦 Install PNPM (manually via npm)
-        run: npm install -g pnpm@8
+      - name: 📦 Install PNPM (direct binary)
+        run: |
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
 
       - name: ➕ Add PNPM to PATH
-        run: echo "$(npm root -g)/pnpm" >> $GITHUB_PAT
+        run: echo "~/.local/share/pnpm" >> $GITHUB_PATH
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🗂️ Copy _redirects file
+        run: cp public/_redirects docs/_redirects || echo "No _redirects found"
+
+      - name: 🔨 Build project
+        run: pnpm run build
+
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: true
