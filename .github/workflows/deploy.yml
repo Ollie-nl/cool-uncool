@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main # Voer de workflow uit bij elke push naar main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write # Vereist om GitHub Pages te deployen
