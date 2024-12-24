@@ -172,6 +172,13 @@ const SlideDeck = () => {
     };
   }, [handleKeyDown]);
 
+  const renderSlideCounter = () => {
+    const remainingSlides = slides.length - (currentSlide + 1);
+    return remainingSlides > 0
+    ? `Nog ${remainingSlides} slide${remainingSlides !== 1 ? "s" : ""} te gaan`
+    : "Dit is de laatste slide";
+  };
+
   return (
     <div
       {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
@@ -202,7 +209,7 @@ const SlideDeck = () => {
             </button>
           </div>
           <div className="counter-text">
-            Slide {currentSlide + 1} van {slides.length}
+          {renderSlideCounter()}
           </div>
         </div>
       )}
