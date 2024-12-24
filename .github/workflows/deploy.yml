@@ -22,10 +22,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "pnpm"
+          cache: "npm"
 
-      - name: 📦 Install PNPM (force)
-        run: npm install -g pnpm@8  # Forceer pnpm installatie
+      - name: 🚀 Enable Corepack and Activate PNPM
+        run: corepack enable && corepack prepare pnpm@8.0.0 --activate
 
       - name: 📦 Install dependencies
         run: pnpm install
@@ -45,15 +45,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "pnpm"
+          cache: "npm"
 
-      - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: 🚀 Install PNPM manually (fallback)
-        run: npm install -g pnpm
+      - name: 🚀 Enable Corepack and Activate PNPM
+        run: corepack enable && corepack prepare pnpm@8.0.0 --activate
 
       - name: 📦 Install dependencies
         run: pnpm install
