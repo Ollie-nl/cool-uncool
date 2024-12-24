@@ -1,20 +1,14 @@
-name: 🚀 Deploy to GitHub Pages
-
 on:
   push:
     branches:
-      - main # Voer de workflow uit bij elke push naar main
+      - main
   pull_request:
     branches:
       - main
 
-permissions:
-  contents: write # Vereist om GitHub Pages te deployen
-
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest # Draai de pipeline op de nieuwste Ubuntu-versie
-
+  build-and-test:
+    runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -22,41 +16,51 @@ jobs:
       - name: 🏗️ Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Zorg ervoor dat de Node-versie klopt
-          cache: "pnpm" # Cache voor pnpm
+          node-version: "18"
+          cache: "pnpm"
 
-      # Installeer PNPM vóór het installeren van dependencies
       - name: 📦 Install PNPM
-        run: npm install -g pnpm # Installeer pnpm globaal
-
-      # Cache afhankelijkheden om builds te versnellen
-      - name: 📦 Cache dependencies
-        uses: actions/cache@v3
+        uses: pnpm/action-setup@v2
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
+          version: 8
 
-      # Installeer afhankelijkheden met PNPM
       - name: 📦 Install dependencies
-        run: pnpm install # Gebruik pnpm voor snelle dependency installatie
+        run: pnpm install
+
+      - name: 🧪 Run Tests
+        run: pnpm test
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🏗️ Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: 📦 Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 📦 Install dependencies
+        run: pnpm install
 
       - name: 🗂️ Copy _redirects file
-        run: cp public/_redirects docs/_redirects
+        run: cp public/_redirects docs/_redirects || echo "No _redirects found"
 
-      # Draai tests voor de build (maar faal niet als tests falen)
-      - name: 🧪 Run Tests
-        run: pnpm test 
-
-      # Bouw het project
       - name: 🔨 Build project
         run: pnpm run build
 
-      # Deploy naar GitHub Pages
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Gebruik de standaard GitHub token
-          publish_dir: ./docs # Map waarin de build staat na 'mv build docs'
-          keep_files: true # Behoud bestaande bestanden zoals _redirects
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: true
