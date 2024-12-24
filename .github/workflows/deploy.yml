@@ -29,6 +29,9 @@ jobs:
         with:
           version: 8 # Gebruik de gewenste versie van PNPM
 
+      - name: 🚀 Install PNPM manually (fallback)
+        run: npm install -g pnpm
+
       - name: 📦 Install dependencies
         run: pnpm install
 
@@ -53,6 +56,9 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
+
+      - name: 🚀 Install PNPM manually (fallback)
+        run: npm install -g pnpm
 
       - name: 📦 Install dependencies
         run: pnpm install
