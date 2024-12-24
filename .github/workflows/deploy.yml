@@ -24,8 +24,10 @@ jobs:
           node-version: "18"
           cache: "pnpm"
 
-      - name: 📦 Enable Corepack and Install PNPM
-        run: corepack enable && corepack prepare pnpm@8.0.0 --activate
+      - name: 📦 Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8 # Gebruik de gewenste versie van PNPM
 
       - name: 📦 Install dependencies
         run: pnpm install
@@ -47,8 +49,10 @@ jobs:
           node-version: "18"
           cache: "pnpm"
 
-      - name: 📦 Enable Corepack and Install PNPM
-        run: corepack enable && corepack prepare pnpm@8.0.0 --activate
+      - name: 📦 Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: 📦 Install dependencies
         run: pnpm install
