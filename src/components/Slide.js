@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
+import LazyLoad from 'react-lazyload';
 
 const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
@@ -76,19 +77,32 @@ const Slide = ({ slide, isActive }) => {
 
       {/* Paragraph with Markdown */}
       {slide.type === "paragraph" && (
-        <div>
-          <h1>
-            {slide.icon && <span className="slide-icon">{slide.icon}</span>}
-            {slide.title}
-          </h1>
-          <ReactMarkdown>
-            {slide.content.replace("/images", getImagePath("/images"))}
-          </ReactMarkdown>
-        </div>
+        <LazyLoad 
+          height={9000} 
+          offset={100} 
+          once 
+          placeholder={<div className="skeleton"></div>}
+        >
+          <div>
+            <h1>
+              {slide.icon && <span className="slide-icon">{slide.icon}</span>}
+              {slide.title}
+            </h1>
+            <ReactMarkdown>
+              {slide.content.replace("/images", getImagePath("/images"))}
+            </ReactMarkdown>
+          </div>
+        </LazyLoad>
       )}
 
-      {/* YouTube */}
-      {slide.type === "youtube" && (
+    {/* YouTube */}
+    {slide.type === "youtube" && (
+      <LazyLoad 
+        height={315} 
+        offset={100} 
+        once 
+        placeholder={<div className="skeleton"></div>}
+      >
         <div className="video-container">
           {slide.title && (
             <h1>
@@ -106,7 +120,8 @@ const Slide = ({ slide, isActive }) => {
             title={slide.title || "YouTube video"}
           ></iframe>
         </div>
-      )}
+      </LazyLoad>
+    )}
     </div>
   );
 };

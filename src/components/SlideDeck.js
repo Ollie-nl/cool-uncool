@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Slide from "./Slide";
 import DarkModeToggle from "./DarkModeToggle/DarkModeToggle";
 import MonthSelector from "./MonthSelector/MonthSelector";
+import LazyLoad from 'react-lazyload';
 
 const SlideDeck = () => {
   const { year, month, slug } = useParams();
