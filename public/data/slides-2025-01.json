@@ -7,156 +7,122 @@
     },
     {
       "type": "paragraph",
-      "content": "![Darth Vader Christmas](/images/darth-vader-xmas.jpeg)",
-      "title": "Luke, I am Father Christmas",
-      "icon": "🎄",
-      "slug": "star-wars"
+      "content": "![First computer bug](/images/bug.png)",
+      "title": "On September 9, 1947, a team of computer scientists and engineers reported the world's first computer bug. A bug is a flaw or glitch in a system.",
+      "icon": "🐛",
+      "slug": "first-computer-bug"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/e8fkkyB65CY",
-      "title": "The face bird feeder",
-      "icon": "🐦‍⬛",
-      "slug": "bird-feeder"
+      "url": "https://www.youtube.com/embed/umrosfVHN6k",
+      "title": "Typewriter Art",
+      "icon": "⌨️",
+      "slug": "typewriter-art"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/Hq-6wUWffkA",
-      "title": "Sir Nils Olav promoted to Brigadier by Norwegian King's Guard (Jeroen 🙌🏼)",
-      "icon": "🐧",
-      "slug": "sil-nils-olav"
+      "url": "https://www.youtube.com/embed/woeXcwEoHsk",
+      "title": "Figma Micro Creator keyboard unboxing (🙏🏼 Roze) ",
+      "icon": "⌨️",
+      "slug": "figma-micro-creator"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/M1pUPlEBw3I",
-      "title": "Japan's lazy man",
+      "url": "https://www.youtube.com/embed/Axtou59f0So",
+      "title": "The Englishwoman was needed by the city",
+      "icon": "🪡",
+      "slug": "englishwoman-city"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/V7vfjRq4Ie0",
+      "title": "White Ash & Walnut ",
+      "icon": "🪵",
+      "slug": "white-ash-walnut"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/embed/Zp17Vthagg0",
+      "title": "Gaki no Tsukai (ガキの使いやあらへんで, Downtown no Gaki no Tsukai ya Arahende!!)",
       "icon": "🇯🇵",
-      "slug": "japan-lazy"
+      "slug": "japanese-gymnastics"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/MLURvUibbZs",
-      "title": "Jellyfish lamp",
-      "icon": "💡",
-      "slug": "jellyfish-lamp"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/Gnw3efuvj2U",
-      "title": "Solving Rubiks Cube together",
-      "icon": "🇨🇳",
-      "slug": "rubiks-cube"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/shorts/HKOp5fZB9So",
-      "title": "Flying with Jet Suit",
-      "icon": "🦸🏻‍♂️",
-      "slug": "jet-suit"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/vDD1qTWF7eM",
-      "title": "Ice is back with a brand new invention!",
-      "icon": "🥶",
-      "slug": "ice-ice-baby"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/5NVCo9WYCSE",
-      "title": "De-constructed Mercedes F1 car",
-      "icon": "🏎️",
-      "slug": "mercedes-f1"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/h2S802364do",
-      "title": "Chinese ice cream machine",
-      "icon": "🍦",
-      "slug": "ice-cream"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/N04tSVPw9nU",
-      "title": "Why is the Hulk green",
-      "icon": "🟩",
-      "slug": "hulk-green"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/WlUFoZstcWg",
-      "title": "Figure Status Update - BMW Use Case",
-      "icon": "🤖",
-      "slug": "figure-bmw"
-    },
-    {
-      "type": "youtube",
-      "url": " https://www.youtube.com/embed/S9L2WGf1KrM",
-      "title": "Introducing NVIDIA Jetson Orin™ Nano Super: The World/’s Most Affordable Generative AI Computer",
-      "icon": "🤖",
-      "slug": "nvidia-jetson"
-    },
-    {
-      "type": "youtube",
-      "url": " https://www.youtube.com/embed/dAvh3BcQ89o",
-      "title": "AI-Generated 'Daisy' Gives Scam Callers the Runaround",
-      "icon": "🤖",
-      "slug": "daisy"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/fIUm3V25SqU",
-      "title": "Polite Japanese kids doing interview",
+      "url": "https://www.youtube.com/embed/OFjdPz4w_2I",
+      "title": "If you missed the last train in Tokyo, what to do?",
       "icon": "🇯🇵",
-      "slug": "japanese-kids"
+      "slug": "last-train-tokyo"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/fiUDWMX0jsw",
-      "title": "Singing Christmas Tree rehearsal",
-      "icon": "🎄",
-      "slug": "singing-tree"
+      "url": "https://www.youtube.com/embed/ivd7JCAuUrE",
+      "title": "The Art of Japanese Craftsmanship",
+      "icon": "🇯🇵",
+      "slug": "japanese-craftsmanship"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/CurDRVP0vgU",
-      "title": "Nigel Richards scrabble king",
-      "icon": "🕹️",
-      "slug": "nigel-richards"
+      "url": " https://www.youtube.com/embed/MOEULOSVNK4",
+      "title": "OK Go - A Stone Only Rolls Downhill (Du 🐱 🙌🏼)",
+      "icon": "📱",
+      "slug": "ok-go-stone"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/QoNNXQJmv4Y",
-      "title": "Chinese traditional board-shoe racing highlights collaborative spirit",
-      "icon": "🏃🏻",
-      "slug": "board-shoe-racing"
+      "url": "https://www.youtube.com/embed/GZovXr3n66E",
+      "title": "E ink at frames",
+      "icon": "🖼️",
+      "slug": "e-ink-at-frames"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/uR_z16n3v1g",
-      "title": "the worlds first time-free zone",
-      "icon": "⏰"
-    },
-    {
-      "type": "paragraph",
-      "title": "Prijsvraag",
-      "content": " Leg je telefoons en laptops even weg! \n\n**Wat is het huidige wereldrecord voor het aantal sprongen met een springtouw in 30 seconden?** \n\nSchrijf jouw antwoord op een Post-it wacht heel even en leg de post-it voor je!",
-      "icon": "❓",
-      "slug": "prijsvraag"
+      "url": "https://www.youtube.com/embed/SdoEoS639yQ",
+      "title": "Robot stofzuiger met arm",
+      "icon": "🤖",
+      "slug": "robot-arm"
     },
     {
       "type": "youtube",
-      "url": "https://www.youtube.com/embed/35Fn5KnXQLU",
-      "title": "Record in jump rope contest",
-      "icon": "🏆",
-      "slug": "jump-rope"
+      "url": "https://www.youtube.com/embed/kQ2fSap1E2I",
+      "title": "WalkON Suit F1: The Next-Gen Exoskeleton That Walks Itself (🙌🏼 Jeff)",
+      "icon": "🤖",
+      "slug": "walkon-suit-f1"
     },
     {
-      "type": "paragraph",
-      "content": "![Happy 2025](/images/happy-2025.jpeg) ",
-      "title": "Tot volgend jaar",
-      "icon": "🍾",
-      "slug": "happy-2025"
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/rLbgVNY97vk&t=30s",
+      "title": "Smart indoor garden",
+      "icon": "🌱",
+      "slug": "smart-indoor-garden"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/nEg0JtPJfrE",
+      "title": "Switch bot stofzuiger ",
+      "icon": "🤖",
+      "slug": "robot-stofzuiger"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/TOd_5yGxNLA",
+      "title": "Unitree Go2-W Driving All Terrain (🙌🏼 Jeff)",
+      "icon": "🤖",
+      "slug": "unitree-go2-w-driving-all-terrain"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/a6j4oYWR2FI",
+      "title": "Swarms of tiny robots",
+      "icon": "🐜",
+      "slug": "swarms-tiny-robots"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/embed/CoY2zZs3gHo",
+      "title": "Asus adol book",
+      "icon": "👃🏻",
+      "slug": "adol-book"
     }
   ]
 }
