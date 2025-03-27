@@ -1,0 +1,128 @@
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "😎 😩 Februari 2025",
+      "slug": "start"
+    },
+    {
+      "type": "paragraph",
+      "content": "![First computer bug](/images/bug.png)",
+      "title": "Alien Semiotic",
+      "icon": "👽",
+      "slug": "alien-semiotic"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/h5Htk58hON0",
+      "title": "Alien Semiotic",
+      "icon": "👽",
+      "slug": "alien-semiotic-2"
+    },
+    {
+      "type": "paragraph",
+      "content": "![First computer bug](/images/moka-train-station.png)",
+      "title": "Japanese Moka train station in a shape of a locomotive.",
+      "icon": "🇯🇵",
+      "slug": "moka-train-station "
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/kYnwEjGMCyY",
+      "title": "Microsoft Excel World Championship 2023 Finals Recap",
+      "icon": "🏆",
+      "slug": "microsoft-excel-championship"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/V4XYaRhKwjU",
+      "title": "Lepel met zoutsmaak",
+      "icon": "🧂",
+      "slug": "lepel-zout-smaak"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/B6pgn0D9We0",
+      "title": "Rem speed stick",
+      "icon": "🛹",
+      "slug": "rem-speed-stick"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/2xuYhLqBnw8",
+      "title": "Xing's World, mini home",
+      "icon": "🐈",
+      "slug": "xing-wolrd"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/gKAzPaoGop8",
+      "title": "Tanktation in Leverkusen",
+      "icon": "🚁",
+      "slug": "tanken-leverkusen"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/mRyVGeXQlBQ",
+      "title": "Lord of the ring spear move from Eomer (Karl Urban)",
+      "icon": "🐎",
+      "slug": "karl-urban-spear-move"
+    },
+    {
+      "type": "youtube",
+      "url": " https://www.youtube.com/embed/Z3yQHYNXPws",
+      "title": "Figure, intro Helix coop",
+      "icon": "🤖🤖",
+      "slug": "figure-helix"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/Q2yYclPaEV0",
+      "title": "Spirobs Shape-Shifting Robot",
+      "icon": "🐙",
+      "slug": "Spirobs"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/YUvBaGnKb5A",
+      "title": "ProtoClone by Robotics",
+      "icon": "🤖",
+      "slug": "protoclone"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/jsYwFizhncE",
+      "title": "Why do colliding blocks compute pi?",
+      "icon": "🔵",
+      "slug": "collisions-pi"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/Wvc0spoKfkA",
+      "title": "Luce mascotte katholieke kerk, door tokidoki van hello kitty",
+      "icon": "✝️",
+      "slug": "luce-mascotte"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/6FQ8hkci8o0",
+      "title": "Slidable Flex Duet, Samsung Display",
+      "icon": "📱",
+      "slug": "slidable-flex"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/8grHBWtgjDQ",
+      "title": "Razer Project Arielle | World's First Heating & Cooling Mesh Gaming Chair",
+      "icon": "🕹️",
+      "slug": "razer-chair"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/embed/CoY2zZs3gHo",
+      "title": "Asus adol book",
+      "icon": "👃🏻",
+      "slug": "adol-book"
+    }
+  ]
+}
