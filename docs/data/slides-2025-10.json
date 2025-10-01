@@ -1,0 +1,90 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "😎 😩 Oktober 2025",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/kxXs4qSKE-Q ",
+        "title": "Mario lamp",
+        "icon": "🕹️",
+        "slug": "mario-lamp"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Vcm6A1aurj4",
+        "title": "This Restaurant Only Takes LEGO Orders!",
+        "icon": "🧑‍🍳",
+        "slug": "lego-restaurant"
+      },
+  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/l5EfnYpxv_Y",
+        "title": "Run away alarm",
+        "icon": "⏰",
+        "slug": "run-away-alarm"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/VznMhPPOhaA",
+        "title": "Cycle Ball (🙌 Jereon",
+        "icon": "🚲⚽️",
+        "slug": "cycle-ball"
+      },
+      
+
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/tZJ3MVfFNx8",
+        "title": "Belt squared",
+        "icon": "👖",
+        "slug": "belt-squared"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/c4o_lUiwZgE",
+        "title": "The Most Overlooked Business Idea of 2025",
+        "icon": "📦",
+        "slug": "overlooked-business-idea"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Gujxosw0h4c",
+        "title": "Three Wildly Unique Cars Battle, who will win?",
+        "icon": "🚗",
+        "slug": "three-wildly-unique-cars-battle"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/_SNiAdmA51Q",
+        "title": "Urgency Zones How to cure your messy home. Forever [timestap] (🙌 Jereon)" ,
+        "icon": "🗄️",
+        "slug": "urgency-zones"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/ILsyVC9PJpQ",
+        "title": "Pak je iPhone ",
+        "icon": "📱",
+        "slug": "iphone-pak"
+      },
+      {
+        "type": "paragraph",
+        "content": "![Wizard of Oz on Google](/images/wizard-of-oz.png)",
+        "title": "Wizard of Oz",
+        "icon": "👠👠🌪️",
+        "slug": "wizard-of-oz"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/rj0v577VSl8",
+        "title": "Cool moves to start the weekend",
+        "icon": "😎",
+        "slug": "cool-moves"
+      }
+    ]
+  }
+  

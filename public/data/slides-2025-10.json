@@ -22,11 +22,20 @@
   
       {
         "type": "youtube",
-        "url": "https://www.youtube.com/embed/l5EfnYpxv_Y?si=sr2oPmaMQ8TVBzIJ",
+        "url": "https://www.youtube.com/embed/l5EfnYpxv_Y",
         "title": "Run away alarm",
-        "icon": "🚨",
+        "icon": "⏰",
         "slug": "run-away-alarm"
       },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/VznMhPPOhaA",
+        "title": "Cycle Ball (🙌 Jereon",
+        "icon": "🚲⚽️",
+        "slug": "cycle-ball"
+      },
+      
+
       {
         "type": "youtube",
         "url": "https://www.youtube.com/embed/tZJ3MVfFNx8",
@@ -51,7 +60,7 @@
       {
         "type": "youtube",
         "url": "https://www.youtube.com/embed/_SNiAdmA51Q",
-        "title": "Urgency Zones How to cure your messy home. Forever [timestap] " ,
+        "title": "Urgency Zones How to cure your messy home. Forever [timestap] (🙌 Jereon)" ,
         "icon": "🗄️",
         "slug": "urgency-zones"
       },

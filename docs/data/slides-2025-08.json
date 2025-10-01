@@ -1,0 +1,72 @@
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "😎 😩 augustus 2025",
+      "slug": "start"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/4avtZzXrkpA",
+      "title": "25K surfboard",
+      "icon": "🏄🏻",
+      "slug": "25K-surfboard"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/ugC9iIdYIEg",
+      "title": "Tupac socks",
+      "icon": "🧦",
+      "slug": "Tupac-socks"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/yMETXgwvUhQ",
+      "title": "Iphone pincode hack",
+      "icon": "📱",
+      "slug": "ios-passcode"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/GHIGqATDd98",
+      "title": "9-volt battery chips",
+      "icon": "🔋",
+      "slug": "battery-chips"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/1JMUzBC6E80",
+      "title": "McDonald's Candles",
+      "icon": "🍔",
+      "slug": "mcDonalds-candles"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/shorts/Jb5It9YI8Vw",
+      "title": "Japanese Manhole Coverss",
+      "icon": "🇯🇵",
+      "slug": "manhole-covers"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/ubH6tplzWOo",
+      "title": "Strange sounds from a Termites Nest",
+      "icon": "🐜",
+      "slug": "sounds-termites"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/3042V0NdYrk",
+      "title": "Bar Centifolia Japan",
+      "icon": "🍸",
+      "slug": "bar-centifolia"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/TsGEW4obruI",
+      "title": "rub your elbow",
+      "icon": "💪",
+      "slug": "elbow-rub"
+    }
+  ]
+}
