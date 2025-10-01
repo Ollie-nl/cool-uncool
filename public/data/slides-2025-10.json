@@ -35,7 +35,7 @@
       },
       {
         "type": "youtube",
-        "url": "https://www.youtube.com/emnded/Gujxosw0h4c",
+        "url": "https://www.youtube.com/embed/Gujxosw0h4c",
         "title": "Three Wildly Unique Cars Battle, who will win?",
         "icon": "🚗",
         "slug": "three-wildly-unique-cars-battle"
@@ -56,7 +56,7 @@
       },
       {
         "type": "paragraph",
-        "content": "![Wizard of Oz on Google](/images/wizard-of-as.png)",
+        "content": "![Wizard of Oz on Google](/images/wizard-of-oz.png)",
         "title": "Wizard of Oz",
         "icon": "👠👠🌪️",
         "slug": "wizard-of-oz"
