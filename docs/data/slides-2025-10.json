@@ -14,10 +14,18 @@
       },
       {
         "type": "youtube",
-        "url": "https://youtube.com/embed/Vcm6A1aurj4?si=CjS_0QVOOamhsbAR",
+        "url": "https://www.youtube.com/embed/Vcm6A1aurj4",
         "title": "This Restaurant Only Takes LEGO Orders!",
         "icon": "🧑‍🍳",
         "slug": "lego-restaurant"
+      },
+  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/l5EfnYpxv_Y?si=sr2oPmaMQ8TVBzIJ%22",
+        "title": "Run away alarm",
+        "icon": "🚨",
+        "slug": "run-away-alarm"
       },
       {
         "type": "youtube",
@@ -63,7 +71,7 @@
       },
       {
         "type": "youtube",
-        "url": "https://youtube.com/embed/l5EfnYpxv_Y?si=sr2oPmaMQ8TVBzIJ",
+        "url": "https://www.youtube.com/embed/rj0v577VSl8",
         "title": "Cool moves to start the weekend",
         "icon": "😎",
         "slug": "cool-moves"
