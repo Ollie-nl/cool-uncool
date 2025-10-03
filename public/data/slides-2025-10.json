@@ -78,6 +78,13 @@
       },
       {
         "type": "youtube",
+        "url": "https://www.youtube.com/embed/sUXFBQjjkgA",
+        "title": "Sora 2 ",
+        "icon": "🤖",
+        "slug": "sora-2"
+      },
+      {
+        "type": "youtube",
         "url": "https://www.youtube.com/embed/9q6QDdI2rWE",
         "title": "Cool moves to start the weekend",
         "icon": "😎",
