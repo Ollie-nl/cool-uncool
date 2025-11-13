@@ -1,0 +1,100 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "😎 😩 November 2025",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/wsDttGp4eWg",
+        "title": "Iphone pocket",
+        "icon": "📱",
+        "slug": "iphone-pocket"
+      },
+      {
+        "type": "youtube",
+        "url": "https://youtube.com/embed/s3srEsuq6Hs",
+        "title": "This Airless Basketball is 3D Printed!",
+        "icon": "🏀",
+        "slug": "airless-basketball"
+      },
+      {
+        "type": "youtube",
+        "url": "https://youtube.com/embed/soHTGvP9zJQ",
+        "title": "Lego Space Shuttle Soars To Edge of Space",
+        "icon": "🎈",
+        "slug": "lego-space-shuttle"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/M0pkJ32f9-I",
+        "title": "Birthday gift boxes business idea",
+        "icon": "🎁",
+        "slug": "birthday-gift-boxes"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/J5CEmkWv7DY",
+        "title": "The Matrix in shared reality is wild",
+        "icon": "🎬",
+        "slug": "the-matrix-cosm-la"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/2r1ecqtW5ks",
+        "title": "Saab hidden speedmeter, 1990",
+        "icon": "🚘",
+        "slug": "hidden-speedmeter"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/bMR0FMu4CCw",
+        "title": "Drones China",
+        "icon": "🇨🇳",
+        "slug": "drones-china"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/8T0dyUBDe_8",
+        "title": "Floating tub" ,
+        "icon": "🛁",
+        "slug": "floating-tub"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/KSK1UE0qBY4&t=304s",
+        "title": "Spongebob Adidas",
+        "icon": "🍍",
+        "slug": "spongebob-adidas"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/RMSgKbVy_qI",
+        "title": "HTTP Status Code 418 - Im a teapot",
+        "icon": "🫖",
+        "slug": "code-418"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/gI0YVPTYqHk",
+        "title": "Nike bionic boost",
+        "icon": "🦿",
+        "slug": "nike-bionic"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/LTYMWadOW7c",
+        "title": "NEO The Home Robot (🙌 Jeff)",
+        "icon": "🤖",
+        "slug": "neo-robot"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/LF3CLkysaFI",
+        "title": "This illusion is SO weird!",
+        "icon": "😵‍💫",
+        "slug": "visual-illusion"
+      }
+    ]
+  }
