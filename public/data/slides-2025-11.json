@@ -14,11 +14,25 @@
       },
       {
         "type": "youtube",
+        "url": "https://www.youtube.com/embed/ChZH0eyjPe0",
+        "title": "MacBook paint",
+        "icon": "💻",
+        "slug": "macbook-paint"
+      },
+      {
+        "type": "youtube",
         "url": "https://youtube.com/embed/s3srEsuq6Hs",
         "title": "This Airless Basketball is 3D Printed!",
         "icon": "🏀",
         "slug": "airless-basketball"
       },
+      {
+        "type": "youtube",
+        "url": "https://youtube.com/embed/3EcHFk-YP58?autoplay=1&mute=1",
+        "title": "Top 5 Most Expensive Lego Minifigures EVER!",
+        "icon": "🤑",
+        "slug": "lego-top-5"
+      },  
       {
         "type": "youtube",
         "url": "https://youtube.com/embed/soHTGvP9zJQ",
