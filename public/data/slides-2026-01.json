@@ -7,6 +7,27 @@
       },
       {
         "type": "youtube",
+        "url": "https://www.youtube.com/embed/U8YrNJbfNUg",
+        "title": "Red Bull drone Tetris",
+        "icon": "👾",
+        "slug": "drone-tetris"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/1D0_WlVbnCA",
+        "title": "Buttons of a Nintendo controller (🙌 🌹)",
+        "icon": "🕹️",
+        "slug": "phone-nintendo-controller"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/HZo2WOlPMxE",
+        "title": "Gengar Slippers",
+        "icon": "🩴",
+        "slug": "gengar-slippers"
+      },
+      {
+        "type": "youtube",
         "url": "https://www.youtube.com/embed/NXJlyDvnvHY",
         "title": "Lego Smart Brick",
         "icon": "🤖",
@@ -18,13 +39,6 @@
         "title": "Observation beehive - bees inside my house!",
         "icon": "🐝",
         "slug": "observation-beehive"
-      },
-      {
-        "type": "image",
-        "url": "",
-        "title": "Pics, so it did happen.",
-        "icon": "🤿",
-        "slug": "submarine-crash"
       },
       {
         "type": "youtube",
@@ -42,6 +56,13 @@
       },
       {
         "type": "youtube",
+        "url": "https://www.youtube.com/embed/Ld83GOFVNNY",
+        "title": "The LARGEST aircraft on earth | Radia Windrunner, 111 en 24 meter ",
+        "icon": "✈️",
+        "slug": "radia-windrunner"
+      },
+      {
+        "type": "youtube",
         "url": "https://www.youtube.com/embed/S0bWEFTcAX0",
         "title": "New Atlas bot",
         "icon": "🤖",
@@ -49,38 +70,10 @@
       },
       {
         "type": "youtube",
-        "url": "https://www.youtube.com/embed/U8YrNJbfNUg",
-        "title": "Red Bull drone Tetris",
-        "icon": "👾",
-        "slug": "drone-tetris"
-      },
-      {
-        "type": "youtube",
-        "url": "https://www.youtube.com/embed/Ld83GOFVNNY",
-        "title": "The LARGEST aircraft on earth | Radia Windrunner | ",
-        "icon": "✈️",
-        "slug": "radia-windrunner"
-      },
-      {
-        "type": "youtube",
         "url": "https://www.youtube.com/embed/Xr9SxGrzS6o",
         "title": "ARTISANAL COCA-COLA" ,
         "icon": "🇯🇵",
         "slug": "coco-cola-japan"
-      },
-      {
-        "type": "youtube",
-        "url": "https://www.youtube.com/embed/1D0_WlVbnCA",
-        "title": "Buttons of a Nintendo controller (🙌 🌹)",
-        "icon": "🕹️",
-        "slug": "phone-nintendo-controller"
-      },
-      {
-        "type": "youtube",
-        "url": "https://www.youtube.com/embed/HZo2WOlPMxE",
-        "title": "Gengar Slippers",
-        "icon": "🩴",
-        "slug": "gengar-slippers"
       },
       {
         "type": "youtube",
