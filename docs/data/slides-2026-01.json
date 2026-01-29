@@ -1,0 +1,86 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "😎 😩 Januari 2026",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/U8YrNJbfNUg",
+        "title": "Red Bull drone Tetris",
+        "icon": "👾",
+        "slug": "drone-tetris"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/1D0_WlVbnCA",
+        "title": "Buttons of a Nintendo controller (🙌 🌹)",
+        "icon": "🕹️",
+        "slug": "phone-nintendo-controller"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/HZo2WOlPMxE",
+        "title": "Gengar Slippers",
+        "icon": "🩴",
+        "slug": "gengar-slippers"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/NXJlyDvnvHY",
+        "title": "Lego Smart Brick",
+        "icon": "🤖",
+        "slug": "smart-lego"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/leQh5PLeG-c",
+        "title": "Observation beehive - bees inside my house!",
+        "icon": "🐝",
+        "slug": "observation-beehive"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/9WTo06NGndU",
+        "title": "De Xello-speaker heeft vloeistof die reageert op je ",
+        "icon": "🔈",
+        "slug": "xello-speaker"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/KgFjwwa2iTA",
+        "title": "Project Eva",
+        "icon": "🤖",
+        "slug": "project-eva"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Ld83GOFVNNY",
+        "title": "The LARGEST aircraft on earth | Radia Windrunner, 111 en 24 meter ",
+        "icon": "✈️",
+        "slug": "radia-windrunner"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/S0bWEFTcAX0",
+        "title": "New Atlas bot",
+        "icon": "🤖",
+        "slug": "atlas-ai"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Xr9SxGrzS6o",
+        "title": "ARTISANAL COCA-COLA" ,
+        "icon": "🇯🇵",
+        "slug": "coco-cola-japan"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/8F1Sc2UE1mw",
+        "title": "ClOiD droid",
+        "icon": "🤖",
+        "slug": "cloid-ai"
+      }
+    ]
+  }
