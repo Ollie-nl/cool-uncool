@@ -77,6 +77,13 @@
       },
       {
         "type": "youtube",
+        "url": "https://www.youtube.com/embed/nV1G1RDZEko",
+        "title": "Moldbot-Clawdbot",
+        "icon": "🤖",
+        "slug": "moldbot-ai"
+      },
+      {
+        "type": "youtube",
         "url": "https://www.youtube.com/embed/8F1Sc2UE1mw",
         "title": "ClOiD droid",
         "icon": "🤖",
