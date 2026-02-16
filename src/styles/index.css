@@ -415,6 +415,15 @@ h1 {
   --toggle-color: #333;
 }
 
+.dark-mode .button,
+.dark-mode .control-button,
+.dark-mode .footer-button,
+.dark-mode .month-dropdown {
+  --toggle-bg: #333;
+  --toggle-color: #fff;
+  border-color: #ccc;
+}
+
 /* ========== Footer Controls (Random Slide + Month Selector) ========== */
 .footer-controls {
   display: flex;
