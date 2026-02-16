@@ -4,7 +4,7 @@
 
 De Cool Uncool SlideDeck is een **React-applicatie** gebouwd met **pnpm** als package manager. De applicatie ondersteunt JSON-gedreven slides en maakt gebruik van `react-router-dom` voor client-side routing.
 
-De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van JavaScript- en React-functionaliteiten. De slides worden beheerd via statische JSON-bestanden, en gebruikers kunnen eenvoudig tussen maanden wisselen met behulp van een dropdown-selector.
+De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van JavaScript- en React-functionaliteiten. De slides worden beheerd via statische JSON-bestanden, en gebruikers kunnen eenvoudig tussen maanden wisselen met behulp van een dropdown-selector. Op de root (`/`) start de app automatisch in de meest recente maand.
 
 ---
 
@@ -44,7 +44,7 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
   - Ondersteunt Markdown en YouTube embeds.
 
 - **`MonthSelector.js`**
-  - Dropdown component voor het selecteren van een maand om slides te tonen.
+  - Dropdown component voor het selecteren van een maand om slides te tonen (label: `YYYY Maand`, meest recente bovenaan).
 
 ---
 
@@ -63,7 +63,7 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 
 - **`docs/`** – Productie build voor GitHub Pages.
 - **`generateAvailableMonths.js`** – Genereert automatisch een lijst van beschikbare JSON slide-bestanden.
-- **`public/data/`** – Bevat alle slide JSON-bestanden en wordt direct gelezen door de applicatie.
+- **`public/data/`** – Bevat alle slide JSON-bestanden en `available-months.json` voor de maandselector.
 
 ---
 

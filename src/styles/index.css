@@ -154,72 +154,118 @@ h1 {
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
+  isolation: isolate;
   transition:
     background-color var(--theme-transition),
     color var(--theme-transition);
 }
 
-.slide-deck::before {
+.slide-deck::before,
+.slide-deck::after {
   content: "";
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
   z-index: 1;
-  filter: blur(18px);
   transform: translateZ(0);
-  mask-image: linear-gradient(180deg, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .slide-deck.theme-sunrise::before {
   background:
-    radial-gradient(circle at 50% 125%, rgba(255, 196, 120, 0.85) 0%, rgba(255, 196, 120, 0.35) 35%, rgba(255, 230, 200, 0) 70%),
-    linear-gradient(180deg, rgba(255, 245, 230, 0.25) 0%, rgba(255, 200, 140, 0.55) 50%, rgba(255, 150, 100, 0.05) 100%);
-  background-size: 120% 120%;
-  background-position: 50% 60%;
-  animation: sunrise var(--theme-transition-duration) ease-out forwards;
+    linear-gradient(180deg, rgba(255, 236, 210, 0.18) 0%, rgba(255, 200, 140, 0.45) 55%, rgba(255, 145, 100, 0.05) 100%),
+    radial-gradient(circle at 50% 120%, rgba(255, 205, 130, 0.6) 0%, rgba(255, 205, 130, 0.15) 45%, rgba(255, 230, 200, 0) 70%);
+  background-size: 140% 140%;
+  background-position: 50% 65%;
+  filter: blur(24px);
+  animation: sunriseSky var(--theme-transition-duration) ease-out forwards;
 }
 
 .slide-deck.theme-sunset::before {
   background:
-    radial-gradient(circle at 50% -15%, rgba(255, 150, 90, 0.75) 0%, rgba(160, 90, 110, 0.35) 40%, rgba(30, 30, 45, 0) 75%),
-    linear-gradient(0deg, rgba(12, 12, 24, 0.35) 0%, rgba(70, 40, 80, 0.6) 50%, rgba(255, 170, 100, 0.05) 100%);
-  background-size: 120% 120%;
-  background-position: 50% 40%;
-  animation: sunset var(--theme-transition-duration) ease-in forwards;
+    linear-gradient(0deg, rgba(12, 12, 24, 0.3) 0%, rgba(70, 40, 80, 0.6) 55%, rgba(255, 170, 100, 0.08) 100%),
+    radial-gradient(circle at 50% -10%, rgba(255, 160, 95, 0.6) 0%, rgba(160, 90, 120, 0.2) 45%, rgba(30, 30, 45, 0) 75%);
+  background-size: 140% 140%;
+  background-position: 50% 35%;
+  filter: blur(26px);
+  animation: sunsetSky var(--theme-transition-duration) ease-in forwards;
 }
 
-@keyframes sunrise {
+.slide-deck.theme-sunrise::after {
+  background: radial-gradient(circle at 50% 85%, rgba(255, 230, 170, 0.9) 0%, rgba(255, 190, 120, 0.35) 45%, rgba(255, 190, 120, 0) 70%);
+  mix-blend-mode: screen;
+  filter: blur(12px);
+  animation: sunriseSun var(--theme-transition-duration) ease-out forwards;
+}
+
+.slide-deck.theme-sunset::after {
+  background: radial-gradient(circle at 50% 10%, rgba(255, 190, 120, 0.8) 0%, rgba(255, 120, 90, 0.3) 40%, rgba(255, 120, 90, 0) 70%);
+  mix-blend-mode: screen;
+  filter: blur(14px);
+  animation: sunsetSun var(--theme-transition-duration) ease-in forwards;
+}
+
+@keyframes sunriseSky {
   0% {
     opacity: 0;
-    transform: translateY(24%) scale(1.02);
+    transform: translateY(18%) scale(1.03);
   }
-  40% {
+  45% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12%) scale(1.03);
+  }
+}
+
+@keyframes sunsetSky {
+  0% {
+    opacity: 0;
+    transform: translateY(-18%) scale(1.03);
+  }
+  45% {
     opacity: 0.55;
   }
   100% {
     opacity: 0;
-    transform: translateY(-14%) scale(1.02);
+    transform: translateY(12%) scale(1.03);
   }
 }
 
-@keyframes sunset {
+@keyframes sunriseSun {
   0% {
     opacity: 0;
-    transform: translateY(-24%) scale(1.02);
+    transform: translateY(24%) scale(0.95);
   }
-  40% {
-    opacity: 0.6;
+  45% {
+    opacity: 0.7;
   }
   100% {
     opacity: 0;
-    transform: translateY(14%) scale(1.02);
+    transform: translateY(-6%) scale(1.05);
+  }
+}
+
+@keyframes sunsetSun {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%) scale(1.05);
+  }
+  45% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16%) scale(0.95);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .slide-deck.theme-sunrise::before,
-  .slide-deck.theme-sunset::before {
+  .slide-deck.theme-sunset::before,
+  .slide-deck.theme-sunrise::after,
+  .slide-deck.theme-sunset::after {
     animation: none;
     opacity: 0;
   }

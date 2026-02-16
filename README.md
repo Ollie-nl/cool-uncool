@@ -12,6 +12,7 @@
 - **Intuïtieve Slide Navigatie**: Navigeer door de slides met de pijltjestoetsen (links/rechts, boven/onder).
 - **Mobiele Swipe-ondersteuning**: Swipe eenvoudig door de slides op mobiele apparaten.
 - **Maandselector**: Wissel tussen maanden met behulp van de maandselector in de footer.
+- **Slimme start**: Op de homepage start je automatisch in de meest recente maand.
 - **Dark Mode**: Schakel tussen licht- en donker thema met één klik.
 - **Responsief Ontwerp**: Geoptimaliseerd voor verschillende schermgroottes.
 - **Slide Teller**: Bekijk in één oogopslag hoeveel slides er nog volgen.
@@ -48,7 +49,7 @@
 
 ## 📂 Slides via JSON
 
-De slides worden beheerd via maandelijkse JSON-bestanden in `src/data/`. De bestandsnaam volgt het patroon:
+De slides worden beheerd via maandelijkse JSON-bestanden in `public/data/`. De bestandsnaam volgt het patroon:
 
 ```
 slides-YYYY-MM.json
@@ -86,7 +87,7 @@ slides-YYYY-MM.json
 
 ### Nieuwe maand toevoegen
 
-1. **Maak een nieuw bestand aan in `src/data/`**:
+1. **Maak een nieuw bestand aan in `public/data/`**:
    Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2024-12.json`.
 
 2. **Voeg je slides toe in JSON-formaat**:
@@ -101,7 +102,7 @@ slides-YYYY-MM.json
    ```
 
 4. **De maand wordt automatisch toegevoegd**:
-   De maandselector toont nu de nieuwe maand.
+   `generateAvailableMonths.js` maakt `available-months.json` aan, de maandselector toont de nieuwste maand bovenaan.
 
 ---
 
