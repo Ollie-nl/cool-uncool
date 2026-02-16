@@ -162,8 +162,34 @@ h1 {
 .control-button:hover,
 .dark-mode-toggle:hover,
 .footer-button:hover,
-.month-selector:hover {
+.month-selector:hover,
+.month-dropdown:hover {
   transform: scale(1.05);
+}
+
+.button:active,
+.control-button:active,
+.dark-mode-toggle:active,
+.footer-button:active,
+.month-dropdown:active {
+  transform: scale(0.98);
+}
+
+.button:focus-visible,
+.control-button:focus-visible,
+.dark-mode-toggle:focus-visible,
+.footer-button:focus-visible,
+.month-dropdown:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 2px;
+}
+
+.dark-mode .button:focus-visible,
+.dark-mode .control-button:focus-visible,
+.dark-mode .dark-mode-toggle:focus-visible,
+.dark-mode .footer-button:focus-visible,
+.dark-mode .month-dropdown:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.55);
 }
 
 /* ========== Flex Containers ========== */
@@ -335,7 +361,7 @@ h1 {
   left: 0;
   width: 100%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
   color: white;
   padding: 10px 0;
   font-size: 14px;
@@ -348,12 +374,12 @@ h1 {
 .counter-text {
   flex: 1;
   text-align: right;
-  font-weight: normal;
+  font-weight: bold;
   padding-right: 16px;
 }
 
 .light-mode .slide-counter {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: transparent;
   color: #333;
 }
 
