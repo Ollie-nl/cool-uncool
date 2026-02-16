@@ -6,11 +6,49 @@ const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
   const playerRef = useRef(null);
 
-  const getEmbedUrl = (url) => {
-    const baseURL = url.includes("/shorts/")
-      ? url.replace("/shorts/", "/embed/")
-      : url;
-    return `${baseURL}?enablejsapi=1&playlist=${baseURL.split("/").pop()}`;
+  const getYouTubeEmbedUrl = (rawUrl) => {
+    try {
+      const cleanedUrl = typeof rawUrl === "string" ? rawUrl.trim() : "";
+      const url = new URL(cleanedUrl);
+      let videoId = "";
+      let playlistId = url.searchParams.get("list") || "";
+
+      if (url.hostname === "youtu.be") {
+        videoId = url.pathname.replace("/", "");
+      } else if (url.pathname.startsWith("/watch")) {
+        videoId = url.searchParams.get("v") || "";
+      } else if (url.pathname.startsWith("/shorts/")) {
+        videoId = url.pathname.split("/shorts/")[1] || "";
+      } else if (url.pathname.startsWith("/embed/")) {
+        videoId = url.pathname.split("/embed/")[1] || "";
+      }
+
+      const cleanVideoId = videoId.split("?")[0].split("&")[0];
+      const cleanPlaylistId = playlistId.split("?")[0].split("&")[0];
+      const embedBase = "https://www.youtube-nocookie.com/embed";
+
+      const params = new URLSearchParams({
+        enablejsapi: "1",
+        origin: window.location.origin,
+        playsinline: "1",
+        mute: "1",
+        modestbranding: "1",
+        rel: "0",
+      });
+
+      if (cleanPlaylistId) {
+        params.set("list", cleanPlaylistId);
+      }
+
+      if (cleanVideoId) {
+        params.set("playlist", cleanVideoId);
+        return `${embedBase}/${cleanVideoId}?${params.toString()}`;
+      }
+
+      return cleanedUrl || rawUrl;
+    } catch (error) {
+      return rawUrl;
+    }
   };
 
   const getImagePath = (path) => {
@@ -113,9 +151,11 @@ const Slide = ({ slide, isActive }) => {
           <iframe
             ref={iframeRef}
             id={`youtube-player-${slide.url}`}
-            src={getEmbedUrl(slide.url)}
+            src={getYouTubeEmbedUrl(slide.url)}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            sandbox="allow-scripts allow-same-origin allow-presentation"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             title={slide.title || "YouTube video"}
           ></iframe>

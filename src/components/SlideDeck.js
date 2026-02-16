@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useParams, useNavigate } from "react-router-dom";
 import Slide from "./Slide";
@@ -11,6 +11,8 @@ const SlideDeck = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [themeTransition, setThemeTransition] = useState("");
+  const hasMountedRef = useRef(false);
   const [months, setMonths] = useState([]);
 
   const getBasePath = () => {
@@ -81,7 +83,8 @@ const SlideDeck = () => {
         if (!response.ok)
           throw new Error("available-months.json niet gevonden");
         const data = await response.json();
-        setMonths(data.months || []);
+        const sortedMonths = (data.months || []).slice().sort((a, b) => b.localeCompare(a));
+        setMonths(sortedMonths);
       } catch (error) {
         console.error("Fout bij laden van maanden:", error);
         setMonths([]);
@@ -165,6 +168,20 @@ const SlideDeck = () => {
     };
   }, [handleKeyDown]);
 
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
+    setThemeTransition(isDarkMode ? "theme-sunset" : "theme-sunrise");
+    const timeoutId = setTimeout(() => {
+      setThemeTransition("");
+    }, 900);
+
+    return () => clearTimeout(timeoutId);
+  }, [isDarkMode]);
+
   const renderSlideCounter = () => {
     const remainingSlides = slides.length - (currentSlide + 1);
     return remainingSlides > 0
@@ -175,7 +192,7 @@ const SlideDeck = () => {
   return (
     <div
       {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
-      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"}`}
+      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"} ${themeTransition}`}
     >
       {" "}
       <DarkModeToggle

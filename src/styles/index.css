@@ -58,6 +58,11 @@ body {
 }
 
 /* ========== Modus Stijlen (Dark/Light Mode) ========== */
+:root {
+  --theme-transition: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  --theme-transition-duration: 900ms;
+}
+
 .light-mode {
   background-color: #f4f4f9;
   color: #333;
@@ -114,8 +119,9 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   transition:
-    background-color 0.3s,
-    color 0.3s,
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
     transform 0.2s;
 
 }
@@ -147,7 +153,76 @@ h1 {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+.slide-deck::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(18px);
+  transform: translateZ(0);
+  mask-image: linear-gradient(180deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.slide-deck.theme-sunrise::before {
+  background:
+    radial-gradient(circle at 50% 125%, rgba(255, 196, 120, 0.85) 0%, rgba(255, 196, 120, 0.35) 35%, rgba(255, 230, 200, 0) 70%),
+    linear-gradient(180deg, rgba(255, 245, 230, 0.25) 0%, rgba(255, 200, 140, 0.55) 50%, rgba(255, 150, 100, 0.05) 100%);
+  background-size: 120% 120%;
+  background-position: 50% 60%;
+  animation: sunrise var(--theme-transition-duration) ease-out forwards;
+}
+
+.slide-deck.theme-sunset::before {
+  background:
+    radial-gradient(circle at 50% -15%, rgba(255, 150, 90, 0.75) 0%, rgba(160, 90, 110, 0.35) 40%, rgba(30, 30, 45, 0) 75%),
+    linear-gradient(0deg, rgba(12, 12, 24, 0.35) 0%, rgba(70, 40, 80, 0.6) 50%, rgba(255, 170, 100, 0.05) 100%);
+  background-size: 120% 120%;
+  background-position: 50% 40%;
+  animation: sunset var(--theme-transition-duration) ease-in forwards;
+}
+
+@keyframes sunrise {
+  0% {
+    opacity: 0;
+    transform: translateY(24%) scale(1.02);
+  }
+  40% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-14%) scale(1.02);
+  }
+}
+
+@keyframes sunset {
+  0% {
+    opacity: 0;
+    transform: translateY(-24%) scale(1.02);
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14%) scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-deck.theme-sunrise::before,
+  .slide-deck.theme-sunset::before {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ========== Slide Teller in Footer ========== */
@@ -166,8 +241,8 @@ h1 {
   font-size: 14px;
   box-sizing: border-box;
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .counter-text {
@@ -200,6 +275,7 @@ h1 {
   position: fixed;
   top: 10px;
   right: 10px;
+  gap: 8px;
 }
 
 .dark-mode-toggle.dark {
@@ -244,8 +320,9 @@ h1 {
   color: var(--toggle-color, #333);
   cursor: pointer;
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
 
 }
 
