@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useParams, useNavigate } from "react-router-dom";
 import Slide from "./Slide";
@@ -11,8 +11,7 @@ const SlideDeck = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [themeTransition, setThemeTransition] = useState("");
-  const hasMountedRef = useRef(false);
+  const [themeShift, setThemeShift] = useState("");
   const [months, setMonths] = useState([]);
 
   const getBasePath = () => {
@@ -169,18 +168,11 @@ const SlideDeck = () => {
   }, [handleKeyDown]);
 
   useEffect(() => {
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
-
-    setThemeTransition(isDarkMode ? "theme-sunset" : "theme-sunrise");
-    const timeoutId = setTimeout(() => {
-      setThemeTransition("");
-    }, 900);
-
+    if (!themeShift) return;
+    const timeoutId = setTimeout(() => setThemeShift(""), 1200);
     return () => clearTimeout(timeoutId);
-  }, [isDarkMode]);
+  }, [themeShift]);
+
 
   const renderSlideCounter = () => {
     const remainingSlides = slides.length - (currentSlide + 1);
@@ -192,12 +184,18 @@ const SlideDeck = () => {
   return (
     <div
       {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
-      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"} ${themeTransition}`}
+      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"} ${themeShift}`}
     >
       {" "}
       <DarkModeToggle
         isDarkMode={isDarkMode}
-        onToggle={() => setIsDarkMode((prev) => !prev)}
+        onToggle={() => {
+          setIsDarkMode((prev) => {
+            const nextIsDark = !prev;
+            setThemeShift(nextIsDark ? "theme-shift-down" : "theme-shift-up");
+            return nextIsDark;
+          });
+        }}
       />
       {slides.length > 0 ? (
         <Slide slide={slides[currentSlide]} isActive={true} />

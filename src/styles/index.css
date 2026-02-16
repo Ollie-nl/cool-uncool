@@ -17,9 +17,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f4f4f9;
-  color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--surface-gradient);
+  background-color: var(--surface);
+  color: var(--text);
+  transition:
+    background var(--theme-transition),
+    color var(--theme-transition);
 }
 
 /* ========== Slide Structuur ========== */
@@ -60,17 +63,43 @@ body {
 /* ========== Modus Stijlen (Dark/Light Mode) ========== */
 :root {
   --theme-transition: 600ms cubic-bezier(0.22, 1, 0.36, 1);
-  --theme-transition-duration: 900ms;
+  --surface: #f4f4f9;
+  --surface-gradient-light:
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(255, 225, 170, 0.6) 0%,
+      rgba(255, 205, 150, 0.25) 45%,
+      rgba(255, 205, 150, 0) 75%
+    ),
+    linear-gradient(180deg, #f9f6f1 0%, #f1eadf 55%, #ece4d7 100%);
+  --surface-gradient-dark:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(120, 150, 210, 0.5) 0%,
+      rgba(90, 110, 160, 0.25) 45%,
+      rgba(90, 110, 160, 0) 75%
+    ),
+    linear-gradient(0deg, #0f111a 0%, #151a25 55%, #1b2231 100%);
+  --surface-gradient: var(--surface-gradient-light);
+  --text: #333;
 }
 
 .light-mode {
-  background-color: #f4f4f9;
-  color: #333;
+  --surface: #f4f4f9;
+  --surface-gradient: var(--surface-gradient-light);
+  --text: #333;
+  background: var(--surface-gradient);
+  background-color: var(--surface);
+  color: var(--text);
 }
 
 .dark-mode {
-  background-color: #121212;
-  color: #fff;
+  --surface: #121212;
+  --surface-gradient: var(--surface-gradient-dark);
+  --text: #fff;
+  background-color: var(--surface);
+  background: var(--surface-gradient);
+  color: var(--text);
 }
 
 /* ========== Video Container ========== */
@@ -156,8 +185,8 @@ h1 {
   overflow: hidden;
   isolation: isolate;
   transition:
-    background-color var(--theme-transition),
     color var(--theme-transition);
+  background: var(--surface-gradient);
 }
 
 .slide-deck::before,
@@ -165,109 +194,131 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0;
   pointer-events: none;
+  z-index: 0;
+  transform: translateY(0) translateZ(0);
+  transition:
+    opacity var(--theme-transition),
+    transform var(--theme-transition);
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+.slide-deck > * {
+  position: relative;
   z-index: 1;
-  transform: translateZ(0);
 }
 
-.slide-deck.theme-sunrise::before {
-  background:
-    linear-gradient(180deg, rgba(255, 236, 210, 0.18) 0%, rgba(255, 200, 140, 0.45) 55%, rgba(255, 145, 100, 0.05) 100%),
-    radial-gradient(circle at 50% 120%, rgba(255, 205, 130, 0.6) 0%, rgba(255, 205, 130, 0.15) 45%, rgba(255, 230, 200, 0) 70%);
-  background-size: 140% 140%;
-  background-position: 50% 65%;
-  filter: blur(24px);
-  animation: sunriseSky var(--theme-transition-duration) ease-out forwards;
+.slide-deck::before {
+  background: var(--surface-gradient-light);
 }
 
-.slide-deck.theme-sunset::before {
-  background:
-    linear-gradient(0deg, rgba(12, 12, 24, 0.3) 0%, rgba(70, 40, 80, 0.6) 55%, rgba(255, 170, 100, 0.08) 100%),
-    radial-gradient(circle at 50% -10%, rgba(255, 160, 95, 0.6) 0%, rgba(160, 90, 120, 0.2) 45%, rgba(30, 30, 45, 0) 75%);
-  background-size: 140% 140%;
-  background-position: 50% 35%;
-  filter: blur(26px);
-  animation: sunsetSky var(--theme-transition-duration) ease-in forwards;
+.slide-deck::after {
+  background: var(--surface-gradient-dark);
 }
 
-.slide-deck.theme-sunrise::after {
-  background: radial-gradient(circle at 50% 85%, rgba(255, 230, 170, 0.9) 0%, rgba(255, 190, 120, 0.35) 45%, rgba(255, 190, 120, 0) 70%);
-  mix-blend-mode: screen;
-  filter: blur(12px);
-  animation: sunriseSun var(--theme-transition-duration) ease-out forwards;
+.light-mode .slide-deck::before {
+  opacity: 1;
 }
 
-.slide-deck.theme-sunset::after {
-  background: radial-gradient(circle at 50% 10%, rgba(255, 190, 120, 0.8) 0%, rgba(255, 120, 90, 0.3) 40%, rgba(255, 120, 90, 0) 70%);
-  mix-blend-mode: screen;
-  filter: blur(14px);
-  animation: sunsetSun var(--theme-transition-duration) ease-in forwards;
+.light-mode .slide-deck::after {
+  opacity: 0;
 }
 
-@keyframes sunriseSky {
+.dark-mode .slide-deck::before {
+  opacity: 0;
+}
+
+.dark-mode .slide-deck::after {
+  opacity: 1;
+}
+
+.slide-deck.theme-shift-down::before,
+.slide-deck.theme-shift-down::after {
+  opacity: 1;
+}
+
+.slide-deck.theme-shift-up::before,
+.slide-deck.theme-shift-up::after {
+  opacity: 1;
+}
+
+.slide-deck.theme-shift-down::before {
+  background: var(--surface-gradient-light);
+  animation: wipeDownOut 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 100%);
+}
+
+.slide-deck.theme-shift-down::after {
+  background: var(--surface-gradient-dark);
+  animation: wipeDownIn 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 100%);
+}
+
+.slide-deck.theme-shift-up::before {
+  background: var(--surface-gradient-dark);
+  animation: wipeUpOut 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, #000 85%, transparent 100%);
+}
+
+.slide-deck.theme-shift-up::after {
+  background: var(--surface-gradient-light);
+  animation: wipeUpIn 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, #000 85%, transparent 100%);
+}
+
+@keyframes wipeDownOut {
   0% {
-    opacity: 0;
-    transform: translateY(18%) scale(1.03);
-  }
-  45% {
-    opacity: 0.5;
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
   }
   100% {
-    opacity: 0;
-    transform: translateY(-12%) scale(1.03);
+    transform: translateY(100%) translateZ(0);
+    opacity: 1;
   }
 }
 
-@keyframes sunsetSky {
+@keyframes wipeDownIn {
   0% {
-    opacity: 0;
-    transform: translateY(-18%) scale(1.03);
-  }
-  45% {
-    opacity: 0.55;
+    transform: translateY(-100%) translateZ(0);
+    opacity: 1;
   }
   100% {
-    opacity: 0;
-    transform: translateY(12%) scale(1.03);
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
   }
 }
 
-@keyframes sunriseSun {
+@keyframes wipeUpOut {
   0% {
-    opacity: 0;
-    transform: translateY(24%) scale(0.95);
-  }
-  45% {
-    opacity: 0.7;
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
   }
   100% {
-    opacity: 0;
-    transform: translateY(-6%) scale(1.05);
+    transform: translateY(-100%) translateZ(0);
+    opacity: 1;
   }
 }
 
-@keyframes sunsetSun {
+@keyframes wipeUpIn {
   0% {
-    opacity: 0;
-    transform: translateY(-20%) scale(1.05);
-  }
-  45% {
-    opacity: 0.65;
+    transform: translateY(100%) translateZ(0);
+    opacity: 1;
   }
   100% {
-    opacity: 0;
-    transform: translateY(16%) scale(0.95);
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .slide-deck.theme-sunrise::before,
-  .slide-deck.theme-sunset::before,
-  .slide-deck.theme-sunrise::after,
-  .slide-deck.theme-sunset::after {
-    animation: none;
-    opacity: 0;
+  .slide-deck::before,
+  .slide-deck::after {
+    transition: none;
   }
 }
 
@@ -293,8 +344,9 @@ h1 {
 
 .counter-text {
   flex: 1;
-  text-align: center;
+  text-align: right;
   font-weight: normal;
+  padding-right: 16px;
 }
 
 .light-mode .slide-counter {
