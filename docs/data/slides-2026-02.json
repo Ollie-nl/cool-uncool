@@ -1,0 +1,134 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "💃 🪩 🕺 Februari 2026 ",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/kQRu7DdTTVA",
+        "title": "Ads are coming to AI  (🙌 Jeff)",
+        "icon": "🤖",
+        "slug": "Ads-are-coming-to-ai"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/aku9p-NqT4k",
+        "title": "Lego USB cable hack (🙌 🌹)",
+        "icon": "🧶",
+        "slug": "lego-hack"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/8LHTzK57eoU",
+        "title": "A plushie lover's weakness in one video",
+        "icon": "🦖",
+        "slug": "a-plushie-lover"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/qbTSI6FZfQ0",
+        "title": "Unitree CEO Tests His Robots",
+        "icon": "🤖",
+        "slug": "unitree-robots-test"
+      },
+       {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/BN0SnGVGV5M",
+        "title": "De walk me",
+        "icon": "🪑",
+        "slug": "walk-me"
+      },           
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/oSCX78-8-q0&t=12s",
+        "title": "A Boy And His Atom: The World's Smallest Movie",
+        "icon": "⚛️",
+        "slug": "a-boy-and-his-atom"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/UHt4yhwEeNME",
+        "title": "this vinyl is crazy",
+        "icon": "🪚",
+        "slug": "crazy-vinyl"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/xijo22dYHmk",
+        "title": "Hakken Mario ",
+        "icon": "💃 🪩 🕺",
+        "slug": "hakken-mario"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/OW0-tVuUzaU",
+        "title": "Kid trying to impress a girl by dancing",
+        "icon": "💃 🪩 🕺",
+        "slug": "kid-trying-to"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/p7UarI0Lmwg",
+        "title": "Dad moves",
+        "icon": "💃 🪩 🕺",
+        "slug": "thats-my-dawg"
+      }, 
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/kGGoeDrjL5g",
+        "title": "The Real Crazy Frog Bros - Take3",
+        "icon": "🕺 🪩 🕺",
+        "slug": "frog-bros-take3"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/G8XA0QixygE",
+        "title": "Dizzy moves",
+        "icon": "💃 🪩 ",
+        "slug": "dizzy-moves"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/cDvBwePeebA",
+        "title": "Russian Brothers Tecktonik Dance in Sync ",
+        "icon": "🕺 🪩 🕺",
+        "slug": "brothers-tecktonik"
+      },  
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/gPbVRpRgHso",
+        "title": "Cybergoth Dance Party",
+        "icon": "💃 🕺 💃 🕺 💃 🕺",
+        "slug": "cybergoth-dance"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Bi1yjDi91Sg",
+        "title": "Blue shirt guy",
+        "icon": "💃 🪩 🕺",
+        "slug": "blue-shirt-guy"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/UjCdB5p2v0Y",
+        "title": "Technoviking",
+        "icon": "🕺",
+        "slug": "technoviking"
+      },      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/wt_nbTRzYrk",
+        "title": "Amazing Robot Dance Battle",
+        "icon": "💃 🪩 🕺",
+        "slug": "robot-vall"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/zSjBg6eVncA",
+        "title": "smooth movement weekend",
+        "icon": "😎",
+        "slug": "cool-moves-to-weekend"
+      }
+    ]
+  }
