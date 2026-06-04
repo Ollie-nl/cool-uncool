@@ -2,7 +2,7 @@
     "slides": [
       {
         "type": "heading",
-        "content": "📐 Hypotenusa 3² + 4² = 5² Juni 2026",
+        "content": "📐 3² + 4² = 5² Juni 2026",
         "slug": "start"
       },
       {
@@ -64,14 +64,14 @@
       {
         "type": "paragraph",
         "title": "TODO",
-        "icon": "❓",
-        "content": "[Bekijk foto op 9gag](https://9gag.com/gag/axyqoYM)",
+        "icon": "🇯🇲",
+         "content": "![Bob's hair](/images/bob-m-cables.jpeg)",
         "slug": "9gag-axyqoYM"
       },
       {
         "type": "youtube",
         "url": "https://www.youtube.com/embed/UWdexppgq0A",
-        "title": "The pen that holds live parasites"
+        "title": "The pen that holds live parasites",
         "icon": "🦠",
         "slug": "parasite-pen-resident-evil"
       },
@@ -81,6 +81,27 @@
         "title": "The First Electric Ferrari — Ferrari Luce",
         "icon": "🏎️",
         "slug": "electric-ferrari-luce"
+      },
+      {
+        "type": "paragraph",
+        "title": "Classic shirt",
+        "icon": "🇦🇷",
+        "content": "![Argentinië shirt](/images/agrentinie-shirt.jpeg)",
+        "slug": "argentinie-shirt"
+      },
+      {
+        "type": "paragraph",
+        "title": "90's German shirt",
+        "icon": "🇩🇪",
+        "content": "![Duitsland shirt](/images/duitsland-shirt.jpeg)",
+        "slug": "duitsland-shirt"
+      },
+      {
+        "type": "paragraph",
+        "title": "Aztec Mexico shirt",
+        "icon": "🇲🇽",
+        "content": "![Mexico shirt](/images/mexico-shirt.jpeg)",
+        "slug": "mexico-shirt"
       },
       {
         "type": "youtube",
