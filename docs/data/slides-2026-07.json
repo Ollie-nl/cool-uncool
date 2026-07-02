@@ -1,0 +1,114 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "😎 🥵 Juli 2026",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/iWkM5kEH9PM",
+        "title": "I Forced Artists to Play Meccha Chameleon",
+        "icon": "🦎",
+        "slug": "meccha-chameleon"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/LfluJ71FK-U",
+        "title": "(4 Chino) Every dog owner needs to see this",
+        "icon": "🐶",
+        "slug": "dog-owner-funny"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/p25x1kZTl9o",
+        "title": "Old TV into a Cat Bed",
+        "icon": "📺",
+        "slug": "old-tv-cat-bed"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/1T0YWEi_C3Y",
+        "title": "USB Colors have meanings?",
+        "icon": "🔌",
+        "slug": "usb-colors-meanings"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/ERIcY7wjpKY",
+        "title": "The World's Most Luxurious Sleeper Train",
+        "icon": "🚂",
+        "slug": "luxurious-sleeper-train"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/SRrpL8QlCgY",
+        "title": "I designed handshake screws",
+        "icon": "🔩",
+        "slug": "handshake-screws"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/jHVB-zjLd8k",
+        "title": "RGB Katana PC at Computex 2026",
+        "icon": "💻",
+        "slug": "rgb-katana-pc-computex"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/O7qHW1zhG_I",
+        "title": "Germanbreadcutter Episode 136",
+        "icon": "🍞",
+        "slug": "german-breadcutter"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/qsI2rJOCVCY",
+        "title": "New moshpit move unlocked",
+        "icon": "🤘",
+        "slug": "moshpit-move-unlocked"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/2iG-Gp1ThDc",
+        "title": "POV: Photographing a sleepy robber fly",
+        "icon": "📸",
+        "slug": "macro-robber-fly"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Zk8Io76n0_I",
+        "title": "Togak lLan, Pacu Jalur Race",
+        "icon": "🚣",
+        "slug": "pacu-jalur-race"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/4KqRt3AWsF8",
+        "title": "Een AI die controle krijgt over je lichaam",
+        "icon": "🤖",
+        "slug": "ai-controls-your-body"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/Y_Zg5FFj_yU",
+        "title": "World Fencing League visuals",
+        "icon": "🤺",
+        "slug": "world-fencing-league"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/GzLZVy1EDZg",
+        "title": "Misterioso hallazgo en Google Maps (55°S 69°W)",
+        "icon": "🗺️",
+        "slug": "mysterious-google-maps"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/AgdvoKx78MQ",
+        "title": "The Mattress EXPLODED!",
+        "icon": "🛏️",
+        "slug": "mattress-exploded"
+      }
+    ]
+  }
