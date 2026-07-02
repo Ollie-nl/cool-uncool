@@ -34,6 +34,8 @@ const Slide = ({ slide, isActive }) => {
         mute: "1",
         modestbranding: "1",
         rel: "0",
+        controls: "1",
+        loop: "1",
       });
 
       if (cleanPlaylistId) {
@@ -71,7 +73,6 @@ const Slide = ({ slide, isActive }) => {
               onStateChange: (event) => {
                 if (
                   isActive &&
-                  slide.repeat &&
                   event.data === window.YT.PlayerState.ENDED
                 ) {
                   event.target.seekTo(0);
@@ -101,7 +102,7 @@ const Slide = ({ slide, isActive }) => {
         playerRef.current.pauseVideo();
       }
     };
-  }, [isActive, slide.type, slide.repeat]);
+  }, [isActive, slide.type]);
 
   return (
     <div className={`slide ${isActive ? "active" : "inactive"}`}>

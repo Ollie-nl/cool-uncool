@@ -92,8 +92,10 @@ slides-YYYY-MM.json
 | Type | Verplichte velden | Optioneel |
 |------|-------------------|-----------|
 | `heading` | `content`, `slug` | `icon` |
-| `youtube` | `url`, `slug` | `title`, `icon`, `repeat` |
+| `youtube` | `url`, `slug` | `title`, `icon` |
 | `paragraph` | `content`, `slug` | `title`, `icon` |
+
+> `youtube`-slides herhalen altijd automatisch (loop) zodra de video eindigt; dit staat vast in de code en is niet per slide instelbaar. De ingebouwde YouTube-bedieningsbalk (play/pauze, volume, voortgang) wordt gewoon getoond.
 
 ### Nieuwe maand toevoegen
 
