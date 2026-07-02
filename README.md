@@ -62,47 +62,60 @@ slides-YYYY-MM.json
 ### Voorbeeldbestand: `slides-2024-12.json`
 
 ```json
-[
-  {
-    "type": "heading",
-    "content": "😎 😩 December",
-    "slug": "start"
-  },
-  {
-    "type": "paragraph",
-    "content": "![Darth Vader Christmas](/cool-uncool/images/darth-vader-xmas.jpeg) ",
-    "title": "Text met plaatje. Luke, I am Father Christmas",
-    "icon": "🎄",
-    "slug": "star-wars"
-  },
-  {
-    "type": "youtube",
-    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "title": "Movie #1",
-    "icon": "💃🏻",
-    "slug": "Never forget XcQ"
-  }
-]
+{
+  "slides": [
+    {
+      "type": "heading",
+      "content": "😎 😩 December",
+      "slug": "start"
+    },
+    {
+      "type": "paragraph",
+      "content": "![Darth Vader Christmas](/images/darth-vader-xmas.jpeg)",
+      "title": "Luke, I am Father Christmas",
+      "icon": "🎄",
+      "slug": "star-wars"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "title": "Movie #1",
+      "icon": "💃🏻",
+      "slug": "never-forget-xcq"
+    }
+  ]
+}
 ```
+
+**Ondersteunde slide types:**
+
+| Type | Verplichte velden | Optioneel |
+|------|-------------------|-----------|
+| `heading` | `content`, `slug` | `icon` |
+| `youtube` | `url`, `slug` | `title`, `icon`, `repeat` |
+| `paragraph` | `content`, `slug` | `title`, `icon` |
 
 ### Nieuwe maand toevoegen
 
 1. **Maak een nieuw bestand aan in `public/data/`**:
-   Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2024-12.json`.
+   Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2025-03.json`.
 
-2. **Voeg je slides toe in JSON-formaat**:
-   Zorg ervoor dat elke slide een unieke `slug` heeft.
-
-3. **Herbuild de applicatie**:
-
+2. **Kopieer het bestand ook naar `docs/data/`** voor directe live deployment:
    ```bash
-
-   pnpm run build
-
+   cp public/data/slides-2025-03.json docs/data/slides-2025-03.json
    ```
 
-4. **De maand wordt automatisch toegevoegd**:
-   `generateAvailableMonths.js` maakt `available-months.json` aan, de maandselector toont de nieuwste maand bovenaan.
+3. **Voeg de maand toe aan `available-months.json`** in zowel `public/data/` als `docs/data/`:
+   ```json
+   { "months": ["2025-03", "2025-02", ...] }
+   ```
+
+4. **Commit en push** — geen rebuild nodig voor data-only wijzigingen:
+   ```bash
+   git add public/data/ docs/data/ && git commit -m "feat: slides juni 2025" && git push
+   ```
+
+> Gebruik `pnpm run deploy` alleen als je ook broncode hebt gewijzigd. Voor nieuwe JSON-bestanden is een directe push voldoende.
 
 ---
 
@@ -140,21 +153,26 @@ De output wordt geplaatst in de docs/ map en GitHub Pages haalt de inhoud direct
 
 ```
 cool-uncool/
-├── public/               # Statische bestanden (favicon, afbeeldingen)
-│   ├── images/
-│   ├── data/             # JSON data voor slides
-│   └── _redirects        # Netlify redirect of GH Pages SPA fix
-├── src/                  # React broncode
+├── public/                      # Statische bestanden
+│   ├── images/                  # Afbeeldingen voor slides
+│   ├── data/                    # JSON bronbestanden voor slides
+│   │   ├── available-months.json
+│   │   └── slides-YYYY-MM.json
+│   ├── 404.html                 # GitHub Pages SPA redirect
+│   └── index.html
+├── src/                         # React broncode
 │   ├── components/
-│   ├── data/             # JSON slide data (alleen lokaal)
 │   ├── styles/
 │   └── App.js
-├── docs/                 # Gebouwde productie bestanden (voor GH Pages)
-├── generateAvailableMonths.js  # Script om beschikbare maanden te genereren
-│   └── ...                 # Overige React-bestanden
-├── package.json            # Projectafhankelijkheden en scripts
-└── README.md               # Documentatie
-
+├── docs/                        # Productie build (GitHub Pages leest hieruit)
+│   ├── data/                    # Gekopieerde JSON bestanden
+│   ├── images/                  # Gekopieerde afbeeldingen
+│   ├── 404.html                 # GitHub Pages SPA redirect (gekopieerd)
+│   └── index.html
+├── generateAvailableMonths.js   # Genereert available-months.json bij build
+├── copyRedirects.js             # Kopieert _redirects na build
+├── package.json
+└── README.md
 ```
 
 ---
@@ -163,7 +181,7 @@ cool-uncool/
 
 - Geen slides beschikba-r: Zorg dat de JSON-bestanden in public/data/ correct zijn.
 - Afbeeldingen laden niet op GH Pages: Controleer of de paden naar afbeeldingen beginnen met /cool-uncool/ in productie.
-- 404 op GitHub Pages: Controleer of het \_redirects bestand correct wordt gekopieerd naar de docs/ map na elke build.
+- 404 op GitHub Pages bij directe URL-toegang: Controleer of `docs/404.html` aanwezig is. Dit bestand vangt alle 404's op en stuurt ze door naar `index.html` zodat React Router de route kan afhandelen.
 
 ---
 

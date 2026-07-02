@@ -54,8 +54,8 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
    Bij elke `pnpm run deploy` wordt de app gebouwd en wordt de output naar de `docs/` map verplaatst.  
    GitHub Pages leest deze map om de site te hosten.
 
-2. **\_redirects Bestanden**  
-   Dit bestand zorgt ervoor dat interne routes (bijvoorbeeld `/slides/2024/12/start`) correct worden afgehandeld als de gebruiker direct naar een URL navigeert.
+2. **GitHub Pages SPA Routing via `404.html`**  
+   GitHub Pages ondersteunt geen `_redirects` (Netlify-formaat). In plaats daarvan vangt `docs/404.html` alle onbekende paden op, codeert het pad als query parameter, en stuurt door naar `index.html`. Een script in `index.html` herstelt de originele URL zodat React Router de route correct oppikt. Dit maakt directe URL-toegang (bijv. `/slides/2026/06/start`) mogelijk zonder een 404 van GitHub.
 
 ---
 
@@ -71,12 +71,8 @@ De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van Ja
 
 - **Server-side slidebeheer**.
 - **Inzendingen optie**.
-- **Alle sessies toegevoegd**.
-- **Versiebeheer**.
 - **Server-side rendering (SSR) voor betere SEO en prestaties**.
 - **WebSockets voor real-time updates tijdens presentaties**.
-- **CI/CD pipelines om automatisch te testen en te deployen bij iedere commit**.
-- **More, more, mmmmoooore...**.
 
 ---
 
@@ -90,3 +86,6 @@ const getBasePath = () => {
   return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
 };
 ```
+
+- **Data-only wijzigingen:** Voor nieuwe slide JSON-bestanden is geen rebuild nodig. Voeg het bestand toe aan zowel `public/data/` als `docs/data/` en update `available-months.json` in beide mappen. Commit en push direct.
+- **Broncode wijzigingen:** Gebruik `pnpm run deploy` om de volledige app te herbouwen en te deployen.
