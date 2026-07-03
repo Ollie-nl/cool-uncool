@@ -8,12 +8,25 @@ import {
   useNavigate,
 } from "react-router-dom";
 import SlideDeck from "./components/SlideDeck";
+import VoterPage from "./components/VoterPage";
 import "./styles/index.css";
 
 // Debugging component
 function DebugRoute() {
   let location = useLocation();
   return <div>Route niet gevonden: {location.pathname}</div>;
+}
+
+// Redirects /vote to the current month's session
+function VoteRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    navigate(`/vote/${year}-${month}`, { replace: true });
+  }, [navigate]);
+  return <div>Laden…</div>;
 }
 
 function StartRedirect() {
@@ -67,6 +80,8 @@ function App() {
       <Routes>
         <Route path="/" element={<StartRedirect />} />
         <Route path="/slides/:year/:month/:slug" element={<SlideDeck />} />
+        <Route path="/vote" element={<VoteRedirect />} />
+        <Route path="/vote/:sessionId" element={<VoterPage />} />
         <Route path="*" element={<DebugRoute />} />
       </Routes>
     </Router>
