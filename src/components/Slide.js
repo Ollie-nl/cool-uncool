@@ -2,9 +2,12 @@ import React, { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import LazyLoad from 'react-lazyload';
 
-const Slide = ({ slide, isActive }) => {
+const Slide = ({ slide, isActive, onFirstVideoEnd }) => {
   const iframeRef = useRef(null);
   const playerRef = useRef(null);
+  const hasEndedOnce = useRef(false);
+  const onFirstVideoEndRef = useRef(onFirstVideoEnd);
+  const currentSlugRef = useRef(slide.slug);
 
   const getYouTubeEmbedUrl = (rawUrl) => {
     try {
@@ -57,6 +60,17 @@ const Slide = ({ slide, isActive }) => {
     return process.env.NODE_ENV === "production" ? `/cool-uncool${path}` : path;
   };
 
+  // Keep callback ref current so the YT event handler always calls the latest version
+  useEffect(() => {
+    onFirstVideoEndRef.current = onFirstVideoEnd;
+  }, [onFirstVideoEnd]);
+
+  // Reset first-end tracking whenever the slide changes
+  useEffect(() => {
+    hasEndedOnce.current = false;
+    currentSlugRef.current = slide.slug;
+  }, [slide.slug]);
+
   useEffect(() => {
     const initializePlayer = () => {
       if (slide.type === "youtube" && iframeRef.current) {
@@ -75,6 +89,10 @@ const Slide = ({ slide, isActive }) => {
                   isActive &&
                   event.data === window.YT.PlayerState.ENDED
                 ) {
+                  if (!hasEndedOnce.current) {
+                    hasEndedOnce.current = true;
+                    onFirstVideoEndRef.current?.(currentSlugRef.current);
+                  }
                   event.target.seekTo(0);
                   event.target.playVideo();
                 }

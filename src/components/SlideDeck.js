@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Slide from "./Slide";
 import DarkModeToggle from "./DarkModeToggle/DarkModeToggle";
 import MonthSelector from "./MonthSelector/MonthSelector";
+import VotingOverlay from "./VotingOverlay";
 
 const SlideDeck = () => {
   const { year, month, slug } = useParams();
@@ -13,6 +14,12 @@ const SlideDeck = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [themeShift, setThemeShift] = useState("");
   const [months, setMonths] = useState([]);
+  const [votingOpen, setVotingOpen] = useState(false);
+  const [activeVoteSlug, setActiveVoteSlug] = useState(null);
+  // Tracks which slugs have already auto-triggered voting (so it only opens once per slide)
+  const [autoTriggeredSlugs] = useState(() => new Set());
+
+  const sessionId = year && month ? `${year}-${month}` : null;
 
   const getBasePath = () => {
     return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
@@ -148,16 +155,56 @@ const SlideDeck = () => {
     trackMouse: true,
   });
 
+  const openVoting = useCallback(() => {
+    const currentSlideObj = slides[currentSlide];
+    if (!currentSlideObj) return;
+    setActiveVoteSlug(currentSlideObj.slug);
+    setVotingOpen(true);
+  }, [slides, currentSlide]);
+
+  const closeVoting = useCallback(() => {
+    setVotingOpen(false);
+    setActiveVoteSlug(null);
+  }, []);
+
+  const handleFirstVideoEnd = useCallback(
+    (slideSlug) => {
+      if (autoTriggeredSlugs.has(slideSlug)) return;
+      autoTriggeredSlugs.add(slideSlug);
+      setActiveVoteSlug(slideSlug);
+      setVotingOpen(true);
+    },
+    [autoTriggeredSlugs]
+  );
+
+  // Close voting when navigating away from the slide it was opened for
+  useEffect(() => {
+    if (!votingOpen || !activeVoteSlug || slides.length === 0) return;
+    const current = slides[currentSlide];
+    if (current && current.slug !== activeVoteSlug) {
+      closeVoting();
+    }
+  }, [currentSlide, slides, votingOpen, activeVoteSlug, closeVoting]);
+
   // Pijltjesnavigatie (keyboard)
   const handleKeyDown = useCallback(
     (e) => {
+      if (e.target.tagName === "SELECT") return;
+      if (e.key === "v" || e.key === "V") {
+        if (votingOpen) {
+          closeVoting();
+        } else {
+          openVoting();
+        }
+        return;
+      }
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         goToSlide(currentSlide + 1);
       } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         goToSlide(currentSlide - 1);
       }
     },
-    [currentSlide, slides.length],
+    [currentSlide, slides.length, votingOpen, openVoting, closeVoting],
   );
 
   useEffect(() => {
@@ -198,7 +245,11 @@ const SlideDeck = () => {
         }}
       />
       {slides.length > 0 ? (
-        <Slide slide={slides[currentSlide]} isActive={true} />
+        <Slide
+          slide={slides[currentSlide]}
+          isActive={true}
+          onFirstVideoEnd={handleFirstVideoEnd}
+        />
       ) : (
         <div className="no-slides">Geen slides beschikbaar.</div>
       )}
@@ -215,11 +266,28 @@ const SlideDeck = () => {
             <button className="footer-button" onClick={goToRandomSlideFromAll}>
               🎲 Random Slide
             </button>
+            <button
+              className="footer-button"
+              onClick={votingOpen ? closeVoting : openVoting}
+              title="Openen/sluiten stemronde (V)"
+            >
+              {votingOpen ? '🗳️ Stemmen sluiten' : '🗳️ Stemmen openen'}
+            </button>
           </div>
           <div className="counter-text">
           {renderSlideCounter()}
           </div>
         </div>
+      )}
+
+      {votingOpen && activeVoteSlug && sessionId && (
+        <VotingOverlay
+          sessionId={sessionId}
+          slideSlug={activeVoteSlug}
+          votingOpen={votingOpen}
+          onClose={closeVoting}
+          isDarkMode={isDarkMode}
+        />
       )}
     </div>
   );
