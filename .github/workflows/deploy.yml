@@ -9,65 +9,61 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+
+      - name: 📦 Install PNPM
+        uses: pnpm/action-setup@v6
 
       - name: 🏗️ Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: "18"
-
-      - name: 📦 Install PNPM (direct binary)
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -
-
-      - name: ➕ Add PNPM to PATH
-        run: echo "~/.local/share/pnpm" >> $GITHUB_PATH
+          node-version-file: .nvmrc
+          cache: pnpm
 
       - name: 📦 Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: 🧪 Run Tests
         run: pnpm test
+
+      - name: 🔨 Build project
+        run: pnpm run build
 
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: build-and-test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+
+      - name: 📦 Install PNPM
+        uses: pnpm/action-setup@v6
 
       - name: 🏗️ Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: "18"
-
-      - name: 📦 Install PNPM (direct binary)
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -
-
-      - name: ➕ Add PNPM to PATH
-        run: echo "~/.local/share/pnpm" >> $GITHUB_PATH
+          node-version-file: .nvmrc
+          cache: pnpm
 
       - name: 📦 Install dependencies
-        run: pnpm install
-
-      - name: 🗂️ Copy _redirects file
-        run: cp public/_redirects docs/_redirects || echo "No _redirects found"
+        run: pnpm install --frozen-lockfile
 
       - name: 🔨 Build project
         run: pnpm run build
 
       - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-          keep_files: true
+          keep_files: false

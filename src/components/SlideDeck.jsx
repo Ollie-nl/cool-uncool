@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useSwipeable } from "react-swipeable";
-import { useParams, useNavigate } from "react-router-dom";
-import Slide from "./Slide";
-import DarkModeToggle from "./DarkModeToggle/DarkModeToggle";
-import MonthSelector from "./MonthSelector/MonthSelector";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import { useParams, useNavigate } from 'react-router-dom';
+import { basePath } from '../basePath';
+import Slide from './Slide';
+import DarkModeToggle from './DarkModeToggle/DarkModeToggle';
+import MonthSelector from './MonthSelector/MonthSelector';
 
 const SlideDeck = () => {
   const { year, month, slug } = useParams();
@@ -11,47 +12,44 @@ const SlideDeck = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [themeShift, setThemeShift] = useState("");
+  const [themeShift, setThemeShift] = useState('');
   const [months, setMonths] = useState([]);
-
-  const getBasePath = () => {
-    return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
-  };
 
   // Maand selecteren en redirecten
   const handleMonthSelect = (selectedMonth) => {
-    const [selectedYear, selectedMonthNum] = selectedMonth.split("-");
+    const [selectedYear, selectedMonthNum] = selectedMonth.split('-');
     navigate(`/slides/${selectedYear}/${selectedMonthNum}/start`);
   };
 
-
   const loadAllSlides = async () => {
     try {
-      const response = await fetch(`${getBasePath()}/data/available-months.json`);
-      if (!response.ok) throw new Error("available-months.json niet gevonden");
+      const response = await fetch(`${basePath}/data/available-months.json`);
+      if (!response.ok) throw new Error('available-months.json niet gevonden');
       const { months } = await response.json();
-  
+
       let allSlides = [];
-  
+
       // Loop door alle maanden en laad de slides
       for (const month of months) {
-        const slidesPath = `${getBasePath()}/data/slides-${month}.json`;
+        const slidesPath = `${basePath}/data/slides-${month}.json`;
         const slideResponse = await fetch(slidesPath);
         if (slideResponse.ok) {
           const { slides } = await slideResponse.json();
           // Filter de eerste slide eruit
           const filteredSlides = slides.slice(1);
-          allSlides = [...allSlides, ...filteredSlides.map(slide => ({
-            ...slide,
-            month,
-          }))];
+          allSlides = [
+            ...allSlides,
+            ...filteredSlides.map((slide) => ({
+              ...slide,
+              month,
+            })),
+          ];
         }
       }
-  
+
       return allSlides;
-      
     } catch (error) {
-      console.error("Fout bij laden van alle slides:", error);
+      console.error('Fout bij laden van alle slides:', error);
       return [];
     }
   };
@@ -59,33 +57,32 @@ const SlideDeck = () => {
   // Random slide
   const goToRandomSlideFromAll = async () => {
     const allSlides = await loadAllSlides();
-    
+
     if (allSlides.length > 0) {
       const randomIndex = Math.floor(Math.random() * allSlides.length);
       const randomSlide = allSlides[randomIndex];
-  
+
       const [year, month] = randomSlide.month.split('-');
       navigate(`/slides/${year}/${month}/${randomSlide.slug}`);
     } else {
-      console.log("Geen geldige slides gevonden.");
+      console.log('Geen geldige slides gevonden.');
     }
   };
-  
 
   // Laad de beschikbare maanden uit public/data
   useEffect(() => {
     const fetchMonths = async () => {
       try {
-        const response = await fetch(
-          `${getBasePath()}/data/available-months.json`,
-        );
+        const response = await fetch(`${basePath}/data/available-months.json`);
         if (!response.ok)
-          throw new Error("available-months.json niet gevonden");
+          throw new Error('available-months.json niet gevonden');
         const data = await response.json();
-        const sortedMonths = (data.months || []).slice().sort((a, b) => b.localeCompare(a));
+        const sortedMonths = (data.months || [])
+          .slice()
+          .sort((a, b) => b.localeCompare(a));
         setMonths(sortedMonths);
       } catch (error) {
-        console.error("Fout bij laden van maanden:", error);
+        console.error('Fout bij laden van maanden:', error);
         setMonths([]);
       }
     };
@@ -97,13 +94,13 @@ const SlideDeck = () => {
   useEffect(() => {
     const loadSlides = async () => {
       try {
-        const slidesPath = `${getBasePath()}/data/slides-${year}-${month}.json`;
-        console.log("Fetching slides:", slidesPath);
+        const slidesPath = `${basePath}/data/slides-${year}-${month}.json`;
+        console.log('Fetching slides:', slidesPath);
 
         const response = await fetch(slidesPath);
         if (!response.ok) {
           throw new Error(
-            `Slidebestand niet gevonden: slides-${year}-${month}.json`,
+            `Slidebestand niet gevonden: slides-${year}-${month}.json`
           );
         }
 
@@ -112,8 +109,7 @@ const SlideDeck = () => {
 
         // Zoek de juiste slide op basis van slug of index
         const slideIndex = slidesForMonth.findIndex(
-          (slide, index) =>
-            slide.slug === slug || `slide-${index + 1}` === slug,
+          (slide, index) => slide.slug === slug || `slide-${index + 1}` === slug
         );
 
         if (slideIndex !== -1) {
@@ -144,55 +140,54 @@ const SlideDeck = () => {
   const handlers = useSwipeable({
     onSwipedLeft: () => goToSlide(currentSlide + 1),
     onSwipedRight: () => goToSlide(currentSlide - 1),
-    preventDefaultTouchmoveEvent: true,
+    preventScrollOnSwipe: true,
     trackMouse: true,
   });
 
   // Pijltjesnavigatie (keyboard)
   const handleKeyDown = useCallback(
     (e) => {
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         goToSlide(currentSlide + 1);
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         goToSlide(currentSlide - 1);
       }
     },
-    [currentSlide, slides.length],
+    [currentSlide, slides.length]
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
 
   useEffect(() => {
     if (!themeShift) return;
-    const timeoutId = setTimeout(() => setThemeShift(""), 1200);
+    const timeoutId = setTimeout(() => setThemeShift(''), 1200);
     return () => clearTimeout(timeoutId);
   }, [themeShift]);
-
 
   const renderSlideCounter = () => {
     const remainingSlides = slides.length - (currentSlide + 1);
     return remainingSlides > 0
-    ? `Nog ${remainingSlides} slide${remainingSlides !== 1 ? "s" : ""} te gaan`
-    : "Dit is de laatste slide";
+      ? `Nog ${remainingSlides} slide${remainingSlides !== 1 ? 's' : ''} te gaan`
+      : 'Dit is de laatste slide';
   };
 
   return (
     <div
       {...handlers} // Swipe-functionaliteit wordt hier toegevoegd
-      className={`slide-deck ${isDarkMode ? "dark-mode" : "light-mode"} ${themeShift}`}
+      className={`slide-deck ${isDarkMode ? 'dark-mode' : 'light-mode'} ${themeShift}`}
     >
-      {" "}
+      {' '}
       <DarkModeToggle
         isDarkMode={isDarkMode}
         onToggle={() => {
           setIsDarkMode((prev) => {
             const nextIsDark = !prev;
-            setThemeShift(nextIsDark ? "theme-shift-down" : "theme-shift-up");
+            setThemeShift(nextIsDark ? 'theme-shift-down' : 'theme-shift-up');
             return nextIsDark;
           });
         }}
@@ -216,9 +211,7 @@ const SlideDeck = () => {
               🎲 Random Slide
             </button>
           </div>
-          <div className="counter-text">
-          {renderSlideCounter()}
-          </div>
+          <div className="counter-text">{renderSlideCounter()}</div>
         </div>
       )}
     </div>

@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@testing-library/jest-dom@8.0.0'

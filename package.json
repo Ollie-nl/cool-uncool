@@ -2,44 +2,35 @@
   "name": "react-app",
   "version": "0.8.0",
   "private": false,
-  "homepage": ".",
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": "^24.15.0 || >=26.0.0"
+  },
   "scripts": {
-    "start": "pnpm run generate-months && react-scripts start",
-    "build": "pnpm run generate-months && [ -d docs ] && rm -rf docs; react-scripts build && mv build docs && node copyRedirects.js",
+    "start": "pnpm run generate-months && vite",
+    "build": "pnpm run generate-months && vite build",
+    "preview": "vite preview",
     "deploy": "pnpm run build && git add docs && git commit --allow-empty -m 'Deploy to GitHub Pages' && git push origin main",
-    "prettier": "prettier --write .",
+    "prettier": "prettier --config .config/.prettierrc --ignore-path .config/.prettierignore --write .",
     "generate-months": "node generateAvailableMonths.js",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
-    "@deckdeckgo/core": "^10.0.1",
-    "loader-utils": "^3.3.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-lazyload": "^3.2.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.13.0",
-    "react-swipeable": "^7.0.2",
-    "resolve-url-loader": "^5.0.0",
-    "shell-quote": "^1.8.3"
+    "react-router-dom": "^7.18.6",
+    "react-swipeable": "^7.0.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/babel__traverse": "^7.28.0",
-    "prettier": "^3.8.1",
-    "react-scripts": "^5.0.1",
-    "typescript": "^5.9.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^31.0.1",
+    "prettier": "^3.10.1",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
   }
 }

@@ -1,65 +1,62 @@
 # Cool Uncool Slide Deck
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
+[![GitHub license](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 
-**Cool Uncool** is een interactieve webapplicatie voor het geven van **Cool-Uncool sessies** tijdens NL DS designers meetups. De focus ligt op front-end technologieën, React, open source ontwikkeling, GitHub-integratie en toegankelijkheid.
+**Cool Uncool** is een interactieve React-app voor Cool-Uncool sessies tijdens NL DS designers meetups. Slides staan in maandelijkse JSON-bestanden. De app ondersteunt toetsenbordnavigatie, swipen, een maandselector, willekeurige slides, Markdown, YouTube-video's en een licht en donker thema. Op de homepage opent automatisch de meest recente maand.
 
----
+## Installatie
 
-## 🚀 Functies
+Gebruik **Node.js 24 LTS, minimaal 24.15.0**, en **pnpm 12.21.0**. De Node-hoofdversie staat in `.nvmrc`; de pnpm-versie staat in `package.json`. Node 26 of nieuwer wordt ook ondersteund.
 
-- **Intuïtieve Slide Navigatie**: Navigeer door de slides met de pijltjestoetsen (links/rechts, boven/onder).
-- **Mobiele Swipe-ondersteuning**: Swipe eenvoudig door de slides op mobiele apparaten.
-- **Maandselector**: Wissel tussen maanden met behulp van de maandselector in de footer.
-- **Slimme start**: Op de homepage start je automatisch in de meest recente maand.
-- **Dark Mode**: Schakel tussen licht- en donker thema met één klik.
-- **Responsief Ontwerp**: Geoptimaliseerd voor verschillende schermgroottes.
-- **Slide Teller**: Bekijk in één oogopslag hoeveel slides er nog volgen.
-- **Leesbaare URL's**: Uit de URL is op te maken in welke maand en jaar de sessie is gegeven of wordt gegeven.
-
----
-
-## 🛠️ Installatie
-
-1. **Clone de repository**:  
-   git clone https://github.com/Ollie-nl/cool-uncool.git
-
-2. **Navigeer naar de projectmap**:  
-   cd cool-uncool
-
-3. **Installeer afhankelijkheden** (met pnpm):  
-   pnpm install
-
-4. **Start de development server**:  
-   pnpm start
-
-   Open vervolgens `http://localhost:3000` in je browser.
-
----
-
-## 🔧 Scripts
-
-- `pnpm start`: Start de development server.
-- `pnpm run build`: Bouwt de applicatie voor productie.
-- `pnpm test`: Voert tests uit (indien ingesteld).
-- `pnpm audit fix`: Probeert bekende kwetsbaarheden te verhelpen.
-
----
-
-## 📂 Slides via JSON
-
-De slides worden beheerd via maandelijkse JSON-bestanden in `public/data/`. De bestandsnaam volgt het patroon:
-
-```
-slides-YYYY-MM.json
-
+```bash
+git clone https://github.com/Ollie-nl/cool-uncool.git
+cd cool-uncool
+nvm install
+nvm use
+npm install --global pnpm@12.21.0
+pnpm install --frozen-lockfile
+pnpm start
 ```
 
-- **`YYYY`**: Het jaar (bijv. `2024`).
-- **`MM`**: De maand (bijv. `12` voor december).
+Open `http://localhost:3000`. Zonder nvm kun je Node 24 LTS zelf installeren. Gebruik één package manager en commit `pnpm-lock.yaml` bij dependencywijzigingen.
 
-### Voorbeeldbestand: `slides-2024-12.json`
+## Technologieën
+
+Gecontroleerd en bijgewerkt op 19 november 2026:
+
+| Onderdeel                              | Versie                  | Gebruik                             |
+| -------------------------------------- | ----------------------- | ----------------------------------- |
+| React / React DOM                      | 19.3.1                  | Componenten en rendering            |
+| React Router DOM                       | 7.18.6                  | Routes per jaar, maand en slide     |
+| React Markdown                         | 10.1.0                  | Markdown in slides                  |
+| React Swipeable                        | 7.0.2                   | Touch- en muisnavigatie             |
+| Vite / React-plugin                    | 8.3.8 / 6.3.0           | Developmentserver en productiebuild |
+| Vitest                                 | 5.1.1                   | Tests                               |
+| Testing Library React / DOM / jest-dom | 16.3.3 / 10.4.2 / 8.0.0 | Componenttests en DOM-asserties     |
+| jsdom                                  | 31.0.1                  | Browseromgeving voor tests          |
+| Prettier                               | 3.10.1                  | Codeopmaak                          |
+| pnpm                                   | 12.21.0                 | Dependencybeheer                    |
+
+`package.json` bevat de toegestane versieranges; `pnpm-lock.yaml` legt de exacte installatie vast. Create React App en `react-scripts` zijn vervangen door Vite, omdat [Create React App is uitgefaseerd](https://react.dev/blog/2025/02/14/sunsetting-create-react-app). Ongebruikte DeckDeckGo-, TypeScript- en webpack/Babel-dependencies zijn verwijderd. `react-lazyload` is vervangen door native `loading="lazy"` voor afbeeldingen en iframes, zodat er geen dependency met verouderde React-peervereisten nodig is.
+
+## Scripts
+
+| Commando                   | Resultaat                                                             |
+| -------------------------- | --------------------------------------------------------------------- |
+| `pnpm start`               | Genereert de maandenlijst en start Vite op poort 3000                 |
+| `pnpm run build`           | Genereert de maandenlijst en vervangt `docs/` door een productiebuild |
+| `pnpm run preview`         | Toont de productiebuild op `http://localhost:4173/cool-uncool/`       |
+| `pnpm test`                | Voert alle tests één keer uit, ook geschikt voor CI                   |
+| `pnpm run test:watch`      | Voert tests opnieuw uit bij wijzigingen                               |
+| `pnpm run generate-months` | Vernieuwt `public/data/available-months.json`                         |
+| `pnpm run prettier`        | Formatteert bronbestanden; slaat gegenereerde output over             |
+| `pnpm run deploy`          | Bouwt, commit `docs/` en pusht naar `main`                            |
+
+`pnpm run deploy` maakt een commit en pusht daadwerkelijk. Gebruik `pnpm run build` om alleen lokaal te bouwen. De build wist de bestaande inhoud van `docs/`; bewerk bronbestanden daarom in `src/`, `public/` en de root-`index.html`.
+
+## Slides via JSON
+
+Maak bestanden in `public/data/` met de naam `slides-YYYY-MM.json`:
 
 ```json
 {
@@ -87,178 +84,91 @@ slides-YYYY-MM.json
 }
 ```
 
-**Ondersteunde slide types:**
-
-| Type | Verplichte velden | Optioneel |
-|------|-------------------|-----------|
-| `heading` | `content`, `slug` | `icon` |
-| `youtube` | `url`, `slug` | `title`, `icon` |
+| Type        | Verplichte velden | Optioneel       |
+| ----------- | ----------------- | --------------- |
+| `heading`   | `content`, `slug` | `icon`          |
 | `paragraph` | `content`, `slug` | `title`, `icon` |
+| `youtube`   | `url`, `slug`     | `title`, `icon` |
 
-> `youtube`-slides herhalen altijd automatisch (loop) zodra de video eindigt; dit staat vast in de code en is niet per slide instelbaar. De ingebouwde YouTube-bedieningsbalk (play/pauze, volume, voortgang) wordt gewoon getoond.
+Gebruik unieke slugs binnen een maand en `start` voor de eerste slide. Afbeeldingen staan in `public/images/` en krijgen in Markdown een pad als `/images/voorbeeld.png`; de app voegt in productie zelf `/cool-uncool` toe. Externe afbeeldings-URL's blijven behouden.
+
+YouTube-video's worden via `youtube-nocookie.com` ingesloten met zichtbare bediening en automatisch herhalen. Embed-, watch-, shorts- en youtu.be-URL's worden herkend.
 
 ### Nieuwe maand toevoegen
 
-1. **Maak een nieuw bestand aan in `public/data/`**:
-   Geef het de naam `slides-YYYY-MM.json`, bijvoorbeeld `slides-2025-03.json`.
+1. Maak `public/data/slides-YYYY-MM.json` en voeg eventuele afbeeldingen toe aan `public/images/`.
+2. Voer `pnpm run generate-months` uit. De maandenlijst wordt automatisch van nieuw naar oud gesorteerd; `pnpm start` en `pnpm run build` doen dit ook.
+3. Controleer de slides met `pnpm start` en bouw met `pnpm run build`.
+4. Commit de brondata en, bij hosting vanaf `main/docs`, ook de bijgewerkte `docs/`-map.
 
-2. **Kopieer het bestand ook naar `docs/data/`** voor directe live deployment:
-   ```bash
-   cp public/data/slides-2025-03.json docs/data/slides-2025-03.json
-   ```
+Bij uitsluitend datawijzigingen en hosting vanaf `main/docs` kun je een rebuild overslaan: kopieer de gewijzigde JSON-bestanden, de gegenereerde maandenlijst en eventuele afbeeldingen ook naar de overeenkomstige locaties in `docs/`. Bij automatische deployment via de workflow is kopiëren niet nodig: die bouwt vanuit `public/`.
 
-3. **Voeg de maand toe aan `available-months.json`** in zowel `public/data/` als `docs/data/`:
-   ```json
-   { "months": ["2025-03", "2025-02", ...] }
-   ```
+## Tests en dependencies bijwerken
 
-4. **Commit en push** — geen rebuild nodig voor data-only wijzigingen:
-   ```bash
-   git add public/data/ docs/data/ && git commit -m "feat: slides juni 2025" && git push
-   ```
-
-> Gebruik `pnpm run deploy` alleen als je ook broncode hebt gewijzigd. Voor nieuwe JSON-bestanden is een directe push voldoende.
-
----
-
-## 🌍 Deployment via GitHub Pages (Met DOCS map)
-
-De app wordt automatisch gedeployed naar GitHub Pages.
-De output wordt geplaatst in de docs/ map en GitHub Pages haalt de inhoud direct daaruit.
-
-### Deploy Stappen:
-
-1. Maak een productie build en deploy:
+De componenttests controleren de startredirect, directe slideroutes, toetsenbordnavigatie, maandselectie, het lege scherm bij laadfouten, de themaknop, Markdown, afbeeldingen en YouTube-embedinstellingen. Fetches worden gemockt; de tests hebben geen externe video- of netwerkverbinding nodig.
 
 ```bash
- pnpm run deploy
-
+pnpm outdated
+pnpm update --latest
+pnpm test
+pnpm run build
+pnpm audit
 ```
 
----
+Controleer bij hoofdversie-updates de migratiedocumentatie en Node-vereisten, pas zo nodig code en documentatie aan en commit het lockbestand. `pnpm-workspace.yaml` bevat een exacte uitzondering voor de recent uitgebrachte `@testing-library/jest-dom@8.0.0`, die bij deze upgrade door pnpm is vastgelegd voor de standaard wachttijd voor nieuwe releases.
 
-2. Website wordt gedeployed op
+## Deployment via GitHub Pages
 
-[Cool Uncool op GitHub](https://ollie-nl.github.io/cool-uncool/)
+De productiebuild staat in `docs/` en gebruikt het basispad `/cool-uncool/`.
 
----
+De bestaande GitHub Actions-workflow `.github/workflows/deploy.yml` test en bouwt pull requests en pushes naar `main`. Bij een geslaagde push naar `main` publiceert de workflow de build naar de root van de branch `gh-pages`. Kies hiervoor in GitHub **Settings → Pages → Deploy from a branch → gh-pages → / (root)**. De workflow gebruikt Node uit `.nvmrc`, pnpm uit `package.json` en een installatie met `--frozen-lockfile`.
 
-## 🔧 Belangrijke Scripts
+Als GitHub Pages in plaats daarvan op **main → /docs** staat ingesteld, wordt de gecommitte `docs/`-map gepubliceerd. Bouw en commit die output bij broncodewijzigingen; het bestaande `pnpm run deploy` helpt daarbij. Kies één van deze Pages-bronnen in de repositoryinstellingen.
 
-- pnpm start (Start de development server op localhost)
-- pnpm run build (Maakt een productie build en plaatst deze in de docs/ map)
-- pnpm run deploy (Voert een build uit en pusht deze naar de main branch voor GitHub Pages)
+Website: [Cool Uncool](https://ollie-nl.github.io/cool-uncool/).
 
----
+GitHub Pages verwerkt geen Netlify-`_redirects`. `public/404.html` stuurt een directe slideroute door naar de homepage met het pad in de querystring. Het script in de root-`index.html` herstelt die route voordat React Router start. Vite kopieert `404.html`, `_redirects`, data en afbeeldingen automatisch naar `docs/`.
 
-## 📂 **Projectstructuur**
+## Projectstructuur
 
-```
+```text
 cool-uncool/
-├── public/                      # Statische bestanden
+├── index.html                   # Vite-entry en herstel van Pages-routes
+├── vite.config.mjs              # Build, basispad, developmentserver en Vitest
+├── .nvmrc                       # Node 24 LTS
+├── .config/                     # Prettier-configuratie
+├── .github/workflows/deploy.yml # CI en deployment naar gh-pages
+├── public/
+│   ├── data/                    # JSON-bronbestanden en maandenlijst
 │   ├── images/                  # Afbeeldingen voor slides
-│   ├── data/                    # JSON bronbestanden voor slides
-│   │   ├── available-months.json
-│   │   └── slides-YYYY-MM.json
-│   ├── 404.html                 # GitHub Pages SPA redirect
-│   └── index.html
-├── src/                         # React broncode
-│   ├── components/
-│   ├── styles/
-│   └── App.js
-├── docs/                        # Productie build (GitHub Pages leest hieruit)
-│   ├── data/                    # Gekopieerde JSON bestanden
-│   ├── images/                  # Gekopieerde afbeeldingen
-│   ├── 404.html                 # GitHub Pages SPA redirect (gekopieerd)
-│   └── index.html
-├── generateAvailableMonths.js   # Genereert available-months.json bij build
-├── copyRedirects.js             # Kopieert _redirects na build
-├── package.json
-└── README.md
+│   └── 404.html                 # GitHub Pages SPA-redirect
+├── src/
+│   ├── App.jsx                  # Router en startredirect
+│   ├── index.jsx                # React-root
+│   ├── basePath.js              # Gedeeld basispad uit Vite
+│   ├── components/              # SlideDeck, Slide, themaknop, maandselector
+│   ├── __tests__/               # Componenttests
+│   ├── test/setup.js            # DOM-matchers en testopruiming
+│   └── styles/
+├── docs/                        # Gegenereerde productiebuild
+├── generateAvailableMonths.js
+├── pnpm-workspace.yaml          # pnpm-instellingen
+├── pnpm-lock.yaml
+└── package.json
 ```
 
----
+Zie [ARCHITECTURE.md](ARCHITECTURE.md) voor de gegevensstroom en buildkeuzes.
 
-## ⚠️ Problemen oplossen
+## Problemen oplossen
 
-- Geen slides beschikba-r: Zorg dat de JSON-bestanden in public/data/ correct zijn.
-- Afbeeldingen laden niet op GH Pages: Controleer of de paden naar afbeeldingen beginnen met /cool-uncool/ in productie.
-- 404 op GitHub Pages bij directe URL-toegang: Controleer of `docs/404.html` aanwezig is. Dit bestand vangt alle 404's op en stuurt ze door naar `index.html` zodat React Router de route kan afhandelen.
+- **Node-versiefout:** voer `nvm install && nvm use` uit en installeer dependencies opnieuw met de vastgelegde pnpm-versie.
+- **Geen slides beschikbaar:** controleer of het JSON-bestand bestaat, geldige JSON bevat en een `slides`-array heeft.
+- **Nieuwe maand ontbreekt:** voer `pnpm run generate-months` uit en publiceer de vernieuwde maandenlijst.
+- **Afbeeldingen of JSON laden niet:** gebruik `pnpm run preview` om de productievariant inclusief `/cool-uncool/` lokaal te controleren. Bestandsnamen en hoofdletters moeten overeenkomen.
+- **404 bij een directe slideroute:** controleer of de gepubliceerde build `404.html` bevat en of de Pages-bron op de bedoelde branch en map staat.
 
----
+## Releases en licentie
 
-## 🏅 Semantic Versioning
+Gebruik [Semantic Versioning](https://semver.org/): major voor brekende wijzigingen, minor voor nieuwe functies en patch voor bugfixes. Werk `version` in `package.json` bij voor een release en maak daarna desgewenst een tag en GitHub Release.
 
-We gebruiken Semantic Versioning (SemVer) om releases te beheren:
-
-1.0.0 = Major.Minor.Patch
-Major – Brekende veranderingen
-Minor – Nieuwe features, backwards-compatible
-Patch – Bugfixes en kleine updates
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-
-```
-
-## Commit Message Conventies
-
-```bash
-git commit -m "feat: Nieuwe maandelijkse slide selector toegevoegd"
-git commit -m "fix: Bug verholpen in Dark Mode toggle"
-git commit -m "docs: README bijgewerkt met installatie instructies"
-git commit -m "chore: GitHub Actions workflow toegevoegd voor CI"
-git commit -m "style: Styling aan gebracht"
-
-
-```
-
-## Release Draaiend Houden (Tags & Releases)
-
-```bash
-git tag -a v1.1.0 -m "Release 1.1.0 - Nieuwe slides en dark mode"
-git push origin v1.1.0
-
-```
-
-### Maak releases op GitHub:
-
-1. Ga naar Releases tab in je repo.
-2. Klik op Draft new release.
-3. Kies een tag (v1.1.0) en beschrijf de wijzigingen.
-4. Klik op Publish.
-
-### Versiebeheer in Package.json
-
-#### Verhoog de versie bij elke release:
-
-```json
-{
-  "version": "1.1.0"
-}
-```
-
-#### Gebruik de volgende commando's:
-
-```bash
-
-npm version patch  # Kleine bugfix
-npm version minor  # Nieuwe feature
-npm version major  # Brekende verandering
-
-```
-
-#### Push tags automatisch mee:
-
-```bash
-
-git push --follow-tags
-
-```
-
----
-
-## 📜 **Licentie**
-
-Dit project is gelicentieerd onder de GPL-3.0-licentie. Zie het bestand [LICENSE](https://github.com/Ollie-nl/cool-uncool/blob/main/LICENSE) voor meer informatie.
+Dit project is gelicentieerd onder [GPL-3.0](LICENSE).

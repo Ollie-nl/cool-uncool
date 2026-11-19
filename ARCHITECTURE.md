@@ -1,91 +1,64 @@
-# Cool Uncool Slide Deck – Architectuur Overzicht
+# Cool Uncool Slide Deck – Architectuur
 
-## 🏗️ Architectuuroverzicht
+## Stack
 
-De Cool Uncool SlideDeck is een **React-applicatie** gebouwd met **pnpm** als package manager. De applicatie ondersteunt JSON-gedreven slides en maakt gebruik van `react-router-dom` voor client-side routing.
+De applicatie is een statische React 19-app met React Router 7. Vite 8 verzorgt development, JSX-transformatie met de React-plugin en productiebuilds. Vitest 5 draait componenttests met Testing Library en jsdom. De actuele versies staan in [README.md](README.md); de exacte dependencyboom staat in `pnpm-lock.yaml`.
 
-De webapp is ontworpen om eenvoudig uitbreidbaar te zijn en maakt gebruik van JavaScript- en React-functionaliteiten. De slides worden beheerd via statische JSON-bestanden, en gebruikers kunnen eenvoudig tussen maanden wisselen met behulp van een dropdown-selector. Op de root (`/`) start de app automatisch in de meest recente maand.
+Gebruik Node 24 LTS (minimaal 24.15.0) en pnpm 12.21.0. `.nvmrc` en `package.json` leggen deze vereisten vast. GitHub Actions gebruikt dezelfde versies. Er is geen TypeScript-buildstap: de actieve React-componenten en componenttests gebruiken `.jsx`.
 
----
+Create React App is vervangen omdat het is uitgefaseerd. De webpack/Babel-workarounds en ongebruikte DeckDeckGo- en TypeScript-dependencies zijn verwijderd. Afbeeldingen en iframes gebruiken native `loading="lazy"` in plaats van `react-lazyload`, waarvan de peervereisten React 19 niet ondersteunen.
 
-## ⚙️ Technologieën en Bibliotheken
+## Entry, routing en basispad
 
-- **React** – Component-gebaseerd front-end framework.
-- **React Router** – Voor het beheren van routes (`react-router-dom`).
-- **React Swipeable** – Swipe-functionaliteit op mobiele apparaten.
-- **React Markdown** – Voor het renderen van Markdown-content in de slides.
-- **GH Pages** – Hosting van de productie build via de `docs/` map.
-- **pnpm** – Pakketbeheerder voor snelle builds.
-- **Prettier** – Code formattering voor consistente stijl.
+De root-`index.html` is de Vite-entry en laadt `src/index.jsx`. Deze maakt de React-root aan en rendert `App` in StrictMode.
 
-### Waarom Deze Tools Belangrijk Zijn
+`App.jsx` beheert drie routes:
 
-- **React** vormt de basis van de componenten en interacties.
-- **React Router Dom** maakt dynamische routing mogelijk op basis van URL's.
-- **React Swipeable** verbetert de mobiele gebruikerservaring.
-- **Prettier** zorgt voor consistente code en helpt technische schulden te minimaliseren.
-- **gh-pages** maakt deployment naar GitHub Pages snel en eenvoudig.
+- `/`: leest `data/available-months.json`, sorteert de maanden aflopend en opent `/slides/:year/:month/start`. Bij een lege of onbereikbare index is december 2024 de fallback.
+- `/slides/:year/:month/:slug`: toont `SlideDeck`.
+- Alle overige routes: tonen het onbekende pad.
 
----
+`vite.config.mjs` gebruikt `/` tijdens development en `/cool-uncool/` voor productie. `src/basePath.js` leidt het gedeelde basispad af van `import.meta.env.BASE_URL`. Router, JSON-fetches en lokale Markdown-afbeeldingen gebruiken daardoor hetzelfde pad, ook tijdens de productiepreview. Bij verhuizing naar een andere repositorynaam moet ook de redirect in `public/404.html` worden gecontroleerd.
 
-## 🏗️ Architectuur en Bestandstructuur
+## Data en componenten
 
-### 🧩 Belangrijkste Componenten:
+`public/data/slides-YYYY-MM.json` bevat een `slides`-array. `generateAvailableMonths.js` genereert uit de bestandsnamen `public/data/available-months.json`, gesorteerd van nieuw naar oud. Dit script draait vóór development en build.
 
-- **`SlideDeck.js`**
+`SlideDeck.jsx`:
 
-  - Laadt de juiste slides op basis van de geselecteerde maand en jaar (via URL).
-  - Beheert state voor de huidige slide en maand.
-  - Verwerkt navigatie via toetsenbord en swipe-acties.
+- Leest jaar, maand en slug uit React Router en haalt het maandbestand op.
+- Selecteert de slide op slug; ondersteunt ook `slide-N` als terugvalroute.
+- Navigeert met pijltjestoetsen en React Swipeable, met `preventScrollOnSwipe` volgens de huidige API.
+- Laadt de maandenlijst voor de selector en alle maanden voor een willekeurige slide. De eerste slide van iedere maand wordt bij willekeurige selectie overgeslagen.
+- Beheert de themastatus, overgangsanimatie en teller van resterende slides.
 
-- **`Slide.js`**
+`Slide.jsx` rendert headings, Markdown via React Markdown en YouTube-iframes. Lokale Markdown-afbeeldingen met `/images/` krijgen het basispad; externe URL's blijven intact. Native lazy loading voorkomt een aanvullende React-wrapperdependency.
 
-  - Renders individuele slides.
-  - Ondersteunt Markdown en YouTube embeds.
+YouTube-URL's worden omgezet naar `youtube-nocookie.com/embed`, met bediening en loopparameters. De component kan een aanwezige `window.YT.Player` gebruiken om afspelen en pauzeren te sturen. De tests controleren embedinstellingen; daadwerkelijk afspelen is afhankelijk van YouTube en het browserbeleid.
 
-- **`MonthSelector.js`**
-  - Dropdown component voor het selecteren van een maand om slides te tonen (label: `YYYY Maand`, meest recente bovenaan).
+`MonthSelector/MonthSelector.jsx` toont Nederlandse maandnamen, bijvoorbeeld `2026 Juli`. `DarkModeToggle/DarkModeToggle.jsx` geeft een klik door aan de themastatus in `SlideDeck`.
 
----
+De oude top-level `components/`-map bevat losse prototypes en maakt geen deel uit van de entry of productiebuild.
 
-### 📦 Deploy Proces:
+## Build en statische hosting
 
-1. **Build en Deploy**  
-   Bij elke `pnpm run deploy` wordt de app gebouwd en wordt de output naar de `docs/` map verplaatst.  
-   GitHub Pages leest deze map om de site te hosten.
+`pnpm run build` genereert de maandenlijst en bouwt met Vite rechtstreeks naar `docs/`. Vite wist eerst de bestaande output en kopieert de statische bestanden uit `public/`, inclusief `data/`, `images/`, `404.html` en `_redirects`. Een apart kopieerscript en een tijdelijke `build/`-map zijn niet meer nodig.
 
-2. **GitHub Pages SPA Routing via `404.html`**  
-   GitHub Pages ondersteunt geen `_redirects` (Netlify-formaat). In plaats daarvan vangt `docs/404.html` alle onbekende paden op, codeert het pad als query parameter, en stuurt door naar `index.html`. Een script in `index.html` herstelt de originele URL zodat React Router de route correct oppikt. Dit maakt directe URL-toegang (bijv. `/slides/2026/06/start`) mogelijk zonder een 404 van GitHub.
+`pnpm run preview` serveert de build lokaal onder `http://localhost:4173/cool-uncool/`. Gebruik dit om productie-URL's te controleren.
 
----
+GitHub Pages kent geen SPA-fallback. De redirect in `public/404.html` zet een onbekend pad om naar een querystring op de repositoryroot. Het inline script in `index.html` herstelt vervolgens pad, query en hash voordat React Router start. `_redirects` blijft beschikbaar voor hosts die dat formaat ondersteunen; GitHub Pages gebruikt dit bestand niet.
 
-### 📂 Belangrijke Bestanden
+Er zijn twee bestaande publicatiemogelijkheden:
 
-- **`docs/`** – Productie build voor GitHub Pages.
-- **`generateAvailableMonths.js`** – Genereert automatisch een lijst van beschikbare JSON slide-bestanden.
-- **`public/data/`** – Bevat alle slide JSON-bestanden en `available-months.json` voor de maandselector.
+- De GitHub Actions-workflow test en bouwt elke pull request en push naar `main`. Na een geslaagde push publiceert een aparte job `docs/` naar de root van `gh-pages`, met schrijfrechten alleen in die job. Verouderde buildbestanden worden niet bewaard. Hiervoor moet Pages `gh-pages / (root)` gebruiken.
+- Bij Pages vanaf `main /docs` wordt de gecommitte build gepubliceerd. Het lokale `pnpm run deploy` bouwt, commit de output en pusht naar `main`.
 
----
+De Pages-instelling bepaalt welke output live gaat. Voor datawijzigingen is bij automatische deployment alleen aanpassen van `public/` nodig. Bij direct publiceren vanaf `main/docs` moet ook de overeenkomstige inhoud in `docs/` worden bijgewerkt, via een build of handmatig kopiëren.
 
-## 🚀 Toekomstige Uitbreidingen
+## Verificatie en onderhoud
 
-- **Server-side slidebeheer**.
-- **Inzendingen optie**.
-- **Server-side rendering (SSR) voor betere SEO en prestaties**.
-- **WebSockets voor real-time updates tijdens presentaties**.
+`pnpm test` draait Vitest één keer en sluit af. `pnpm run test:watch` is voor lokale ontwikkeling. `src/test/setup.js` laadt DOM-matchers en ruimt na iedere test componenten, spies en globale mocks op. Netwerkrequests worden in de tests gemockt.
 
----
+De suite controleert routing naar de nieuwste maand, de fallback, directe slideroutes, toetsenbordnavigatie, maandwisseling, laadfouten, de themaknop, Markdown, afbeeldingspaden en YouTube-embedinstellingen. De CI voert zowel tests als de productiebuild uit, met `pnpm install --frozen-lockfile`.
 
-## 🚨 Let Op
-
-- **Production Path:** In productie worden afbeeldingen en JSON bestanden geladen vanaf `/cool-uncool/`.
-- **Lokaal Path:** Voor localhost wordt `/data/` en `/images/` zonder `/cool-uncool/` gebruikt.
-
-```javascript
-const getBasePath = () => {
-  return process.env.NODE_ENV === "production" ? "/cool-uncool" : "";
-};
-```
-
-- **Data-only wijzigingen:** Voor nieuwe slide JSON-bestanden is geen rebuild nodig. Voeg het bestand toe aan zowel `public/data/` als `docs/data/` en update `available-months.json` in beide mappen. Commit en push direct.
-- **Broncode wijzigingen:** Gebruik `pnpm run deploy` om de volledige app te herbouwen en te deployen.
+Prettier gebruikt expliciet de configuratie en ignorelijst in `.config/`. De gegenereerde `docs/`-map wordt overgeslagen. Dependency-updates vereisen controle van de migratiegidsen, tests, build en `pnpm audit`; commit daarna `package.json`, `pnpm-lock.yaml` en eventuele wijzigingen aan pnpm-instellingen en documentatie samen.

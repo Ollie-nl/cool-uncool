@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import ReactMarkdown from "react-markdown";
-import LazyLoad from 'react-lazyload';
+import React, { useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { basePath } from '../basePath';
 
 const Slide = ({ slide, isActive }) => {
   const iframeRef = useRef(null);
@@ -8,42 +8,42 @@ const Slide = ({ slide, isActive }) => {
 
   const getYouTubeEmbedUrl = (rawUrl) => {
     try {
-      const cleanedUrl = typeof rawUrl === "string" ? rawUrl.trim() : "";
+      const cleanedUrl = typeof rawUrl === 'string' ? rawUrl.trim() : '';
       const url = new URL(cleanedUrl);
-      let videoId = "";
-      let playlistId = url.searchParams.get("list") || "";
+      let videoId = '';
+      let playlistId = url.searchParams.get('list') || '';
 
-      if (url.hostname === "youtu.be") {
-        videoId = url.pathname.replace("/", "");
-      } else if (url.pathname.startsWith("/watch")) {
-        videoId = url.searchParams.get("v") || "";
-      } else if (url.pathname.startsWith("/shorts/")) {
-        videoId = url.pathname.split("/shorts/")[1] || "";
-      } else if (url.pathname.startsWith("/embed/")) {
-        videoId = url.pathname.split("/embed/")[1] || "";
+      if (url.hostname === 'youtu.be') {
+        videoId = url.pathname.replace('/', '');
+      } else if (url.pathname.startsWith('/watch')) {
+        videoId = url.searchParams.get('v') || '';
+      } else if (url.pathname.startsWith('/shorts/')) {
+        videoId = url.pathname.split('/shorts/')[1] || '';
+      } else if (url.pathname.startsWith('/embed/')) {
+        videoId = url.pathname.split('/embed/')[1] || '';
       }
 
-      const cleanVideoId = videoId.split("?")[0].split("&")[0];
-      const cleanPlaylistId = playlistId.split("?")[0].split("&")[0];
-      const embedBase = "https://www.youtube-nocookie.com/embed";
+      const cleanVideoId = videoId.split('?')[0].split('&')[0];
+      const cleanPlaylistId = playlistId.split('?')[0].split('&')[0];
+      const embedBase = 'https://www.youtube-nocookie.com/embed';
 
       const params = new URLSearchParams({
-        enablejsapi: "1",
+        enablejsapi: '1',
         origin: window.location.origin,
-        playsinline: "1",
-        mute: "1",
-        modestbranding: "1",
-        rel: "0",
-        controls: "1",
-        loop: "1",
+        playsinline: '1',
+        mute: '1',
+        modestbranding: '1',
+        rel: '0',
+        controls: '1',
+        loop: '1',
       });
 
       if (cleanPlaylistId) {
-        params.set("list", cleanPlaylistId);
+        params.set('list', cleanPlaylistId);
       }
 
       if (cleanVideoId) {
-        params.set("playlist", cleanVideoId);
+        params.set('playlist', cleanVideoId);
         return `${embedBase}/${cleanVideoId}?${params.toString()}`;
       }
 
@@ -54,12 +54,12 @@ const Slide = ({ slide, isActive }) => {
   };
 
   const getImagePath = (path) => {
-    return process.env.NODE_ENV === "production" ? `/cool-uncool${path}` : path;
+    return path?.startsWith('/images/') ? `${basePath}${path}` : path;
   };
 
   useEffect(() => {
     const initializePlayer = () => {
-      if (slide.type === "youtube" && iframeRef.current) {
+      if (slide.type === 'youtube' && iframeRef.current) {
         if (!playerRef.current && window.YT && window.YT.Player) {
           playerRef.current = new window.YT.Player(iframeRef.current, {
             events: {
@@ -71,10 +71,7 @@ const Slide = ({ slide, isActive }) => {
                 }
               },
               onStateChange: (event) => {
-                if (
-                  isActive &&
-                  event.data === window.YT.PlayerState.ENDED
-                ) {
+                if (isActive && event.data === window.YT.PlayerState.ENDED) {
                   event.target.seekTo(0);
                   event.target.playVideo();
                 }
@@ -105,9 +102,9 @@ const Slide = ({ slide, isActive }) => {
   }, [isActive, slide.type]);
 
   return (
-    <div className={`slide ${isActive ? "active" : "inactive"}`}>
+    <div className={`slide ${isActive ? 'active' : 'inactive'}`}>
       {/* Heading */}
-      {slide.type === "heading" && (
+      {slide.type === 'heading' && (
         <h1>
           {slide.icon && <span className="slide-icon">{slide.icon}</span>}
           {slide.content}
@@ -115,33 +112,31 @@ const Slide = ({ slide, isActive }) => {
       )}
 
       {/* Paragraph with Markdown */}
-      {slide.type === "paragraph" && (
-        <LazyLoad 
-          height={9000} 
-          offset={100} 
-          once 
-          placeholder={<div className="skeleton"></div>}
-        >
-          <div>
-            <h1>
-              {slide.icon && <span className="slide-icon">{slide.icon}</span>}
-              {slide.title}
-            </h1>
-            <ReactMarkdown>
-              {slide.content.replace("/images", getImagePath("/images"))}
-            </ReactMarkdown>
-          </div>
-        </LazyLoad>
+      {slide.type === 'paragraph' && (
+        <div>
+          <h1>
+            {slide.icon && <span className="slide-icon">{slide.icon}</span>}
+            {slide.title}
+          </h1>
+          <ReactMarkdown
+            components={{
+              img: ({ node, src, alt, ...props }) => (
+                <img
+                  {...props}
+                  src={getImagePath(src)}
+                  alt={alt}
+                  loading="lazy"
+                />
+              ),
+            }}
+          >
+            {slide.content}
+          </ReactMarkdown>
+        </div>
       )}
 
-    {/* YouTube */}
-    {slide.type === "youtube" && (
-      <LazyLoad 
-        height={315} 
-        offset={100} 
-        once 
-        placeholder={<div className="skeleton"></div>}
-      >
+      {/* YouTube */}
+      {slide.type === 'youtube' && (
         <div className="video-container">
           {slide.title && (
             <h1>
@@ -150,6 +145,7 @@ const Slide = ({ slide, isActive }) => {
             </h1>
           )}
           <iframe
+            loading="lazy"
             ref={iframeRef}
             id={`youtube-player-${slide.url}`}
             src={getYouTubeEmbedUrl(slide.url)}
@@ -158,11 +154,10 @@ const Slide = ({ slide, isActive }) => {
             sandbox="allow-scripts allow-same-origin allow-presentation"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            title={slide.title || "YouTube video"}
+            title={slide.title || 'YouTube video'}
           ></iframe>
         </div>
-      </LazyLoad>
-    )}
+      )}
     </div>
   );
 };
