@@ -1,0 +1,114 @@
+{
+    "slides": [
+      {
+        "type": "heading",
+        "content": "📐 3² + 4² = 5² Juni 2026",
+        "slug": "start"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/ndY_-CDBzLw",
+        "title": "Memories at the rink",
+        "icon": "👴🏼",
+        "slug": "memories-at-the-rink"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/p0LyC_6hnjA",
+        "title": "What's Inside LEGO Batcave Bunker?",
+        "icon": "🦇",
+        "slug": "whats-inside-lego-batcave"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/dAtf-eXeJws",
+        "title": "Bike Tank",
+        "icon": "⛽",
+        "slug": "bike-tank-fake-fuel"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/XMHvj9Kbopg",
+        "title": "Saturn's Moon Mimas A Death Star!",
+        "icon": "🪐",
+        "slug": "saturn-moon-death-star"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/s-8zFAfIuk8",
+        "title": "Logan Gilbert LITERALLY wore that one",
+        "icon": "⚾",
+        "slug": "logan-gilbert-wore-that"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/c6Afx1fA2MY",
+        "title": "Meta creating an AI version of Mark Zuckerberg",
+        "icon": "🤖",
+        "slug": "ai-zuckerberg"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/lA3XCZlxQ4g",
+        "title": "Where is Elon's Tesla?",
+        "icon": "🚗",
+        "slug": "where-is-elons-tesla"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/clS9W2x0Joo",
+        "title": "Sound Waves Could Be Next Big Breakthrough In Fighting Fires",
+        "icon": "🔊",
+        "slug": "sound-waves-fighting-fires"
+      },
+      {
+        "type": "paragraph",
+        "title": "Bob's hair",
+        "icon": "🇯🇲",
+         "content": "![Bob's hair](/images/bob-m-cables.jpeg)",
+        "slug": "9gag-axyqoYM"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/UWdexppgq0A",
+        "title": "The pen that holds live parasites",
+        "icon": "🦠",
+        "slug": "parasite-pen-resident-evil"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/HFSf5gmvyP8",
+        "title": "The First Electric Ferrari — Ferrari Luce",
+        "icon": "🏎️",
+        "slug": "electric-ferrari-luce"
+      },
+      {
+        "type": "paragraph",
+        "title": "Classic shirt",
+        "icon": "🇦🇷",
+        "content": "![Argentinië shirt](/images/agrentinie-shirt.jpeg)",
+        "slug": "argentinie-shirt"
+      },
+      {
+        "type": "paragraph",
+        "title": "90's German shirt",
+        "icon": "🇩🇪",
+        "content": "![Duitsland shirt](/images/duitsland-shirt.jpeg)",
+        "slug": "duitsland-shirt"
+      },
+      {
+        "type": "paragraph",
+        "title": "Aztec Mexico shirt",
+        "icon": "🇲🇽",
+        "content": "![Mexico shirt](/images/mexico-shirt.jpeg)",
+        "slug": "mexico-shirt"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/embed/5qvCcJHonXE",
+        "title": "Crystals and the Internet",
+        "icon": "💎",
+        "slug": "crystals-and-the-internet"
+      }
+    ]
+  }
